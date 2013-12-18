@@ -7,18 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A537EA82254B8099F42739 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6F9A49F46142E78B1B1C80 /* libPods.a */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
 		DA23E67F18269253000BD089 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67E18269253000BD089 /* UIKit.framework */; };
 		DA23E68518269253000BD089 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA23E68318269253000BD089 /* InfoPlist.strings */; };
 		DA23E68718269253000BD089 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E68618269253000BD089 /* main.m */; };
 		DA23E68B18269253000BD089 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E68A18269253000BD089 /* AppDelegate.m */; };
-		DA23E68D18269253000BD089 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA23E68C18269253000BD089 /* Images.xcassets */; };
 		DA23E69418269253000BD089 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E69318269253000BD089 /* XCTest.framework */; };
 		DA23E69518269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E69618269253000BD089 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67E18269253000BD089 /* UIKit.framework */; };
 		DA23E69E18269253000BD089 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA23E69C18269253000BD089 /* InfoPlist.strings */; };
 		DA23E6A018269253000BD089 /* MeterRecordingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E69F18269253000BD089 /* MeterRecordingTests.m */; };
+		DA23E6AA18269280000BD089 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA23E6A918269280000BD089 /* Storyboard.storyboard */; };
+		DA23E6AD182692F3000BD089 /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E6AC182692F3000BD089 /* AppContent.m */; };
+		DA23E6B51826AEC5000BD089 /* UILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E6B41826AEC5000BD089 /* UILoginViewController.m */; };
+		DA23E6BA1826CB99000BD089 /* technician-reading-water-meter-28438611.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA23E6B91826CB99000BD089 /* technician-reading-water-meter-28438611.jpg */; };
+		DA23E6BD1826DE52000BD089 /* UIScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E6BC1826DE52000BD089 /* UIScheduleViewController.m */; };
+		DA23E6C01826E077000BD089 /* ScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E6BF1826E077000BD089 /* ScheduleCell.m */; };
+		DA50CD28182BDCAF00D7CD06 /* watermeter.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD27182BDCAF00D7CD06 /* watermeter.png */; };
+		DA50CD30182BEDA600D7CD06 /* NISignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50CD2B182BEDA600D7CD06 /* NISignatureView.m */; };
+		DA50CD31182BEDA600D7CD06 /* NISignatureViewQuartz.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50CD2D182BEDA600D7CD06 /* NISignatureViewQuartz.m */; };
+		DA50CD32182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50CD2F182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m */; };
+		DA50CD34182BEF1000D7CD06 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD33182BEF1000D7CD06 /* QuartzCore.framework */; };
+		DA50CD36182BEF3600D7CD06 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD35182BEF3600D7CD06 /* GLKit.framework */; };
+		DA50CD38182BEF3D00D7CD06 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD37182BEF3D00D7CD06 /* OpenGLES.framework */; };
+		DA50CD3A182BF25600D7CD06 /* Camera-iOS-7-256.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD39182BF25600D7CD06 /* Camera-iOS-7-256.png */; };
+		DA50CD3C182C219600D7CD06 /* scan.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD3B182C219600D7CD06 /* scan.png */; };
+		DA50CD3F182C3BBF00D7CD06 /* UIBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50CD3E182C3BBF00D7CD06 /* UIBaseTableViewController.m */; };
+		DA50CD41182C428200D7CD06 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD40182C428200D7CD06 /* AVFoundation.framework */; };
+		DA50CD43182C429100D7CD06 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD42182C429100D7CD06 /* CoreMedia.framework */; };
+		DA50CD45182C429F00D7CD06 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD44182C429F00D7CD06 /* CoreVideo.framework */; };
+		DA50CD47182C42B700D7CD06 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD46182C42B700D7CD06 /* libiconv.dylib */; };
+		DA50CD89182C47D200D7CD06 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD83182C47D200D7CD06 /* libzbar.a */; };
+		DA50CD8A182C47D200D7CD06 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD85182C47D200D7CD06 /* zbar-back.png */; };
+		DA50CD8B182C47D200D7CD06 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD86182C47D200D7CD06 /* zbar-help.html */; };
+		DA50CD8C182C47D200D7CD06 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD87182C47D200D7CD06 /* zbar-helpicons.png */; };
+		DA50CD8D182C47D200D7CD06 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD88182C47D200D7CD06 /* zbar-samples.png */; };
+		DA50CD8F182C4A6A00D7CD06 /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD8E182C4A6A00D7CD06 /* NoImage.png */; };
+		DA50CD93182C664900D7CD06 /* scanimabe.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD92182C664900D7CD06 /* scanimabe.png */; };
+		DA50CD95182C665A00D7CD06 /* signature.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD94182C665A00D7CD06 /* signature.png */; };
+		DA50CD97182C666E00D7CD06 /* morework.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD96182C666E00D7CD06 /* morework.png */; };
+		DA50CD9B182C6DB800D7CD06 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD9A182C6DB800D7CD06 /* calendar.png */; };
+		DA50CD9D182C6DCB00D7CD06 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD9C182C6DCB00D7CD06 /* camera.png */; };
+		DA50CD9F182C6DDC00D7CD06 /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD9E182C6DDC00D7CD06 /* done.png */; };
+		DA50CDA2182C6DFB00D7CD06 /* watericon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA0182C6DFB00D7CD06 /* watericon.png */; };
+		DA50CDA3182C6DFB00D7CD06 /* watermeter.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA1182C6DFB00D7CD06 /* watermeter.png */; };
+		DA50CDA5182C74E200D7CD06 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */; };
+		DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA998E41861364600FCDBD1 /* CoreData.framework */; };
+		DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */; };
+		DAA998FA18614C2300FCDBD1 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998F918614C2300FCDBD1 /* Session.m */; };
+		DAA998FD18614C2300FCDBD1 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998FC18614C2300FCDBD1 /* Schedule.m */; };
+		DAA9990018615DA400FCDBD1 /* MeterApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */; };
+		DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */; };
+		DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6764182B490800D85680 /* UIOldMeterViewController.m */; };
+		DABF6768182B491800D85680 /* UINewMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6767182B491800D85680 /* UINewMeterViewController.m */; };
+		DABF676B182B492700D85680 /* UIPhoto3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF676A182B492600D85680 /* UIPhoto3ViewController.m */; };
+		DABF676E182B493400D85680 /* UISIgnatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF676D182B493400D85680 /* UISIgnatureViewController.m */; };
+		DABF6771182B4B2400D85680 /* newmeter.png in Resources */ = {isa = PBXBuildFile; fileRef = DABF676F182B4B2400D85680 /* newmeter.png */; };
+		DABF6772182B4B2400D85680 /* oldmeter.png in Resources */ = {isa = PBXBuildFile; fileRef = DABF6770182B4B2400D85680 /* oldmeter.png */; };
+		DAC412AB182E0D57009194B5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DAC412A8182E0D57009194B5 /* LICENSE */; };
+		DAC412AD182E0D57009194B5 /* README in Resources */ = {isa = PBXBuildFile; fileRef = DAC412AA182E0D57009194B5 /* README */; };
+		DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */; };
+		DAC412B1182E0D9D009194B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */; };
+		DAF2BFA0182DC00900E573BF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF2BF9A182DC00900E573BF /* libTestFlight.a */; };
+		DAF2BFA1182DC00900E573BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DAF2BF9B182DC00900E573BF /* README.md */; };
+		DAF2BFA2182DC00900E573BF /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DAF2BF9C182DC00900E573BF /* release_notes.md */; };
+		DAF2BFA7182DFF6200E573BF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF2BFA3182DFC6800E573BF /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +87,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6C6F9A49F46142E78B1B1C80 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA23E67718269253000BD089 /* MeterRecording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeterRecording.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA23E67A18269253000BD089 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA23E67C18269253000BD089 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -42,12 +99,107 @@
 		DA23E68818269253000BD089 /* MeterRecording-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeterRecording-Prefix.pch"; sourceTree = "<group>"; };
 		DA23E68918269253000BD089 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA23E68A18269253000BD089 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DA23E68C18269253000BD089 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DA23E69218269253000BD089 /* MeterRecordingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeterRecordingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA23E69318269253000BD089 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DA23E69B18269253000BD089 /* MeterRecordingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeterRecordingTests-Info.plist"; sourceTree = "<group>"; };
 		DA23E69D18269253000BD089 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA23E69F18269253000BD089 /* MeterRecordingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeterRecordingTests.m; sourceTree = "<group>"; };
+		DA23E6A918269280000BD089 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		DA23E6AB182692F3000BD089 /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
+		DA23E6AC182692F3000BD089 /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
+		DA23E6B31826AEC5000BD089 /* UILoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoginViewController.h; sourceTree = "<group>"; };
+		DA23E6B41826AEC5000BD089 /* UILoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoginViewController.m; sourceTree = "<group>"; };
+		DA23E6B91826CB99000BD089 /* technician-reading-water-meter-28438611.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "technician-reading-water-meter-28438611.jpg"; path = "../../../Downloads/technician-reading-water-meter-28438611.jpg"; sourceTree = "<group>"; };
+		DA23E6BB1826DE52000BD089 /* UIScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScheduleViewController.h; sourceTree = "<group>"; };
+		DA23E6BC1826DE52000BD089 /* UIScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScheduleViewController.m; sourceTree = "<group>"; };
+		DA23E6BE1826E077000BD089 /* ScheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleCell.h; sourceTree = "<group>"; };
+		DA23E6BF1826E077000BD089 /* ScheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleCell.m; sourceTree = "<group>"; };
+		DA50CD27182BDCAF00D7CD06 /* watermeter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermeter.png; sourceTree = "<group>"; };
+		DA50CD2A182BEDA600D7CD06 /* NISignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NISignatureView.h; path = MeterRecording/NISignatureView.h; sourceTree = "<group>"; };
+		DA50CD2B182BEDA600D7CD06 /* NISignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NISignatureView.m; path = MeterRecording/NISignatureView.m; sourceTree = "<group>"; };
+		DA50CD2C182BEDA600D7CD06 /* NISignatureViewQuartz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NISignatureViewQuartz.h; path = MeterRecording/NISignatureViewQuartz.h; sourceTree = "<group>"; };
+		DA50CD2D182BEDA600D7CD06 /* NISignatureViewQuartz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NISignatureViewQuartz.m; path = MeterRecording/NISignatureViewQuartz.m; sourceTree = "<group>"; };
+		DA50CD2E182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NISignatureViewQuartzQuadratic.h; path = MeterRecording/NISignatureViewQuartzQuadratic.h; sourceTree = "<group>"; };
+		DA50CD2F182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NISignatureViewQuartzQuadratic.m; path = MeterRecording/NISignatureViewQuartzQuadratic.m; sourceTree = "<group>"; };
+		DA50CD33182BEF1000D7CD06 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DA50CD35182BEF3600D7CD06 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		DA50CD37182BEF3D00D7CD06 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DA50CD39182BF25600D7CD06 /* Camera-iOS-7-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera-iOS-7-256.png"; sourceTree = "<group>"; };
+		DA50CD3B182C219600D7CD06 /* scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scan.png; path = MeterRecording/scan.png; sourceTree = "<group>"; };
+		DA50CD3D182C3BBF00D7CD06 /* UIBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseTableViewController.h; sourceTree = "<group>"; };
+		DA50CD3E182C3BBF00D7CD06 /* UIBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseTableViewController.m; sourceTree = "<group>"; };
+		DA50CD40182C428200D7CD06 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DA50CD42182C429100D7CD06 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		DA50CD44182C429F00D7CD06 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		DA50CD46182C42B700D7CD06 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		DA50CD6F182C47D200D7CD06 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		DA50CD70182C47D200D7CD06 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		DA50CD71182C47D200D7CD06 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		DA50CD72182C47D200D7CD06 /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
+		DA50CD73182C47D200D7CD06 /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		DA50CD74182C47D200D7CD06 /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		DA50CD75182C47D200D7CD06 /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		DA50CD76182C47D200D7CD06 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		DA50CD77182C47D200D7CD06 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		DA50CD78182C47D200D7CD06 /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		DA50CD79182C47D200D7CD06 /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		DA50CD7A182C47D200D7CD06 /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		DA50CD7B182C47D200D7CD06 /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		DA50CD7C182C47D200D7CD06 /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		DA50CD7D182C47D200D7CD06 /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		DA50CD7E182C47D200D7CD06 /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		DA50CD7F182C47D200D7CD06 /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		DA50CD80182C47D200D7CD06 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		DA50CD81182C47D200D7CD06 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		DA50CD82182C47D200D7CD06 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		DA50CD83182C47D200D7CD06 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		DA50CD85182C47D200D7CD06 /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
+		DA50CD86182C47D200D7CD06 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
+		DA50CD87182C47D200D7CD06 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
+		DA50CD88182C47D200D7CD06 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		DA50CD8E182C4A6A00D7CD06 /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoImage.png; sourceTree = "<group>"; };
+		DA50CD92182C664900D7CD06 /* scanimabe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanimabe.png; sourceTree = "<group>"; };
+		DA50CD94182C665A00D7CD06 /* signature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signature.png; sourceTree = "<group>"; };
+		DA50CD96182C666E00D7CD06 /* morework.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = morework.png; sourceTree = "<group>"; };
+		DA50CD9A182C6DB800D7CD06 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = MeterRecording/calendar.png; sourceTree = "<group>"; };
+		DA50CD9C182C6DCB00D7CD06 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = MeterRecording/camera.png; sourceTree = "<group>"; };
+		DA50CD9E182C6DDC00D7CD06 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = done.png; path = MeterRecording/done.png; sourceTree = "<group>"; };
+		DA50CDA0182C6DFB00D7CD06 /* watericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watericon.png; path = MeterRecording/watericon.png; sourceTree = "<group>"; };
+		DA50CDA1182C6DFB00D7CD06 /* watermeter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watermeter.png; path = MeterRecording/watermeter.png; sourceTree = "<group>"; };
+		DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		DAA998E41861364600FCDBD1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DAA998E718613A6600FCDBD1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DAA998F818614C2300FCDBD1 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		DAA998F918614C2300FCDBD1 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		DAA998FB18614C2300FCDBD1 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		DAA998FC18614C2300FCDBD1 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		DAA998FE18615DA400FCDBD1 /* MeterApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterApiClient.h; sourceTree = "<group>"; };
+		DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterApiClient.m; sourceTree = "<group>"; };
+		DABF6760182B436200D85680 /* UIScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScheduleDetailViewController.h; sourceTree = "<group>"; };
+		DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScheduleDetailViewController.m; sourceTree = "<group>"; };
+		DABF6763182B490800D85680 /* UIOldMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOldMeterViewController.h; sourceTree = "<group>"; };
+		DABF6764182B490800D85680 /* UIOldMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOldMeterViewController.m; sourceTree = "<group>"; };
+		DABF6766182B491800D85680 /* UINewMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINewMeterViewController.h; sourceTree = "<group>"; };
+		DABF6767182B491800D85680 /* UINewMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINewMeterViewController.m; sourceTree = "<group>"; };
+		DABF6769182B492600D85680 /* UIPhoto3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPhoto3ViewController.h; sourceTree = "<group>"; };
+		DABF676A182B492600D85680 /* UIPhoto3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPhoto3ViewController.m; sourceTree = "<group>"; };
+		DABF676C182B493400D85680 /* UISIgnatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISIgnatureViewController.h; sourceTree = "<group>"; };
+		DABF676D182B493400D85680 /* UISIgnatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISIgnatureViewController.m; sourceTree = "<group>"; };
+		DABF676F182B4B2400D85680 /* newmeter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newmeter.png; sourceTree = "<group>"; };
+		DABF6770182B4B2400D85680 /* oldmeter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldmeter.png; sourceTree = "<group>"; };
+		DAC412A8182E0D57009194B5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DAC412A9182E0D57009194B5 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
+		DAC412AA182E0D57009194B5 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		DAF2BF9A182DC00900E573BF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		DAF2BF9B182DC00900E573BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DAF2BF9C182DC00900E573BF /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		DAF2BF9D182DC00900E573BF /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		DAF2BF9E182DC00900E573BF /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		DAF2BF9F182DC00900E573BF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		DAF2BFA3182DFC6800E573BF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DAF2BFA5182DFE5A00E573BF /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +207,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */,
+				DAC412B1182E0D9D009194B5 /* CoreTelephony.framework in Frameworks */,
+				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
+				DAF2BFA7182DFF6200E573BF /* libz.dylib in Frameworks */,
+				DA50CD47182C42B700D7CD06 /* libiconv.dylib in Frameworks */,
+				DA50CD45182C429F00D7CD06 /* CoreVideo.framework in Frameworks */,
+				DA50CD43182C429100D7CD06 /* CoreMedia.framework in Frameworks */,
+				DAF2BFA0182DC00900E573BF /* libTestFlight.a in Frameworks */,
+				DA50CD41182C428200D7CD06 /* AVFoundation.framework in Frameworks */,
+				DA50CD38182BEF3D00D7CD06 /* OpenGLES.framework in Frameworks */,
+				DA50CD36182BEF3600D7CD06 /* GLKit.framework in Frameworks */,
+				DA50CD34182BEF1000D7CD06 /* QuartzCore.framework in Frameworks */,
 				DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */,
 				DA23E67F18269253000BD089 /* UIKit.framework in Frameworks */,
+				DA50CD89182C47D200D7CD06 /* libzbar.a in Frameworks */,
 				DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */,
+				14A537EA82254B8099F42739 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +243,16 @@
 		DA23E66E18269253000BD089 = {
 			isa = PBXGroup;
 			children = (
+				DAC412A7182E0D57009194B5 /* NewRelic_iOS_Agent_1.376 */,
+				DAF2BF99182DC00900E573BF /* TestFlightSDK2 */,
+				DA50CD6B182C47D200D7CD06 /* ZBarSDK */,
+				DA50CD29182BED9500D7CD06 /* Signature */,
+				DA23E6B81826CA5B000BD089 /* Resources */,
 				DA23E68018269253000BD089 /* MeterRecording */,
 				DA23E69918269253000BD089 /* MeterRecordingTests */,
 				DA23E67918269253000BD089 /* Frameworks */,
 				DA23E67818269253000BD089 /* Products */,
+				6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +268,23 @@
 		DA23E67918269253000BD089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAA998E41861364600FCDBD1 /* CoreData.framework */,
+				DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */,
+				DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */,
+				DAF2BFA5182DFE5A00E573BF /* libz.1.1.3.dylib */,
+				DAF2BFA3182DFC6800E573BF /* libz.dylib */,
+				DA50CD46182C42B700D7CD06 /* libiconv.dylib */,
+				DA50CD44182C429F00D7CD06 /* CoreVideo.framework */,
+				DA50CD42182C429100D7CD06 /* CoreMedia.framework */,
+				DA50CD40182C428200D7CD06 /* AVFoundation.framework */,
+				DA50CD37182BEF3D00D7CD06 /* OpenGLES.framework */,
+				DA50CD35182BEF3600D7CD06 /* GLKit.framework */,
+				DA50CD33182BEF1000D7CD06 /* QuartzCore.framework */,
 				DA23E67A18269253000BD089 /* Foundation.framework */,
 				DA23E67C18269253000BD089 /* CoreGraphics.framework */,
 				DA23E67E18269253000BD089 /* UIKit.framework */,
 				DA23E69318269253000BD089 /* XCTest.framework */,
+				6C6F9A49F46142E78B1B1C80 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,10 +292,14 @@
 		DA23E68018269253000BD089 /* MeterRecording */ = {
 			isa = PBXGroup;
 			children = (
+				DA23E6B21826AE85000BD089 /* Models */,
+				DA23E6B11826AE73000BD089 /* Controllers */,
 				DA23E68918269253000BD089 /* AppDelegate.h */,
 				DA23E68A18269253000BD089 /* AppDelegate.m */,
-				DA23E68C18269253000BD089 /* Images.xcassets */,
+				DA23E6A918269280000BD089 /* Storyboard.storyboard */,
 				DA23E68118269253000BD089 /* Supporting Files */,
+				DAA998FE18615DA400FCDBD1 /* MeterApiClient.h */,
+				DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */,
 			);
 			path = MeterRecording;
 			sourceTree = "<group>";
@@ -144,6 +333,169 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DA23E6B11826AE73000BD089 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DABF6763182B490800D85680 /* UIOldMeterViewController.h */,
+				DABF6764182B490800D85680 /* UIOldMeterViewController.m */,
+				DABF6760182B436200D85680 /* UIScheduleDetailViewController.h */,
+				DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */,
+				DA23E6BE1826E077000BD089 /* ScheduleCell.h */,
+				DA23E6BF1826E077000BD089 /* ScheduleCell.m */,
+				DA23E6BB1826DE52000BD089 /* UIScheduleViewController.h */,
+				DA23E6BC1826DE52000BD089 /* UIScheduleViewController.m */,
+				DA23E6B31826AEC5000BD089 /* UILoginViewController.h */,
+				DA23E6B41826AEC5000BD089 /* UILoginViewController.m */,
+				DABF6766182B491800D85680 /* UINewMeterViewController.h */,
+				DABF6767182B491800D85680 /* UINewMeterViewController.m */,
+				DABF6769182B492600D85680 /* UIPhoto3ViewController.h */,
+				DABF676A182B492600D85680 /* UIPhoto3ViewController.m */,
+				DABF676C182B493400D85680 /* UISIgnatureViewController.h */,
+				DABF676D182B493400D85680 /* UISIgnatureViewController.m */,
+				DA50CD3D182C3BBF00D7CD06 /* UIBaseTableViewController.h */,
+				DA50CD3E182C3BBF00D7CD06 /* UIBaseTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DA23E6B21826AE85000BD089 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA23E6AB182692F3000BD089 /* AppContent.h */,
+				DA23E6AC182692F3000BD089 /* AppContent.m */,
+				DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */,
+				DAA998FB18614C2300FCDBD1 /* Schedule.h */,
+				DAA998FC18614C2300FCDBD1 /* Schedule.m */,
+				DAA998F818614C2300FCDBD1 /* Session.h */,
+				DAA998F918614C2300FCDBD1 /* Session.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DA23E6B81826CA5B000BD089 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */,
+				DA50CDA0182C6DFB00D7CD06 /* watericon.png */,
+				DA50CDA1182C6DFB00D7CD06 /* watermeter.png */,
+				DA50CD9E182C6DDC00D7CD06 /* done.png */,
+				DA50CD9C182C6DCB00D7CD06 /* camera.png */,
+				DA50CD9A182C6DB800D7CD06 /* calendar.png */,
+				DA50CD96182C666E00D7CD06 /* morework.png */,
+				DA50CD94182C665A00D7CD06 /* signature.png */,
+				DA50CD92182C664900D7CD06 /* scanimabe.png */,
+				DA50CD3B182C219600D7CD06 /* scan.png */,
+				DA50CD8E182C4A6A00D7CD06 /* NoImage.png */,
+				DA50CD39182BF25600D7CD06 /* Camera-iOS-7-256.png */,
+				DABF676F182B4B2400D85680 /* newmeter.png */,
+				DABF6770182B4B2400D85680 /* oldmeter.png */,
+				DA23E6B91826CB99000BD089 /* technician-reading-water-meter-28438611.jpg */,
+				DA50CD27182BDCAF00D7CD06 /* watermeter.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DA50CD29182BED9500D7CD06 /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CD2A182BEDA600D7CD06 /* NISignatureView.h */,
+				DA50CD2B182BEDA600D7CD06 /* NISignatureView.m */,
+				DA50CD2C182BEDA600D7CD06 /* NISignatureViewQuartz.h */,
+				DA50CD2D182BEDA600D7CD06 /* NISignatureViewQuartz.m */,
+				DA50CD2E182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.h */,
+				DA50CD2F182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m */,
+			);
+			name = Signature;
+			sourceTree = "<group>";
+		};
+		DA50CD6B182C47D200D7CD06 /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CD6C182C47D200D7CD06 /* Headers */,
+				DA50CD83182C47D200D7CD06 /* libzbar.a */,
+				DA50CD84182C47D200D7CD06 /* Resources */,
+			);
+			name = ZBarSDK;
+			path = MeterRecording/ZBarSDK;
+			sourceTree = "<group>";
+		};
+		DA50CD6C182C47D200D7CD06 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CD6D182C47D200D7CD06 /* ZBarSDK */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		DA50CD6D182C47D200D7CD06 /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CD6E182C47D200D7CD06 /* zbar */,
+				DA50CD78182C47D200D7CD06 /* zbar.h */,
+				DA50CD79182C47D200D7CD06 /* ZBarCameraSimulator.h */,
+				DA50CD7A182C47D200D7CD06 /* ZBarCaptureReader.h */,
+				DA50CD7B182C47D200D7CD06 /* ZBarHelpController.h */,
+				DA50CD7C182C47D200D7CD06 /* ZBarImage.h */,
+				DA50CD7D182C47D200D7CD06 /* ZBarImageScanner.h */,
+				DA50CD7E182C47D200D7CD06 /* ZBarReaderController.h */,
+				DA50CD7F182C47D200D7CD06 /* ZBarReaderView.h */,
+				DA50CD80182C47D200D7CD06 /* ZBarReaderViewController.h */,
+				DA50CD81182C47D200D7CD06 /* ZBarSDK.h */,
+				DA50CD82182C47D200D7CD06 /* ZBarSymbol.h */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		DA50CD6E182C47D200D7CD06 /* zbar */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CD6F182C47D200D7CD06 /* Decoder.h */,
+				DA50CD70182C47D200D7CD06 /* Exception.h */,
+				DA50CD71182C47D200D7CD06 /* Image.h */,
+				DA50CD72182C47D200D7CD06 /* ImageScanner.h */,
+				DA50CD73182C47D200D7CD06 /* Processor.h */,
+				DA50CD74182C47D200D7CD06 /* Scanner.h */,
+				DA50CD75182C47D200D7CD06 /* Symbol.h */,
+				DA50CD76182C47D200D7CD06 /* Video.h */,
+				DA50CD77182C47D200D7CD06 /* Window.h */,
+			);
+			path = zbar;
+			sourceTree = "<group>";
+		};
+		DA50CD84182C47D200D7CD06 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA50CD85182C47D200D7CD06 /* zbar-back.png */,
+				DA50CD86182C47D200D7CD06 /* zbar-help.html */,
+				DA50CD87182C47D200D7CD06 /* zbar-helpicons.png */,
+				DA50CD88182C47D200D7CD06 /* zbar-samples.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DAC412A7182E0D57009194B5 /* NewRelic_iOS_Agent_1.376 */ = {
+			isa = PBXGroup;
+			children = (
+				DAC412A8182E0D57009194B5 /* LICENSE */,
+				DAC412A9182E0D57009194B5 /* NewRelicAgent.framework */,
+				DAC412AA182E0D57009194B5 /* README */,
+			);
+			path = NewRelic_iOS_Agent_1.376;
+			sourceTree = "<group>";
+		};
+		DAF2BF99182DC00900E573BF /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				DAF2BF9A182DC00900E573BF /* libTestFlight.a */,
+				DAF2BF9B182DC00900E573BF /* README.md */,
+				DAF2BF9C182DC00900E573BF /* release_notes.md */,
+				DAF2BF9D182DC00900E573BF /* TestFlight+AsyncLogging.h */,
+				DAF2BF9E182DC00900E573BF /* TestFlight+ManualSessions.h */,
+				DAF2BF9F182DC00900E573BF /* TestFlight.h */,
+			);
+			path = TestFlightSDK2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +503,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA23E6A318269253000BD089 /* Build configuration list for PBXNativeTarget "MeterRecording" */;
 			buildPhases = (
+				17444E51054B407BA68B8A3B /* Check Pods Manifest.lock */,
 				DA23E67318269253000BD089 /* Sources */,
 				DA23E67418269253000BD089 /* Frameworks */,
 				DA23E67518269253000BD089 /* Resources */,
+				F883F956B44141329DE76E9E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +545,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Akash Aggarwal";
 				TargetAttributes = {
+					DA23E67618269253000BD089 = {
+						DevelopmentTeam = UV6525SNT4;
+					};
 					DA23E69118269253000BD089 = {
 						TestTargetID = DA23E67618269253000BD089;
 					};
@@ -219,8 +576,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC412AD182E0D57009194B5 /* README in Resources */,
+				DAF2BFA2182DC00900E573BF /* release_notes.md in Resources */,
+				DA50CD28182BDCAF00D7CD06 /* watermeter.png in Resources */,
+				DA50CD9D182C6DCB00D7CD06 /* camera.png in Resources */,
+				DA50CD8B182C47D200D7CD06 /* zbar-help.html in Resources */,
+				DABF6771182B4B2400D85680 /* newmeter.png in Resources */,
+				DABF6772182B4B2400D85680 /* oldmeter.png in Resources */,
+				DA23E6BA1826CB99000BD089 /* technician-reading-water-meter-28438611.jpg in Resources */,
+				DA50CD3C182C219600D7CD06 /* scan.png in Resources */,
+				DA50CD8C182C47D200D7CD06 /* zbar-helpicons.png in Resources */,
+				DAC412AB182E0D57009194B5 /* LICENSE in Resources */,
+				DAF2BFA1182DC00900E573BF /* README.md in Resources */,
+				DA50CD9F182C6DDC00D7CD06 /* done.png in Resources */,
+				DA50CD8D182C47D200D7CD06 /* zbar-samples.png in Resources */,
 				DA23E68518269253000BD089 /* InfoPlist.strings in Resources */,
-				DA23E68D18269253000BD089 /* Images.xcassets in Resources */,
+				DA50CD97182C666E00D7CD06 /* morework.png in Resources */,
+				DA50CD8F182C4A6A00D7CD06 /* NoImage.png in Resources */,
+				DA50CD8A182C47D200D7CD06 /* zbar-back.png in Resources */,
+				DA50CDA3182C6DFB00D7CD06 /* watermeter.png in Resources */,
+				DA50CD95182C665A00D7CD06 /* signature.png in Resources */,
+				DA50CD3A182BF25600D7CD06 /* Camera-iOS-7-256.png in Resources */,
+				DA50CDA2182C6DFB00D7CD06 /* watericon.png in Resources */,
+				DA50CD9B182C6DB800D7CD06 /* calendar.png in Resources */,
+				DA50CDA5182C74E200D7CD06 /* ImageAssets.xcassets in Resources */,
+				DA23E6AA18269280000BD089 /* Storyboard.storyboard in Resources */,
+				DA50CD93182C664900D7CD06 /* scanimabe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,12 +615,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17444E51054B407BA68B8A3B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F883F956B44141329DE76E9E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA23E67318269253000BD089 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA50CD30182BEDA600D7CD06 /* NISignatureView.m in Sources */,
+				DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */,
+				DAA9990018615DA400FCDBD1 /* MeterApiClient.m in Sources */,
+				DABF6768182B491800D85680 /* UINewMeterViewController.m in Sources */,
+				DABF676B182B492700D85680 /* UIPhoto3ViewController.m in Sources */,
+				DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */,
 				DA23E68B18269253000BD089 /* AppDelegate.m in Sources */,
+				DA50CD3F182C3BBF00D7CD06 /* UIBaseTableViewController.m in Sources */,
+				DA23E6C01826E077000BD089 /* ScheduleCell.m in Sources */,
+				DAA998FA18614C2300FCDBD1 /* Session.m in Sources */,
+				DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */,
+				DA23E6AD182692F3000BD089 /* AppContent.m in Sources */,
+				DA50CD32182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m in Sources */,
+				DAA998FD18614C2300FCDBD1 /* Schedule.m in Sources */,
+				DA23E6B51826AEC5000BD089 /* UILoginViewController.m in Sources */,
+				DA23E6BD1826DE52000BD089 /* UIScheduleViewController.m in Sources */,
+				DABF676E182B493400D85680 /* UISIgnatureViewController.m in Sources */,
+				DA50CD31182BEDA600D7CD06 /* NISignatureViewQuartz.m in Sources */,
 				DA23E68718269253000BD089 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +746,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -348,7 +779,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -356,26 +788,64 @@
 		};
 		DA23E6A418269253000BD089 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac2013/Documents/Neptune/MeterRecording/NewRelic_iOS_Agent_1.376,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
 				INFOPLIST_FILE = "MeterRecording/MeterRecording-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac2013/Documents/Neptune/MeterRecording/MeterRecording/ZBarSDK,
+					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2,
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4B7244A1-B4BC-436A-8315-237F7FADF291";
+				SDKROOT = iphoneos7.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		DA23E6A518269253000BD089 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac2013/Documents/Neptune/MeterRecording/NewRelic_iOS_Agent_1.376,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
 				INFOPLIST_FILE = "MeterRecording/MeterRecording-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac2013/Documents/Neptune/MeterRecording/MeterRecording/ZBarSDK,
+					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2,
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4B7244A1-B4BC-436A-8315-237F7FADF291";
+				SDKROOT = iphoneos7.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -422,6 +892,92 @@
 			};
 			name = Release;
 		};
+		DA50CDA6182C9EF000D7CD06 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Akash Aggarwal (UV6525SNT4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Akash Aggarwal (UV6525SNT4)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Adhoc;
+		};
+		DA50CDA7182C9EF000D7CD06 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac2013/Documents/Neptune/MeterRecording/NewRelic_iOS_Agent_1.376,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
+				INFOPLIST_FILE = "MeterRecording/MeterRecording-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac2013/Documents/Neptune/MeterRecording/MeterRecording/ZBarSDK,
+					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4B7244A1-B4BC-436A-8315-237F7FADF291";
+				SDKROOT = iphoneos7.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Adhoc;
+		};
+		DA50CDA8182C9EF000D7CD06 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MeterRecording.app/MeterRecording";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
+				INFOPLIST_FILE = "MeterRecordingTests/MeterRecordingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Adhoc;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -430,6 +986,7 @@
 			buildConfigurations = (
 				DA23E6A118269253000BD089 /* Debug */,
 				DA23E6A218269253000BD089 /* Release */,
+				DA50CDA6182C9EF000D7CD06 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -439,18 +996,36 @@
 			buildConfigurations = (
 				DA23E6A418269253000BD089 /* Debug */,
 				DA23E6A518269253000BD089 /* Release */,
+				DA50CDA7182C9EF000D7CD06 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA23E6A618269253000BD089 /* Build configuration list for PBXNativeTarget "MeterRecordingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA23E6A718269253000BD089 /* Debug */,
 				DA23E6A818269253000BD089 /* Release */,
+				DA50CDA8182C9EF000D7CD06 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAA998E718613A6600FCDBD1 /* Model.xcdatamodel */,
+			);
+			currentVersion = DAA998E718613A6600FCDBD1 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA23E66F18269253000BD089 /* Project object */;
 }

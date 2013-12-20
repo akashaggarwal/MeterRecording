@@ -12,8 +12,8 @@
 @interface AppContent : NSObject
 
 @property(strong, readonly) Session *session;
-
-
+@property (nonatomic, retain) NSString *installerID;
+- (NSManagedObjectContext *)managedObjectContext ;
 -(id) getDummySchedule:(int)i;
 
 +(AppContent *)sharedContent;

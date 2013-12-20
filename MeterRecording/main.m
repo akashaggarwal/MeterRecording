@@ -16,6 +16,9 @@ int main(int argc, char * argv[])
          AppContent *content =[[AppContent alloc] init];
         Session *s = content.session;
         NSLog(@"session.installer id = %@ and datetime is %@", s.installerID, s.lastDateTime);
+//        [s.schedules enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+//            NSLog(@"  %@: %@", [obj accountNumber], [obj address]);
+//        }];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

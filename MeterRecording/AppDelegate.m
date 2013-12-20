@@ -9,12 +9,15 @@
 #import "AppDelegate.h"
 //#import "TestFlight.h"
 #import "AFNetworking.h"
+//#import "PonyDebugger.h"
 
 @implementation AppDelegate
 -(BOOL)application:(UIApplication *)applicationdidFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-   
+    //[[PDDebugger defaultInstance] connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
+    //[[PDDebugger defaultInstance] enableNetworkTrafficDebugging];
+   // [[PDDebugger defaultInstance] forwardAllNetworkTraffic];
     // start of your application:didFinishLaunchingWithOptions
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] identifierForVendor]];
     [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];

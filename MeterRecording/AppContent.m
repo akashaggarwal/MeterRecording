@@ -50,6 +50,7 @@ Session *_session;
     }
 }
 
+
 -(Session*) session
 {
     if(_session)
@@ -62,25 +63,33 @@ Session *_session;
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
                                               inManagedObjectContext:context];
     request.entity = entity;
+    NSDate *currentDate = [NSDate date];
+   // NSPredicate *p = [NSPredicate predicateWithFormat:@"installerID == %@ AND lastDateTime == %@", self.installerID, currentDate];
+    //request.predicate = p;
+    
     NSArray *listOfObjects = [context executeFetchRequest:request
                                                     error:nil];
+    if (listOfObjects == nil)
+    {
+          NSLog(@"nil session ");
+         return nil;
+    }
     if([listOfObjects count] == 1)
     {
-        NSLog(@"Found a session in data store - we'll return that");
         _session = [listOfObjects lastObject];
         return _session;
     }
+    if([listOfObjects count] > 1)
+    {
+        NSLog(@"more than one session in data store - should not have happened");
+        return nil;
+    }
 
-    NSLog(@"Nothing in data store - so we need a new Notebook");
-    _session = (Session *)[NSEntityDescription insertNewObjectForEntityForName:@"Session"
-                                                          inManagedObjectContext:context];
-   
-    _session.installerID = @"1234";
-    _session.lastDateTime = [NSDate date];
-    [context save:nil];
-    return _session;
+    NSLog(@"Nothing in data store - so we need a new session");
+       return _session;
     
 }
+
 
 //
 //- (NSMutableArray*)schedules
@@ -130,8 +139,8 @@ Session *_session;
 -(NSURL *)dataStoreURL {
     
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
-    return [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"DataStore.sql"]];
+    NSLog(@" doc dir is %@",docDir);
+    return [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"Neptune.sql"]];
 }
 
 - (NSManagedObjectModel *)managedObjectModel {

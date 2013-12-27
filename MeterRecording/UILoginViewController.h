@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnShowSchedules;
 
 @property (weak, nonatomic) AppContent *content;
+- (IBAction)showSchedule:(id)sender;
 
 -(IBAction)closeKeyboard:(id)sender;
+-(BOOL) performLogon;
 @end

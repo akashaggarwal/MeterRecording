@@ -1,5 +1,5 @@
 //
-//  Schedule.h
+//  ScheduleClaim.h
 //  MeterRecording
 //
 //  Created by Akash Aggarwal on 12/26/13.
@@ -10,14 +10,15 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Schedule : NSManagedObject
+@interface ScheduleClaim : NSManagedObject
 
 @property (nonatomic, retain) NSString * accountNumber;
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * altphone;
 @property (nonatomic, retain) NSString * city;
+@property (nonatomic, retain) NSString * installerID;
 @property (nonatomic, retain) NSString * latitude;
-@property (nonatomic, retain) NSString * longitude;
+@property (nonatomic, retain) NSString * localschedulestatus;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSString * oldSerial;

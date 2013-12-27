@@ -12,12 +12,19 @@
 @interface AppContent : NSObject
 
 @property(strong, readonly) Session *session;
-@property (nonatomic, retain) NSString *installerID;
+@property (strong, nonatomic) NSString *installerID;
+
+
+
 - (NSManagedObjectContext *)managedObjectContext ;
 -(id) getDummySchedule:(int)i;
-
+-(void) showMessage: (NSString *)title message:(NSString *)m ;
 +(AppContent *)sharedContent;
 //-(NSMutableArray*) schedules;
++ (NSString *)GetUUID;
 
++ (NSString *)getCurrentDate;
+-(void) resetSession;
+-(void) purgeOldSessions;
 
 @end

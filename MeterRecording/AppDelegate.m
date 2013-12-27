@@ -10,10 +10,16 @@
 //#import "TestFlight.h"
 #import "AFNetworking.h"
 //#import "PonyDebugger.h"
+#import "AppContent.h"
 
 @implementation AppDelegate
 -(BOOL)application:(UIApplication *)applicationdidFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+//    [s.schedules enumerateObjectsUsingBlock:^(id obj, BOOL *stop)
+//    {
+//        NSLog(@"  %@: %@", [obj accountNumber], [obj address]);
+//     }];
     
     //[[PDDebugger defaultInstance] connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
     //[[PDDebugger defaultInstance] enableNetworkTrafficDebugging];

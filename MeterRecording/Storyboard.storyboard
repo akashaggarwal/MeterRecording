@@ -20,7 +20,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Show Schedules"/>
                                 <connections>
-                                    <segue destination="Qga-dv-dzm" kind="push" identifier="Login" id="6fl-qF-WgE"/>
+                                    <action selector="showSchedule:" destination="84Y-Pi-AF4" eventType="touchUpInside" id="Xlq-f7-6uK"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Installer ID" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" id="pEI-ex-CHV">
@@ -44,11 +44,12 @@
                         <outlet property="btnShowSchedules" destination="f6k-if-KVM" id="fk4-c1-ovz"/>
                         <outlet property="imgHeader" destination="lR9-6A-d9n" id="o8b-p6-G4L"/>
                         <outlet property="txtInstallerID" destination="pEI-ex-CHV" id="LLh-NA-eWn"/>
+                        <segue destination="Qga-dv-dzm" kind="push" identifier="Login" id="KNe-Ta-gSO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkH-ey-2bS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="210"/>
+            <point key="canvasLocation" x="339" y="177"/>
         </scene>
         <!--Schedule View Controller - Schedules-->
         <scene sceneID="Ysb-DY-AB0">

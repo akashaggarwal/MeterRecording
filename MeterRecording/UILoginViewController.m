@@ -11,14 +11,19 @@
 #import "UIScheduleViewController.h"
 #import "TestFlight.h"
 #import "MeterApiClient.h"
+#import "SVProgressHUD.h"
 
 @implementation UILoginViewController
 
+
+BOOL successful = NO;
 -(void) viewDidLoad
 {
      [super viewDidLoad];
     self.content = [AppContent sharedContent];
+    
     self.txtInstallerID.delegate = self;
+    
 //       for( int i=1;i< 10;i++)
 //    {
 //         Schedule* s = [self getDummySchedule:i];
@@ -66,6 +71,22 @@
     return s1;
 }
 
+- (IBAction)showSchedule:(id)sender {
+    NSString *installerID = [self.txtInstallerID text];
+    NSLog(@"installerid is %@", installerID);
+    if ([installerID length] == 0 )
+    {
+        [self.content  showMessage:@"error" message:@"enter id"];
+        return ;
+    }
+    [self.content setInstallerID:installerID];
+    [self.content resetSession];
+    [SVProgressHUD show];
+    [self performLogon];
+
+    
+}
+
 -(IBAction)closeKeyboard:(id)sender
 {
     
@@ -73,80 +94,124 @@
     
 }
 
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+//{
+//    NSString *installerID = [self.txtInstallerID text];
+//    NSLog(@"installerid is %@", installerID);
+//    if ([installerID length] == 0 )
+//    {
+//        [self.content  showMessage:@"error" message:@"enter id"];
+//        return false;
+//    }
+//    self.content.installerID = installerID;
+//    [SVProgressHUD show];
+//     [self performLogon];
+//    //NSLog(@"logon return value ->%@",logon);
+//    // returning false since seque will be performed manually by code
+//    return false;
+//}
+
+-(BOOL) performLogon
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"1234", @"deviceid",
+                            [self.txtInstallerID text], @"installerid",
+                            nil];
+     [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"instllerid"];
+    if (self.content.session == nil)
+    {
+        NSLog(@" null session so fetching data ");
+        
+        
+        [[MeterApiClient sharedInstance] getPath:@"schedule" parameters:params
+                                         success:^(AFHTTPRequestOperation *operation, id response) {
+                                             //NSLog(@"Response: %@", [operation.response statusCode]);
+                                             NSLog(@"SUCCESS IN FETCH");
+                                             NSMutableArray *results = [NSMutableArray array];
+                                             
+                                             
+                                             NSManagedObjectContext *context = [self.content managedObjectContext];
+                                             Session *currentSession = self.content.session;;
+                                             
+                                             currentSession = (Session *)[NSEntityDescription insertNewObjectForEntityForName:@"Session"
+                                                                                                       inManagedObjectContext:context];
+                                             
+                                             currentSession.installerID = [self.content installerID];
+                                             currentSession.lastDateTime = [AppContent getCurrentDate];
+                                             currentSession.sessionID = [AppContent GetUUID];
+                                             
+                                             for (id schedule in response) {
+                                                 Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
+                                                                                                         inManagedObjectContext:context];
+                                                 s.address =  [schedule valueForKey:@"address"];
+                                                 s.altphone =  [schedule valueForKey:@"altphone"];
+                                                 s.city =  [schedule valueForKey:@"city"];
+                                                 s.latitude =   [schedule valueForKey:@"latitude"];
+                                                 s.longitude =   [schedule valueForKey:@"longitude"];
+                                                 s.name =   [schedule valueForKey:@"name"];
+                                                 s.note =  [schedule valueForKey:@"note"];
+                                                 s.oldSerial =   [schedule valueForKey:@"oldSerial"];
+                                                 s.oldSize =  [schedule valueForKey:@"oldSize"];
+                                                 s.orderType =   [schedule valueForKey:@"orderType"];
+                                                 s.phone =   [schedule valueForKey:@"phone"];
+                                                 s.prevRead   = [schedule valueForKey:@"prevRead"];
+                                                 s.route =   [schedule valueForKey:@"route"];
+                                                 s.scheduleDate  = [schedule valueForKey:@"scheduleDate"];
+                                                 s.scheduleID   = [schedule valueForKey:@"scheduleID"];
+                                                 s.scheduleTime   = [schedule valueForKey:@"scheduleTime"];
+                                                 s.accountNumber   = [schedule valueForKey:@"accountNumber"];
+                                                 
+                                                 [currentSession addSchedulesObject:s];
+                                                 
+                                             }
+                                             
+                                             NSError *error = nil;
+                                             if ([context save:&error])
+                                             {
+                                                 successful = YES;
+                                                 [SVProgressHUD dismiss];
+                                                 NSLog(@" saved successfullly %@", error);
+                                                 [self performSegueWithIdentifier:@"Login" sender:self];
+                                             }
+                                             else
+                                             {
+                                                 [SVProgressHUD dismiss];
+                                                 [self.content showMessage:@"saveerror:" message:[error localizedDescription]];
+                                              NSLog(@" saved with error object %@", error);
+                                             }
+                                  
+                                         }
+                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             NSLog(@"Error fetching schedules!");
+                                            NSLog(@"%@", error);
+                                          [SVProgressHUD dismiss];
+                                              [self.content showMessage:@"network error:" message:[error localizedDescription]];
+                                             
+                                         }];
+        
+        
+    }
+    
+    else
+    {
+        successful = true;
+        
+        NSLog(@"  session already there so fetching data ");
+          [SVProgressHUD dismiss];
+        [self performSegueWithIdentifier:@"Login" sender:self];
+    }
+    
+   
+    return successful;
+}
+
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-   if ([[segue identifier] isEqualToString:@"Login"]) {
-       NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                               @"1234", @"deviceid",
-                               @"1", @"installerid",
-                               nil];
-       if (self.content.session == nil)
-       {
-           NSLog(@" null session so fetching data ");
-           
-
-       [[MeterApiClient sharedInstance] getPath:@"schedule" parameters:params
-                                        success:^(AFHTTPRequestOperation *operation, id response) {
-                                            NSLog(@"Response: %@", response);
-                                            NSMutableArray *results = [NSMutableArray array];
-                                            
-                                            
-                                            NSManagedObjectContext *context = [[AppContent  sharedContent] managedObjectContext];
-                                            Session *currentSession = self.content.session;
-
-                                            currentSession = (Session *)[NSEntityDescription insertNewObjectForEntityForName:@"Session"
-                                                                                                inManagedObjectContext:context];
-                                            
-                                            currentSession.installerID = @"1";
-                                            currentSession.lastDateTime = [NSDate date];
-//                                            NSError *error = nil;
-//                                            if ([context save:&error])
-//                                                NSLog(@" saved successfullly %@", error);
-//                                            else
-//                                                NSLog(@" saved with error object %@", error);
-//
-
-                                            
-                                            
-                                            for (id schedule in response) {
-                                                Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
-                                                                                                inManagedObjectContext:context];
-                                                s.accountNumber = [schedule valueForKey:@"accountnumber"];
-                                                NSLog(@" acct # %@", s.accountNumber);
-
-                                                [currentSession addSchedulesObject:s];
-//                                                [results addObject:beer];
-//                                                [beer release];
-                                            }
-                                            NSError *error = nil;
-                                            if ([context save:&error])
-                                              NSLog(@" saved successfullly %@", error);
-                                            else
-                                                NSLog(@" saved with error object %@", error);
-                                            
-//                                            self.results = results;
-//                                            [self.tableView reloadData];
-                                        }
-                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                            NSLog(@"Error fetching schedules!");
-                                            NSLog(@"%@", error);
-                                            
-                                        }];
-       
-       
-       }
-       
-       else
-       {
-             NSLog(@"  session already there so fetching data ",[[self.content.session schedules] count]);
-       }
-       
-       [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"instllerid"];
-
+    if ([[segue identifier] isEqualToString:@"Login"]) {
+      
    }
 }
 

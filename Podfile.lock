@@ -6,7 +6,7 @@ PODS:
   - SVProgressHUD (1.0)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 1.0)
   - PonyDebugger (~> 0.3.0)
   - SVProgressHUD
 

@@ -43,18 +43,50 @@ Session *_session;
             singletonInstance = [[self alloc] init];
             //singletonInstance.schedules = [[NSMutableArray init] alloc];
             
-            NSLog(@"recreating the apcontent");
+            NSLog(@"creating the apcontent");
             
         }
         return(singletonInstance);
     }
 }
 
+-(void) resetSession
+{
+    _session =  nil;
+}
++ (NSString *)getCurrentDate
+{
+    NSDate *date         = [NSDate date];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString  = [df stringFromDate:date];
+    return dateString;
+    
+}
++ (NSString *)GetUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge NSString *)string;
+}
+
+-(void) showMessage:(NSString *)title message:(NSString *)m
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc]  initWithTitle:title message:m delegate:nil cancelButtonTitle:nil otherButtonTitles:nil ];
+    [alert addButtonWithTitle:@"OK"];
+    [alert show];
+
+}
+
 
 -(Session*) session
 {
+    NSLog(@"inside session fetch");
     if(_session)
     {
+          NSLog(@"returning session already in memory for  installerid->%@",[self installerID]);
         return _session;
     }
     NSString *entityName = @"Session";
@@ -63,12 +95,21 @@ Session *_session;
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
                                               inManagedObjectContext:context];
     request.entity = entity;
-    NSDate *currentDate = [NSDate date];
-   // NSPredicate *p = [NSPredicate predicateWithFormat:@"installerID == %@ AND lastDateTime == %@", self.installerID, currentDate];
-    //request.predicate = p;
+    NSDate *currentDate = [AppContent getCurrentDate];
+    NSLog(@"installerid->%@ , session id ->%@", self.installerID, [AppContent getCurrentDate]);
     
+    NSString *attributeName = @"installerID";
+    NSString *attributeValue = self.installerID;
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"(installerID == %@) AND (lastDateTime == %@)",
+                             self.installerID, currentDate];
+    
+   // NSPredicate *p = [NSPredicate predicateWithFormat:@"installerID contains %@ AND lastDateTime contains '%@'", self.installerID, currentDate];
+    //A
+    request.predicate = p;
+    NSError *err = nil;
     NSArray *listOfObjects = [context executeFetchRequest:request
-                                                    error:nil];
+                                                    error:&err];
+    NSLog(@"errors are %@",[err localizedDescription]);
     if (listOfObjects == nil)
     {
           NSLog(@"nil session ");
@@ -76,11 +117,13 @@ Session *_session;
     }
     if([listOfObjects count] == 1)
     {
+          NSLog(@"found exactly session ");
         _session = [listOfObjects lastObject];
         return _session;
     }
     if([listOfObjects count] > 1)
     {
+        NSLog(@" count->%lu", (unsigned long)[listOfObjects count]);
         NSLog(@"more than one session in data store - should not have happened");
         return nil;
     }
@@ -90,6 +133,41 @@ Session *_session;
     
 }
 
+-(void) purgeOldSessions
+{
+    
+    NSString *entityName = @"Session";
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
+                                              inManagedObjectContext:context];
+    request.entity = entity;
+    NSDate *currentDate = [AppContent getCurrentDate];
+   
+    
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"lastDateTime != %@",currentDate];
+    
+    // NSPredicate *p = [NSPredicate predicateWithFormat:@"installerID contains %@ AND lastDateTime contains '%@'", self.installerID, currentDate];
+    //A
+    request.predicate = p;
+    NSError *err = nil;
+    NSArray *listOfObjects = [context executeFetchRequest:request
+                                                    error:&err];
+    NSLog(@"errors are %@",[err localizedDescription]);
+    if (listOfObjects == nil)
+    {
+        NSLog(@"no old sessions ");
+        
+    }
+    for(Session *s in listOfObjects)
+    {
+        NSLog(@"deleting session with id->%@ ", s.sessionID);
+        
+        [context deleteObject:s];
+   
+    }
+    [context save:nil];
+}
 
 //
 //- (NSMutableArray*)schedules

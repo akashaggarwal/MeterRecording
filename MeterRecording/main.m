@@ -13,12 +13,15 @@
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-         AppContent *content =[[AppContent alloc] init];
-        Session *s = content.session;
-        NSLog(@"session.installer id = %@ and datetime is %@", s.installerID, s.lastDateTime);
-//        [s.schedules enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-//            NSLog(@"  %@: %@", [obj accountNumber], [obj address]);
-//        }];
+       
+        NSLog(@"inside app delegate launch");
+        AppContent *content =[[AppContent alloc] init];
+        [content purgeOldSessions];
+        
+//        Session *s = content.session;
+//        s.installerID = @"1";
+//        NSLog(@"session.installer id = %@ and datetime is %@", s.installerID, s.lastDateTime);
+//
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

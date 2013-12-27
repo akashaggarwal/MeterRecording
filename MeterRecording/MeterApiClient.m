@@ -33,6 +33,7 @@
             self.allowsInvalidSSLCertificate = true ;
      //   #endif
         [self setDefaultHeader:@"Accept" value:@"application/json"];
+         [self setDefaultHeader:@"Accept-Charset" value:@"utf-8"];
        // [self setDefaultHeader:@"Accept-Encoding" value:nil];
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }

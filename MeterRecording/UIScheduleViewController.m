@@ -27,10 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"inside view did load");
+    //NSLog(@"inside view did load");
     
     self.content = [AppContent sharedContent];
-    NSLog(@"%d schedules",[self.content.session.schedules count]);
+   // NSLog(@"%d schedules",[self.content.session.schedules count]);
     
      self.filteredschedules = [NSMutableArray arrayWithCapacity:[self.content.session.schedules count]];
     
@@ -93,7 +93,7 @@
     }
     else
     {
-         NSLog(@" inside number of rows %d", [_filteredschedules count]);
+         //NSLog(@" inside number of rows %d", [_filteredschedules count]);
          return [_filteredschedules count];
     }
     
@@ -111,11 +111,11 @@
     Schedule *sch = nil ;
     if (tableView == self.tableView) {
          sch = [self.content.session.schedules  objectAtIndex:indexPath.row];
-        NSLog(@" inside cellForRowAtIndexPath regular controller is %d", indexPath.row);
+        //NSLog(@" inside cellForRowAtIndexPath regular controller is %d", indexPath.row);
        
     } else {
         sch = [_filteredschedules objectAtIndex:indexPath.row];
-          NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
+         // NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
     }
     if (indexPath.row %2  == 0)
     {
@@ -124,7 +124,7 @@
         
     }
     //Schedule *sch = [self.content.schedules objectAtIndex:indexPath.row];
-    NSLog(@" name is %@", sch.name);
+   // NSLog(@" name is %@", sch.name);
     cell.lblName.text = sch.name;
     cell.lblAddress.text = sch.address;
     cell.lblCity.text = sch.city;

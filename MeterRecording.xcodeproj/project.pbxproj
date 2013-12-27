@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14A537EA82254B8099F42739 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6F9A49F46142E78B1B1C80 /* libPods.a */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
 		DA23E67F18269253000BD089 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67E18269253000BD089 /* UIKit.framework */; };
@@ -35,7 +34,6 @@
 		DA50CD3A182BF25600D7CD06 /* Camera-iOS-7-256.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD39182BF25600D7CD06 /* Camera-iOS-7-256.png */; };
 		DA50CD3C182C219600D7CD06 /* scan.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CD3B182C219600D7CD06 /* scan.png */; };
 		DA50CD3F182C3BBF00D7CD06 /* UIBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50CD3E182C3BBF00D7CD06 /* UIBaseTableViewController.m */; };
-		DA50CD41182C428200D7CD06 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD40182C428200D7CD06 /* AVFoundation.framework */; };
 		DA50CD43182C429100D7CD06 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD42182C429100D7CD06 /* CoreMedia.framework */; };
 		DA50CD45182C429F00D7CD06 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD44182C429F00D7CD06 /* CoreVideo.framework */; };
 		DA50CD47182C42B700D7CD06 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD46182C42B700D7CD06 /* libiconv.dylib */; };
@@ -56,8 +54,6 @@
 		DA50CDA5182C74E200D7CD06 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */; };
 		DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA998E41861364600FCDBD1 /* CoreData.framework */; };
 		DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */; };
-		DAA998FA18614C2300FCDBD1 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998F918614C2300FCDBD1 /* Session.m */; };
-		DAA998FD18614C2300FCDBD1 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998FC18614C2300FCDBD1 /* Schedule.m */; };
 		DAA9990018615DA400FCDBD1 /* MeterApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */; };
 		DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */; };
 		DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6764182B490800D85680 /* UIOldMeterViewController.m */; };
@@ -74,6 +70,11 @@
 		DAF2BFA1182DC00900E573BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DAF2BF9B182DC00900E573BF /* README.md */; };
 		DAF2BFA2182DC00900E573BF /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DAF2BF9C182DC00900E573BF /* release_notes.md */; };
 		DAF2BFA7182DFF6200E573BF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF2BFA3182DFC6800E573BF /* libz.dylib */; };
+		DAF92F3A186CCECF008CE749 /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF92F39186CCECF008CE749 /* libPods-AFNetworking.a */; };
+		DAF92F3C186CCED6008CE749 /* libPods-SVProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF92F3B186CCED6008CE749 /* libPods-SVProgressHUD.a */; };
+		DAF92F48186CE104008CE749 /* ScheduleClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF92F47186CE104008CE749 /* ScheduleClaim.m */; };
+		DAF92F4B186CE104008CE749 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF92F4A186CE104008CE749 /* Session.m */; };
+		DAF92F4E186CE104008CE749 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF92F4D186CE104008CE749 /* Schedule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,10 +170,6 @@
 		DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		DAA998E41861364600FCDBD1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DAA998E718613A6600FCDBD1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		DAA998F818614C2300FCDBD1 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		DAA998F918614C2300FCDBD1 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
-		DAA998FB18614C2300FCDBD1 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
-		DAA998FC18614C2300FCDBD1 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		DAA998FE18615DA400FCDBD1 /* MeterApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterApiClient.h; sourceTree = "<group>"; };
 		DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterApiClient.m; sourceTree = "<group>"; };
 		DABF6760182B436200D85680 /* UIScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScheduleDetailViewController.h; sourceTree = "<group>"; };
@@ -192,6 +189,7 @@
 		DAC412AA182E0D57009194B5 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		DAC81470186CC70D00FEA4FA /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SVProgressHUD.a"; path = "Pods/build/Release-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
 		DAF2BF9A182DC00900E573BF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		DAF2BF9B182DC00900E573BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DAF2BF9C182DC00900E573BF /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -200,6 +198,14 @@
 		DAF2BF9F182DC00900E573BF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		DAF2BFA3182DFC6800E573BF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		DAF2BFA5182DFE5A00E573BF /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		DAF92F39186CCECF008CE749 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		DAF92F3B186CCED6008CE749 /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-SVProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
+		DAF92F46186CE104008CE749 /* ScheduleClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleClaim.h; sourceTree = "<group>"; };
+		DAF92F47186CE104008CE749 /* ScheduleClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleClaim.m; sourceTree = "<group>"; };
+		DAF92F49186CE104008CE749 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		DAF92F4A186CE104008CE749 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		DAF92F4C186CE104008CE749 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		DAF92F4D186CE104008CE749 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF92F3C186CCED6008CE749 /* libPods-SVProgressHUD.a in Frameworks */,
+				DAF92F3A186CCECF008CE749 /* libPods-AFNetworking.a in Frameworks */,
 				DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */,
 				DAC412B1182E0D9D009194B5 /* CoreTelephony.framework in Frameworks */,
 				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
@@ -215,7 +223,6 @@
 				DA50CD45182C429F00D7CD06 /* CoreVideo.framework in Frameworks */,
 				DA50CD43182C429100D7CD06 /* CoreMedia.framework in Frameworks */,
 				DAF2BFA0182DC00900E573BF /* libTestFlight.a in Frameworks */,
-				DA50CD41182C428200D7CD06 /* AVFoundation.framework in Frameworks */,
 				DA50CD38182BEF3D00D7CD06 /* OpenGLES.framework in Frameworks */,
 				DA50CD36182BEF3600D7CD06 /* GLKit.framework in Frameworks */,
 				DA50CD34182BEF1000D7CD06 /* QuartzCore.framework in Frameworks */,
@@ -223,7 +230,6 @@
 				DA23E67F18269253000BD089 /* UIKit.framework in Frameworks */,
 				DA50CD89182C47D200D7CD06 /* libzbar.a in Frameworks */,
 				DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */,
-				14A537EA82254B8099F42739 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +274,9 @@
 		DA23E67918269253000BD089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAF92F3B186CCED6008CE749 /* libPods-SVProgressHUD.a */,
+				DAF92F39186CCECF008CE749 /* libPods-AFNetworking.a */,
+				DAC81470186CC70D00FEA4FA /* libPods-SVProgressHUD.a */,
 				DAA998E41861364600FCDBD1 /* CoreData.framework */,
 				DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */,
 				DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */,
@@ -364,10 +373,12 @@
 				DA23E6AB182692F3000BD089 /* AppContent.h */,
 				DA23E6AC182692F3000BD089 /* AppContent.m */,
 				DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */,
-				DAA998FB18614C2300FCDBD1 /* Schedule.h */,
-				DAA998FC18614C2300FCDBD1 /* Schedule.m */,
-				DAA998F818614C2300FCDBD1 /* Session.h */,
-				DAA998F918614C2300FCDBD1 /* Session.m */,
+				DAF92F4C186CE104008CE749 /* Schedule.h */,
+				DAF92F4D186CE104008CE749 /* Schedule.m */,
+				DAF92F49186CE104008CE749 /* Session.h */,
+				DAF92F4A186CE104008CE749 /* Session.m */,
+				DAF92F46186CE104008CE749 /* ScheduleClaim.h */,
+				DAF92F47186CE104008CE749 /* ScheduleClaim.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -662,13 +673,14 @@
 				DA23E68B18269253000BD089 /* AppDelegate.m in Sources */,
 				DA50CD3F182C3BBF00D7CD06 /* UIBaseTableViewController.m in Sources */,
 				DA23E6C01826E077000BD089 /* ScheduleCell.m in Sources */,
-				DAA998FA18614C2300FCDBD1 /* Session.m in Sources */,
+				DAF92F48186CE104008CE749 /* ScheduleClaim.m in Sources */,
+				DAF92F4E186CE104008CE749 /* Schedule.m in Sources */,
 				DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */,
 				DA23E6AD182692F3000BD089 /* AppContent.m in Sources */,
 				DA50CD32182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m in Sources */,
-				DAA998FD18614C2300FCDBD1 /* Schedule.m in Sources */,
 				DA23E6B51826AEC5000BD089 /* UILoginViewController.m in Sources */,
 				DA23E6BD1826DE52000BD089 /* UIScheduleViewController.m in Sources */,
+				DAF92F4B186CE104008CE749 /* Session.m in Sources */,
 				DABF676E182B493400D85680 /* UISIgnatureViewController.m in Sources */,
 				DA50CD31182BEDA600D7CD06 /* NISignatureViewQuartz.m in Sources */,
 				DA23E68718269253000BD089 /* main.m in Sources */,

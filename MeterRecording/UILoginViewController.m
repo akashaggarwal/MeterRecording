@@ -81,7 +81,7 @@ BOOL successful = NO;
     }
     [self.content setInstallerID:installerID];
     [self.content resetSession];
-    [SVProgressHUD show];
+    [SVProgressHUD  showWithStatus:@"Fetching Schedule"];
     [self performLogon];
 
     
@@ -128,6 +128,7 @@ BOOL successful = NO;
                                          success:^(AFHTTPRequestOperation *operation, id response) {
                                              NSLog(@"Response: %@", response);
                                              NSLog(@"SUCCESS IN FETCH");
+                                             [SVProgressHUD  showWithStatus:@"Parsing and Loading Data"];
                                              NSMutableArray *results = [NSMutableArray array];
                                              
                                              

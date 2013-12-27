@@ -260,4 +260,15 @@ Session *_session;
     return _managedObjectContext;
 }
 
+- (BOOL)saveChanges {
+    
+    NSError *error = nil;
+    BOOL saveSuccessful = [_managedObjectContext save:&error];
+    if (!saveSuccessful) {
+        NSLog(@"An error occurred while saving data. Error: %@", [error localizedDescription]);
+        [self showMessage:@"Error while saving" message:[error localizedDescription]];
+    }
+    return saveSuccessful;
+}
+
 @end

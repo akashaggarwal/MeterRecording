@@ -2,7 +2,7 @@
 //  Schedule.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/26/13.
+//  Created by Akash Aggarwal on 12/27/13.
 //  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @dynamic address;
 @dynamic altphone;
 @dynamic city;
+@dynamic installerID;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic name;

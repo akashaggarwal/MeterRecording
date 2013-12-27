@@ -26,5 +26,5 @@
 + (NSString *)getCurrentDate;
 -(void) resetSession;
 -(void) purgeOldSessions;
-
+- (BOOL)saveChanges;
 @end

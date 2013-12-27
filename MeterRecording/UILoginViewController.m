@@ -110,6 +110,7 @@ BOOL successful = NO;
 //    // returning false since seque will be performed manually by code
 //    return false;
 //}
+#define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
 
 -(BOOL) performLogon
 {
@@ -125,7 +126,7 @@ BOOL successful = NO;
         
         [[MeterApiClient sharedInstance] getPath:@"schedule" parameters:params
                                          success:^(AFHTTPRequestOperation *operation, id response) {
-                                             //NSLog(@"Response: %@", [operation.response statusCode]);
+                                             NSLog(@"Response: %@", response);
                                              NSLog(@"SUCCESS IN FETCH");
                                              NSMutableArray *results = [NSMutableArray array];
                                              
@@ -143,42 +144,50 @@ BOOL successful = NO;
                                              for (id schedule in response) {
                                                  Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
                                                                                                          inManagedObjectContext:context];
-                                                 s.address =  [schedule valueForKey:@"address"];
-                                                 s.altphone =  [schedule valueForKey:@"altphone"];
-                                                 s.city =  [schedule valueForKey:@"city"];
-                                                 s.latitude =   [schedule valueForKey:@"latitude"];
-                                                 s.longitude =   [schedule valueForKey:@"longitude"];
-                                                 s.name =   [schedule valueForKey:@"name"];
-                                                 s.note =  [schedule valueForKey:@"note"];
-                                                 s.oldSerial =   [schedule valueForKey:@"oldSerial"];
-                                                 s.oldSize =  [schedule valueForKey:@"oldSize"];
-                                                 s.orderType =   [schedule valueForKey:@"orderType"];
-                                                 s.phone =   [schedule valueForKey:@"phone"];
-                                                 s.prevRead   = [schedule valueForKey:@"prevRead"];
-                                                 s.route =   [schedule valueForKey:@"route"];
-                                                 s.scheduleDate  = [schedule valueForKey:@"scheduleDate"];
-                                                 s.scheduleID   = [schedule valueForKey:@"scheduleID"];
-                                                 s.scheduleTime   = [schedule valueForKey:@"scheduleTime"];
-                                                 s.accountNumber   = [schedule valueForKey:@"accountNumber"];
-                                                 
+                                                 s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]);
+                                                 s.altphone =  NULL_TO_NIL([schedule valueForKey:@"AltPhone"]);
+                                                 s.city =  NULL_TO_NIL([schedule valueForKey:@"City"]);
+                                                 s.latitude =   NULL_TO_NIL([schedule valueForKey:@"Latitude"]);
+                                                 s.longitude =   NULL_TO_NIL([schedule valueForKey:@"Longitude"]);
+                                                 s.name =   NULL_TO_NIL([schedule valueForKey:@"Name"]);
+                                                 s.note =  NULL_TO_NIL([schedule valueForKey:@"Note"]);
+                                                 s.oldSerial =   NULL_TO_NIL([schedule valueForKey:@"OldSerial"]);
+                                                 s.oldSize =  NULL_TO_NIL([schedule valueForKey:@"OldSize"]);
+                                                 s.orderType =   NULL_TO_NIL([schedule valueForKey:@"OrderType"]);
+                                                 s.phone =   NULL_TO_NIL([schedule valueForKey:@"Phone"]);
+                                                 s.prevRead   = NULL_TO_NIL([schedule valueForKey:@"PrevRead"]);
+                                                 s.route =   NULL_TO_NIL([schedule valueForKey:@"Route"]);
+                                                 s.scheduleDate  = NULL_TO_NIL([schedule valueForKey:@"ScheduleDate"]);
+                                                 s.scheduleID   = NULL_TO_NIL([schedule valueForKey:@"ScheduleID"]);
+                                                 s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]);
+                                                 s.accountNumber   = NULL_TO_NIL([schedule valueForKey:@"accountNumber"]);
+                                                 s.installerID = [self.content installerID];
                                                  [currentSession addSchedulesObject:s];
+                                                 NSLog(@" name is %@, addres is %@", s.name, s.address);
+                                                 
                                                  
                                              }
-                                             
-                                             NSError *error = nil;
-                                             if ([context save:&error])
+                                             if ([self.content saveChanges])
                                              {
-                                                 successful = YES;
-                                                 [SVProgressHUD dismiss];
-                                                 NSLog(@" saved successfullly %@", error);
                                                  [self performSegueWithIdentifier:@"Login" sender:self];
                                              }
-                                             else
-                                             {
-                                                 [SVProgressHUD dismiss];
-                                                 [self.content showMessage:@"saveerror:" message:[error localizedDescription]];
-                                              NSLog(@" saved with error object %@", error);
-                                             }
+                                             [SVProgressHUD dismiss];
+                                             
+                                             
+//                                             NSError *error = nil;
+//                                             if ([context save:&error])
+//                                             {
+//                                                 successful = YES;
+//                                                 [SVProgressHUD dismiss];
+//                                                 NSLog(@" saved successfullly %@", error);
+//                                                 [self performSegueWithIdentifier:@"Login" sender:self];
+//                                             }
+//                                             else
+//                                             {
+//                                                 [SVProgressHUD dismiss];
+//                                                 [self.content showMessage:@"saveerror:" message:[error localizedDescription]];
+//                                              NSLog(@" saved with error object %@", error);
+//                                             }
                                   
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {

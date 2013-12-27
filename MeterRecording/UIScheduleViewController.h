@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AppContent.h"
-@interface UIScheduleViewController : UITableViewController<UISearchBarDelegate, UISearchDisplayDelegate>
+@interface UIScheduleViewController : UITableViewController<UISearchBarDelegate, UISearchDisplayDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) AppContent *content;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *searchController;
 @property(strong) NSMutableArray* filteredschedules;
-
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end

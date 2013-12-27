@@ -33,7 +33,11 @@
    // NSLog(@"%d schedules",[self.content.session.schedules count]);
     
      self.filteredschedules = [NSMutableArray arrayWithCapacity:[self.content.session.schedules count]];
-    
+    NSError *error;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		NSLog(@"An error occurred: %@", [error localizedDescription]);
+	}
+
    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -75,65 +79,260 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSFetchedResultsController *) fetchedResultsController {
+    
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
+    }
+    
+    //DataStore *dataStore = [DataStore sharedDataStore];
+    NSManagedObjectContext *context = [self.content managedObjectContext];
+    
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Schedule"];
+    
+    NSSortDescriptor *primarySort = [NSSortDescriptor sortDescriptorWithKey:@"city"
+                                                                  ascending:YES];
+//    NSSortDescriptor *secondarySort = [NSSortDescriptor sortDescriptorWithKey:@"itemName"
+//                                                                    ascending:YES];
+//    
+    NSArray *sortArray = [NSArray arrayWithObjects:primarySort,  nil];
+    
+    [fetch setSortDescriptors:sortArray];
+    
+    NSDate *currentDate = [AppContent getCurrentDate];
+    
+    NSString *attributeName = @"installerID";
+    NSString *attributeValue = [self.content installerID];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"installerID == %@",
+                      attributeValue, currentDate];
+    
+    [fetch setPredicate:p];
+    
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetch
+                                                                          managedObjectContext:context
+                                                                            sectionNameKeyPath:@"city"
+                                                                                     cacheName:nil];
+    
+    [self setFetchedResultsController:frc];
+    [[self fetchedResultsController] setDelegate:self];
+    
+    return _fetchedResultsController;
+}
+
+
+#pragma mark - NSFetchedResultsControllerDelegate methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
+    [[self tableView] beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [[self tableView] insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                            withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [[self tableView] deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                            withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+    
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                                    withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [[self tableView] deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                    withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+        {
+            ScheduleCell *cell = [[self tableView] cellForRowAtIndexPath:indexPath];
+            Schedule *sch = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+            NSLog(@"name is ->%@", sch.name);
+             NSLog(@"id is ->%@", sch.scheduleID);
+            cell.lblName.text = sch.name;
+            cell.lblAddress.text = sch.address;
+            cell.lblCity.text = sch.city;
+            cell.lblScheduleDate.text =  sch.scheduleDate;
+            cell.lblScheduleTime.text= sch.scheduleTime;
+            break;
+        }
+            
+        case NSFetchedResultsChangeMove:
+            [[self tableView] deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                    withRowAnimation:UITableViewRowAnimationFade];
+            [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                                    withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+    
+}
+
+- (NSString *)controller:(NSFetchedResultsController *)controller
+sectionIndexTitleForSectionName:(NSString *)sectionName {
+    
+    return sectionName;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
+    [[self tableView] endUpdates];
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+     if (tableView == self.tableView)
+     {
+         NSArray *sections = [[self fetchedResultsController] sections];
+         return [sections count];
+     }
+    else
+    {
+        return 1;
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    if (tableView == self.tableView) {
-        return [self.content.session.schedules count];
+    if (tableView == self.tableView)
+    {
+        NSArray *sections = [[self fetchedResultsController] sections];
+        id<NSFetchedResultsSectionInfo> currentSection = [sections objectAtIndex:section];
+        return [currentSection numberOfObjects];
     }
     else
     {
-         //NSLog(@" inside number of rows %d", [_filteredschedules count]);
          return [_filteredschedules count];
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ScheduleCell";
-    ScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     if ( cell == nil )
     {
         cell = [[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor blueColor];
     }
     Schedule *sch = nil ;
-    if (tableView == self.tableView) {
-         sch = [self.content.session.schedules  objectAtIndex:indexPath.row];
-        //NSLog(@" inside cellForRowAtIndexPath regular controller is %d", indexPath.row);
-       
-    } else {
-        sch = [_filteredschedules objectAtIndex:indexPath.row];
-         // NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
-    }
-    if (indexPath.row %2  == 0)
+    if (tableView == self.tableView)
     {
-        UIImage *selectedImage0 = [UIImage imageNamed:@"morework.png"];
-        cell.imgstatus.image = selectedImage0;
-        
+      sch = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     }
-    //Schedule *sch = [self.content.schedules objectAtIndex:indexPath.row];
-   // NSLog(@" name is %@", sch.name);
+    else
+    {
+        sch = [_filteredschedules objectAtIndex:indexPath.row];
+             // NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
+    }
+    //Schedule *sch = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+     NSLog(@"name is ->%@", sch.name);
     cell.lblName.text = sch.name;
     cell.lblAddress.text = sch.address;
     cell.lblCity.text = sch.city;
     cell.lblScheduleDate.text =  sch.scheduleDate;
     cell.lblScheduleTime.text= sch.scheduleTime;
-    // Configure the cell...
     
     return cell;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    NSArray *sections = [[self fetchedResultsController] sections];
+    id<NSFetchedResultsSectionInfo> currentSection = [sections objectAtIndex:section];
+    return [currentSection name];
+    
+}
+
+
+
+
+
+#pragma mark - Table view data source
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 1;
+//}
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    if (tableView == self.tableView) {
+//        return [self.content.session.schedules count];
+//    }
+//    else
+//    {
+//         //NSLog(@" inside number of rows %d", [_filteredschedules count]);
+//         return [_filteredschedules count];
+//    }
+//    
+//}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *CellIdentifier = @"ScheduleCell";
+//    ScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if ( cell == nil )
+//    {
+//        cell = [[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        cell.backgroundColor = [UIColor blueColor];
+//    }
+//    Schedule *sch = nil ;
+//    if (tableView == self.tableView) {
+//         sch = [self.content.session.schedules  objectAtIndex:indexPath.row];
+//        //NSLog(@" inside cellForRowAtIndexPath regular controller is %d", indexPath.row);
+//       
+//    } else {
+//        sch = [_filteredschedules objectAtIndex:indexPath.row];
+//         // NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
+//    }
+//    if (indexPath.row %2  == 0)
+//    {
+//        UIImage *selectedImage0 = [UIImage imageNamed:@"morework.png"];
+//        cell.imgstatus.image = selectedImage0;
+//        
+//    }
+//    //Schedule *sch = [self.content.schedules objectAtIndex:indexPath.row];
+//   // NSLog(@" name is %@", sch.name);
+//    cell.lblName.text = sch.name;
+//    cell.lblAddress.text = sch.address;
+//    cell.lblCity.text = sch.city;
+//    cell.lblScheduleDate.text =  sch.scheduleDate;
+//    cell.lblScheduleTime.text= sch.scheduleTime;
+//    // Configure the cell...
+//    
+//    return cell;
+//}
 
 /*
 // Override to support conditional editing of the table view.

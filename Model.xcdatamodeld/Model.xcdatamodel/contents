@@ -5,18 +5,19 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="altphone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="installerID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="oldSerial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oldSerial" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="oldSize" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prevRead" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="route" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduleDate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="scheduleID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheduleID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="scheduleTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ScheduleClaim" representedClassName="ScheduleClaim" syncable="YES">
@@ -36,7 +37,7 @@
         <attribute name="prevRead" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="route" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduleDate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="scheduleID" attributeType="String" syncable="YES"/>
+        <attribute name="scheduleID" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="scheduleTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">

@@ -9,6 +9,9 @@
 #import "UIScheduleViewController.h"
 #import "ScheduleCell.h"
 #import "Schedule.h"
+#import "UIScheduleDetailViewController.h"
+
+
 @interface UIScheduleViewController ()
 
 @end
@@ -421,23 +424,39 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 //    [self performSegueWithIdentifier:@"searchDetail" sender:tableView];
 //}
 //
-//#pragma mark - Segue
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"searchDetail"]) {
-//        UIViewController *searchDetailViewController = [segue destinationViewController];
-//        // In order to manipulate the destination view controller, another check on which table (search or normal) is displayed is needed
-//        if(sender == self.searchDisplayController.searchResultsTableView) {
-//            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-//            NSString *destinationTitle = [[_filteredschedules objectAtIndex:[indexPath row]] name];
-//            [searchDetailViewController setTitle:destinationTitle];
-//        }
-//        else {
-//            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//            NSString *destinationTitle = [[self.content.schedules objectAtIndex:[indexPath row]] name];
-//            [searchDetailViewController setTitle:destinationTitle];
-//        }
-//        
-//    }
-//}
+#pragma mark - Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"searchDetail"]) {
+        Schedule *sch = nil ;
+       
+        UIScheduleDetailViewController  *searchDetailViewController = [segue destinationViewController];
+        // In order to manipulate the destination view controller, another check on which table (search or normal) is displayed is needed
+        if(sender == self.searchDisplayController.searchResultsTableView)
+        {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            sch = [_filteredschedules objectAtIndex:indexPath.row];
+           [self setClaimData:sch controller:searchDetailViewController];
+            
+        }
+        else
+        {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            sch = [self.fetchedResultsController objectAtIndexPath:indexPath];
+           [self setClaimData:sch controller:searchDetailViewController];
+        }
+        
+    }
+}
+
+-(void) setClaimData:(Schedule *) sch controller: (UIScheduleDetailViewController *) searchDetailViewController
+{
+    
+    MyClaim *m = [MyClaim sharedContent];
+   // [m resetClaim];
+    m.claim = sch;
+    NSString *destinationTitle = sch.name;
+    [searchDetailViewController setTitle:destinationTitle];
+    //[searchDetailViewController setCurrentclaim:m];
+}
 
 @end

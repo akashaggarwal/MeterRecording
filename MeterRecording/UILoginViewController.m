@@ -144,28 +144,31 @@ BOOL successful = NO;
                                              
                                              for (id schedule in response) {
                                                  Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
+                                                      
                                                                                                          inManagedObjectContext:context];
-                                                 s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]);
-                                                 s.altphone =  NULL_TO_NIL([schedule valueForKey:@"AltPhone"]);
-                                                 s.city =  NULL_TO_NIL([schedule valueForKey:@"City"]);
-                                                 s.latitude =   NULL_TO_NIL([schedule valueForKey:@"Latitude"]);
-                                                 s.longitude =   NULL_TO_NIL([schedule valueForKey:@"Longitude"]);
-                                                 s.name =   NULL_TO_NIL([schedule valueForKey:@"Name"]);
-                                                 s.note =  NULL_TO_NIL([schedule valueForKey:@"Note"]);
-                                                 s.oldSerial =   NULL_TO_NIL([schedule valueForKey:@"OldSerial"]);
-                                                 s.oldSize =  NULL_TO_NIL([schedule valueForKey:@"OldSize"]);
-                                                 s.orderType =   NULL_TO_NIL([schedule valueForKey:@"OrderType"]);
-                                                 s.phone =   NULL_TO_NIL([schedule valueForKey:@"Phone"]);
-                                                 s.prevRead   = NULL_TO_NIL([schedule valueForKey:@"PrevRead"]);
-                                                 s.route =   NULL_TO_NIL([schedule valueForKey:@"Route"]);
-                                                 s.scheduleDate  = NULL_TO_NIL([schedule valueForKey:@"ScheduleDate"]);
-                                                 s.scheduleID   = NULL_TO_NIL([schedule valueForKey:@"ScheduleID"]);
-                                                 s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]);
-                                                 s.accountNumber   = NULL_TO_NIL([schedule valueForKey:@"accountNumber"]);
-                                                 s.installerID = [self.content installerID];
-                                                 [currentSession addSchedulesObject:s];
+                                                s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]) ;
+                                                 s.name =   NULL_TO_NIL([schedule valueForKey:@"Name"]) ;
                                                  NSLog(@" name is %@, addres is %@", s.name, s.address);
                                                  
+
+                                                 s.altphone =  NULL_TO_NIL([schedule valueForKey:@"AltPhone"]) ;
+                                                 s.city =  NULL_TO_NIL([schedule valueForKey:@"City"]) ;
+                                                 s.latitude =   NULL_TO_NIL([schedule valueForKey:@"Latitude"]) ;
+                                                 s.longitude =   NULL_TO_NIL([schedule valueForKey:@"Longitude"]) ;
+                                                 s.note =  NULL_TO_NIL([schedule valueForKey:@"Note"]) ;
+                                                 s.oldSerial =   [NULL_TO_NIL([schedule valueForKey:@"OldSerial"]) stringValue];
+                                                 s.oldSize = NULL_TO_NIL([schedule valueForKey:@"OldSize"]) ;
+                                                 s.orderType =   NULL_TO_NIL([schedule valueForKey:@"OrderType"]) ;
+                                                 s.phone =   NULL_TO_NIL([schedule valueForKey:@"Phone"]) ;
+                                                 s.prevRead   = NULL_TO_NIL([schedule valueForKey:@"PrevRead"]);
+                                                 s.route =   NULL_TO_NIL([schedule valueForKey:@"Route"]) ;
+                                                 s.scheduleDate =   NULL_TO_NIL([schedule valueForKey:@"ScheduleDate"]);
+                                                 s.scheduleID   = [NULL_TO_NIL([schedule valueForKey:@"ScheduleID"])  stringValue];
+                                                 s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]) ;
+                                                 s.accountNumber   = NULL_TO_NIL([schedule valueForKey:@"accountNumber"]) ;
+                                                 s.installerID = [self.content installerID];
+                                                 [currentSession addSchedulesObject:s];
+                                                
                                                  
                                              }
                                              if ([self.content saveChanges])

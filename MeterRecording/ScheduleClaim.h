@@ -2,7 +2,7 @@
 //  ScheduleClaim.h
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/26/13.
+//  Created by Akash Aggarwal on 12/28/13.
 //  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
 //
 
@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSString * altphone;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * installerID;
-@property (nonatomic, retain) NSString * latitude;
+@property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSString * localschedulestatus;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * note;
@@ -30,5 +30,15 @@
 @property (nonatomic, retain) NSString * scheduleDate;
 @property (nonatomic, retain) NSString * scheduleID;
 @property (nonatomic, retain) NSString * scheduleTime;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * oldphotofilepath;
+@property (nonatomic, retain) NSString * photo3filepath;
+@property (nonatomic, retain) NSString * newserial;
+@property (nonatomic, retain) NSString * newreading;
+@property (nonatomic, retain) NSString * plumbingtime;
+@property (nonatomic, retain) NSString * newremoteid;
+@property (nonatomic, retain) NSString * newsize;
+@property (nonatomic, retain) NSString * newphotofilepath;
+@property (nonatomic, retain) NSString * signaturefilepath;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyClaim.h"
 
 @interface UIBaseTableViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UITextField *txtSerial;
+
+//@property(strong, nonatomic) ScheduleClaim *claim;
+@property (weak, nonatomic) MyClaim *currentclaim;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)scan:(id)sender;
 @end

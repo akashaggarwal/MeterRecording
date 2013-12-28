@@ -15,6 +15,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnImage;
-- (IBAction)takePicture:(id)sender;
+//- (IBAction)takePicture:(id)sender;
 
 @end

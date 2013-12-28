@@ -30,7 +30,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             break;
         NSLog(@"value scanned is %s", symbol.data);
         // EXAMPLE: do something useful with the barcode data
-        _txtSerial.text = symbol.data;
+        //_txtSerial.text = symbol.data;
 
     }
     else
@@ -40,7 +40,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if (image != nil)
         {
             // Put that image onto the screen in our image view
-            [self.imageView setImage:image];
+           // [self.imageView setImage:image];
         }
     }
     // Take image picker off the screen -

@@ -11,9 +11,14 @@
 
 @interface UINewMeterViewController : UIBaseTableViewController
 @property (weak, nonatomic) IBOutlet UIButton *btnImage;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextField *txtNewSerial;
+@property (weak, nonatomic) IBOutlet UITextField *txtNewReading;
+@property (weak, nonatomic) IBOutlet UITextField *txtPlumbingTime;
+@property (weak, nonatomic) IBOutlet UITextField *txtNewSize;
+@property (weak, nonatomic) IBOutlet UITextField *txtNewRemoteID;
 
-
-- (IBAction)takePicture:(id)sender;
-- (IBAction)scan:(id)sender;
+//- (IBAction)takePicture:(id)sender;
+//- (IBAction)scan:(id)sender;
 
 @end

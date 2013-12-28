@@ -2,7 +2,7 @@
 //  ScheduleClaim.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/26/13.
+//  Created by Akash Aggarwal on 12/28/13.
 //  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
 //
 
@@ -29,5 +29,15 @@
 @dynamic scheduleDate;
 @dynamic scheduleID;
 @dynamic scheduleTime;
+@dynamic longitude;
+@dynamic oldphotofilepath;
+@dynamic photo3filepath;
+@dynamic newserial;
+@dynamic newreading;
+@dynamic plumbingtime;
+@dynamic newremoteid;
+@dynamic newsize;
+@dynamic newphotofilepath;
+@dynamic signaturefilepath;
 
 @end

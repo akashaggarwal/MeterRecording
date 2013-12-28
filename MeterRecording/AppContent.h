@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Session.h"
+#import "ScheduleClaim.h"
+
 
 @interface AppContent : NSObject
 
 @property(strong, readonly) Session *session;
 @property (strong, nonatomic) NSString *installerID;
-
+//@property(strong, nonatomic) ScheduleClaim *currentClaim;
 
 
 - (NSManagedObjectContext *)managedObjectContext ;

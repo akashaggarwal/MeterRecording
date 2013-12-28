@@ -26,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+     self.currentclaim = [MyClaim sharedContent];
+   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -34,6 +35,26 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    if (self.currentclaim != nil)
+    {
+        [self.txtCorrectSerial setText: self.currentclaim.claim.oldSerial ];
+        [self.txtprevReading setText: self.currentclaim.claim.prevRead ];
+        [self.txtOldSize setText: self.currentclaim.claim.oldSize];
+        
+        
+    }
+    
+}
+-(void) viewWillDisappear:(BOOL)animated
+{
+    self.currentclaim.claim.oldSerial = [self.txtCorrectSerial text];
+    self.currentclaim.claim.prevRead = [self.txtprevReading text];
+    self.currentclaim.claim.oldSize = [self.txtOldSize text];
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

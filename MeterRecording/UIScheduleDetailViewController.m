@@ -8,6 +8,8 @@
 
 #import "UIScheduleDetailViewController.h"
 #import "TestFlight.h"
+#import "UIOldMeterViewController.h"
+
 @interface UIScheduleDetailViewController ()
 
 @end
@@ -26,14 +28,49 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self resetlabels];
+     self.currentclaim = [MyClaim sharedContent];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (self.currentclaim != nil)
+    {
+        
+        [self.name setText:[self.currentclaim.claim name]];
+        [self.address setText:[self.currentclaim.claim  address]];
+        [self.city setText:[self.currentclaim.claim  city]];
+        [self.phone setText:[self.currentclaim.claim  phone]];
+        [self.altphone setText:[self.currentclaim.claim  altphone]];
+        [self.route setText:[self.currentclaim.claim  route]];
+        [self.schdate setText:[self.currentclaim.claim  scheduleDate]];
+        [self.schtime setText:[self.currentclaim.claim scheduleTime]];
+        [self.oldsize setText:self.currentclaim.claim.oldSerial ];
+        [self.oldsize setText:[self.currentclaim.claim  oldSize]];
+        [self.ordertype setText:[self.currentclaim.claim  orderType]];
+        [self.note setText:[self.currentclaim.claim  note]];
+        
+        
+    }
 }
 
+-(void) resetlabels
+{
+    [self.name setText:@""];
+    [self.address setText:@""];
+    [self.city setText:@""];
+    [self.phone setText:@""];
+    [self.altphone setText:@""];
+    [self.route setText:@""];
+    [self.schdate setText:@""];
+    [self.schtime setText:@""];
+    [self.oldserial setText:@""];
+    [self.oldsize setText:@""];
+    [self.ordertype setText:@""];
+    [self.note setText:@""];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -105,7 +142,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -113,9 +150,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+     if ([[segue identifier] isEqualToString:@"CaptureData"])
+     {
+         
+//         UIOldMeterViewController *oldViewController = (UITabBarController *)[[segue.destinationViewController viewControllers] objectAtIndex:0];
+//         oldViewController.currentclaim = self.currentclaim;
+     }
 }
 
- */
+
 
 - (IBAction)JobSkipped:(id)sender {
     

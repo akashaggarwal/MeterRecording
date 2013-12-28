@@ -32,6 +32,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.currentclaim = [MyClaim sharedContent];
+    NSLog(@" claim name->%@", self.currentclaim.claim.name );
+       NSLog(@" claim size->%@", self.currentclaim.claim.oldSize );
+    if (self.currentclaim != nil)
+        [self.txtNewSize setText:self.currentclaim.claim.oldSize];
 }
 
 - (void)didReceiveMemoryWarning

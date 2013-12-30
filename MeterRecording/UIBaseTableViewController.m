@@ -19,22 +19,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
      NSLog(@"value scanned is");
     
-    if ([picker isKindOfClass:[ZBarReaderViewController class]])
-    {
-      
-        // ADD: get the decode results
-        id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
-        ZBarSymbol *symbol = nil;
-        for(symbol in results)
-            // EXAMPLE: just grab the first barcode
-            break;
-        NSLog(@"value scanned is %s", symbol.data);
-        // EXAMPLE: do something useful with the barcode data
-        //_txtSerial.text = symbol.data;
-
-    }
-    else
-    {
+//    if ([picker isKindOfClass:[ZBarReaderViewController class]])
+//    {
+//      
+//        // ADD: get the decode results
+//        id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+//        ZBarSymbol *symbol = nil;
+//        for(symbol in results)
+//            // EXAMPLE: just grab the first barcode
+//            break;
+//        NSLog(@"value scanned is %s", symbol.data);
+//        // EXAMPLE: do something useful with the barcode data
+//        //_txtSerial.text = symbol.data;
+//
+//    }
+//    else
+//    {
         // Get picked image from info dictionary
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
         if (image != nil)
@@ -42,7 +42,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             // Put that image onto the screen in our image view
            // [self.imageView setImage:image];
         }
-    }
+//    }
     // Take image picker off the screen -
     // you must call this dismiss method
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -74,22 +74,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (void)scan
 {
     
-    // ADD: present a barcode reader that scans from the camera feed
-    ZBarReaderViewController *reader = [ZBarReaderViewController new];
-    reader.readerDelegate = self;
-    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
-    
-    ZBarImageScanner *scanner = reader.scanner;
-    // TODO: (optional) additional reader configuration here
-    
-    // EXAMPLE: disable rarely used I2/5 to improve performance
-    [scanner setSymbology: ZBAR_I25
-                   config: ZBAR_CFG_ENABLE
-                       to: 0];
-    
-    // present and release the controller
-    [self presentModalViewController: reader
-                            animated: YES];
+//    // ADD: present a barcode reader that scans from the camera feed
+//    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+//    reader.readerDelegate = self;
+//    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+//    
+//    ZBarImageScanner *scanner = reader.scanner;
+//    // TODO: (optional) additional reader configuration here
+//    
+//    // EXAMPLE: disable rarely used I2/5 to improve performance
+//    [scanner setSymbology: ZBAR_I25
+//                   config: ZBAR_CFG_ENABLE
+//                       to: 0];
+//    
+//    // present and release the controller
+//    [self presentModalViewController: reader
+//                            animated: YES];
     
     
 }

@@ -10,11 +10,13 @@
 #import "UIBaseTableViewController.h"
 
 @interface UIPhoto3ViewController : UIBaseTableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnImage;
 //- (IBAction)takePicture:(id)sender;
+- (IBAction)takePicture:(id)sender;
 
 @end

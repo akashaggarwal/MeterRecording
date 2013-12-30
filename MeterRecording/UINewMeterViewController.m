@@ -122,7 +122,15 @@
 
  */
 
+- (IBAction)scanSerial:(id)sender {
+    [super scan];
+    self.txtNewSerial.text = [super scannedData];
+}
 
+- (IBAction)takePicture:(id)sender {
+    [super takePicture];
+    self.imageView.image = [super imagetaken];
+}
 
 
 @end

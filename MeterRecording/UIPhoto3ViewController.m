@@ -173,4 +173,8 @@
 
 
 
+- (IBAction)takePicture:(id)sender {
+    [super takePicture];
+    self.imageView.image = [super imagetaken];
+}
 @end

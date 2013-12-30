@@ -624,7 +624,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="scan:" destination="BY5-sr-Gs5" eventType="touchUpInside" id="oNo-Yq-zTL"/>
+                                                        <action selector="scan:" destination="BY5-sr-Gs5" eventType="touchUpInside" id="UoY-xF-KWs"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -770,6 +770,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="btnImage" destination="8m2-D7-SwL" id="wqT-Vw-fK1"/>
+                        <outlet property="btnScan" destination="ZxP-kQ-aF1" id="ohi-rg-mLx"/>
                         <outlet property="imageView" destination="7uo-Cy-MeG" id="Iaa-Fb-yvq"/>
                         <outlet property="txtNewReading" destination="Xjo-C3-ctR" id="HLO-A4-rJO"/>
                         <outlet property="txtNewRemoteID" destination="uit-JB-r98" id="Ouz-al-Ui5"/>
@@ -844,7 +845,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button" image="Camera-iOS-7-256.png"/>
                                                     <connections>
-                                                        <action selector="takePicture:" destination="nzu-PU-cXZ" eventType="touchUpInside" id="m1z-3w-VKO"/>
+                                                        <action selector="takePicture:" destination="nzu-PU-cXZ" eventType="touchUpInside" id="r4H-2w-RTO"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -865,7 +866,7 @@
                     <navigationItem key="navigationItem" title="Take a picture" prompt="" id="uNh-Vm-i5t"/>
                     <connections>
                         <outlet property="btnImage" destination="T9I-aq-YTW" id="4pX-jh-3en"/>
-                        <outlet property="imageView" destination="Qty-BN-9RZ" id="Me2-Xh-bHE"/>
+                        <outlet property="imageView" destination="Qty-BN-9RZ" id="Lvr-kA-IGp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUj-u3-3zd" userLabel="First Responder" sceneMemberID="firstResponder"/>

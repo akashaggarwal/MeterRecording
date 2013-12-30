@@ -17,8 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtPlumbingTime;
 @property (weak, nonatomic) IBOutlet UITextField *txtNewSize;
 @property (weak, nonatomic) IBOutlet UITextField *txtNewRemoteID;
+@property (weak, nonatomic) IBOutlet UIButton *btnScan;
 
-//- (IBAction)takePicture:(id)sender;
-//- (IBAction)scan:(id)sender;
+- (IBAction)takePicture:(id)sender;
+- (IBAction)scan:(id)sender;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIBaseTableViewController.h"
-#import "ZBarSDK.h"
+
 #import "ScheduleClaim.h"
 
 @interface UIOldMeterViewController : UIBaseTableViewController <ZBarReaderDelegate>
@@ -18,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtCorrectSerial;
 @property (weak, nonatomic) IBOutlet UITextField *txtprevReading;
 @property (weak, nonatomic) IBOutlet UITextField *txtOldSize;
+@property (weak, nonatomic) IBOutlet UIButton *btnScan;
+
+- (IBAction)scanSerial:(id)sender;
+
+- (IBAction)takePicture:(id)sender;
 
 
 @end

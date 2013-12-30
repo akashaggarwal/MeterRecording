@@ -13,6 +13,9 @@
 
 //@property(strong, nonatomic) ScheduleClaim *claim;
 @property (weak, nonatomic) MyClaim *currentclaim;
-- (IBAction)takePicture:(id)sender;
-- (IBAction)scan:(id)sender;
+- (void)takePicture;
+- (void)scan;
+
+@property(weak, nonatomic) NSString *scannedData;
+@property(weak, nonatomic) UIImage *imagetaken;
 @end

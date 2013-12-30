@@ -7,7 +7,7 @@
 //
 
 #import "UIBaseTableViewController.h"
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 @interface UIBaseTableViewController ()
 
 @end
@@ -49,7 +49,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 
-- (IBAction)takePicture:(id)sender {
+- (void)takePicture {
     
     UIImagePickerController *imagePicker =
     [[UIImagePickerController alloc] init];
@@ -71,7 +71,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 
 
-- (IBAction)scan:(id)sender {
+- (void)scan
+{
     
     // ADD: present a barcode reader that scans from the camera feed
     ZBarReaderViewController *reader = [ZBarReaderViewController new];

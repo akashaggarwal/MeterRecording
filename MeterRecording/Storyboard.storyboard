@@ -449,7 +449,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="scan:" destination="jjd-3q-X9i" eventType="touchUpInside" id="IPz-Qp-TTd"/>
+                                                        <action selector="scanSerial:" destination="jjd-3q-X9i" eventType="touchUpInside" id="Jcn-zt-1Pe"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -531,7 +531,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button" image="Camera-iOS-7-256.png"/>
                                                     <connections>
-                                                        <action selector="takePicture:" destination="jjd-3q-X9i" eventType="touchUpInside" id="1WY-h5-kwc"/>
+                                                        <action selector="takePicture:" destination="jjd-3q-X9i" eventType="touchUpInside" id="ZKw-RO-33G"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -551,7 +551,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Old Meter Readings" id="SKM-pK-cfy"/>
                     <connections>
-                        <outlet property="btnImage" destination="e2y-cf-haq" id="sYv-57-SbS"/>
+                        <outlet property="btnImage" destination="e2y-cf-haq" id="tcr-yn-9LL"/>
+                        <outlet property="btnScan" destination="rJQ-xQ-vH1" id="R2T-G7-Vt6"/>
                         <outlet property="imageView" destination="cqK-Y3-YbQ" id="hIW-vK-KA2"/>
                         <outlet property="txtCorrectSerial" destination="Ujz-Yx-GJk" id="iQg-8O-vyT"/>
                         <outlet property="txtOldSize" destination="T1k-jh-JXX" id="k6i-FK-gdE"/>

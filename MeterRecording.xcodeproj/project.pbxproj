@@ -51,6 +51,11 @@
 		DA50CDA2182C6DFB00D7CD06 /* watericon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA0182C6DFB00D7CD06 /* watericon.png */; };
 		DA50CDA3182C6DFB00D7CD06 /* watermeter.png in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA1182C6DFB00D7CD06 /* watermeter.png */; };
 		DA50CDA5182C74E200D7CD06 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */; };
+		DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9EDF7218762CC600A9445A /* libT1Autograph.a */; };
+		DA9EDF7A18762CE500A9445A /* autograph_x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7518762CE500A9445A /* autograph_x.png */; };
+		DA9EDF7B18762CE500A9445A /* t1_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7618762CE500A9445A /* t1_logo.png */; };
+		DA9EDF7F18762E4F00A9445A /* bluebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7D18762E4F00A9445A /* bluebutton.png */; };
+		DA9EDF8018762E4F00A9445A /* bluebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7E18762E4F00A9445A /* bluebutton@2x.png */; };
 		DAA8B25018714DA40074AB41 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA8B24D18714DA40074AB41 /* libPods.a */; };
 		DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA998E41861364600FCDBD1 /* CoreData.framework */; };
 		DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */; };
@@ -151,6 +156,14 @@
 		DA50CDA0182C6DFB00D7CD06 /* watericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watericon.png; path = MeterRecording/watericon.png; sourceTree = "<group>"; };
 		DA50CDA1182C6DFB00D7CD06 /* watermeter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watermeter.png; path = MeterRecording/watermeter.png; sourceTree = "<group>"; };
 		DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		DA9EDF7218762CC600A9445A /* libT1Autograph.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libT1Autograph.a; path = ../../../Downloads/T1Autograph/libT1Autograph.a; sourceTree = "<group>"; };
+		DA9EDF7518762CE500A9445A /* autograph_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autograph_x.png; sourceTree = "<group>"; };
+		DA9EDF7618762CE500A9445A /* t1_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t1_logo.png; sourceTree = "<group>"; };
+		DA9EDF7718762CE500A9445A /* T1Autograph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1Autograph.h; sourceTree = "<group>"; };
+		DA9EDF7818762CE500A9445A /* T1Signature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1Signature.h; sourceTree = "<group>"; };
+		DA9EDF7918762CE500A9445A /* T1SignaturePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1SignaturePoint.h; sourceTree = "<group>"; };
+		DA9EDF7D18762E4F00A9445A /* bluebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluebutton.png; path = ../MeterRecording/bluebutton.png; sourceTree = "<group>"; };
+		DA9EDF7E18762E4F00A9445A /* bluebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bluebutton@2x.png"; path = "../MeterRecording/bluebutton@2x.png"; sourceTree = "<group>"; };
 		DAA8B24B18714DA40074AB41 /* libPods-PonyDebugger.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PonyDebugger.a"; path = "Pods/build/Debug-iphoneos/libPods-PonyDebugger.a"; sourceTree = "<group>"; };
 		DAA8B24C18714DA40074AB41 /* libPods-SocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SocketRocket.a"; path = "Pods/build/Debug-iphoneos/libPods-SocketRocket.a"; sourceTree = "<group>"; };
 		DAA8B24D18714DA40074AB41 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -221,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */,
 				DAA8B25018714DA40074AB41 /* libPods.a in Frameworks */,
 				DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */,
 				DAC412B1182E0D9D009194B5 /* CoreTelephony.framework in Frameworks */,
@@ -255,6 +269,7 @@
 		DA23E66E18269253000BD089 = {
 			isa = PBXGroup;
 			children = (
+				DA9EDF7C18762CED00A9445A /* T1Autograph */,
 				DAE9F644187152AF000A468A /* ZBarSDK */,
 				DAC412A7182E0D57009194B5 /* NewRelic_iOS_Agent_1.376 */,
 				DAF2BF99182DC00900E573BF /* TestFlightSDK2 */,
@@ -280,6 +295,7 @@
 		DA23E67918269253000BD089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EDF7218762CC600A9445A /* libT1Autograph.a */,
 				DAE9F642187151DA000A468A /* libzbar.a */,
 				DAA8B24B18714DA40074AB41 /* libPods-PonyDebugger.a */,
 				DAA8B24C18714DA40074AB41 /* libPods-SocketRocket.a */,
@@ -431,6 +447,28 @@
 				DA50CD2F182BEDA600D7CD06 /* NISignatureViewQuartzQuadratic.m */,
 			);
 			name = Signature;
+			sourceTree = "<group>";
+		};
+		DA9EDF7418762CE500A9445A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EDF7D18762E4F00A9445A /* bluebutton.png */,
+				DA9EDF7E18762E4F00A9445A /* bluebutton@2x.png */,
+				DA9EDF7518762CE500A9445A /* autograph_x.png */,
+				DA9EDF7618762CE500A9445A /* t1_logo.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		DA9EDF7C18762CED00A9445A /* T1Autograph */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EDF7418762CE500A9445A /* Images */,
+				DA9EDF7718762CE500A9445A /* T1Autograph.h */,
+				DA9EDF7818762CE500A9445A /* T1Signature.h */,
+				DA9EDF7918762CE500A9445A /* T1SignaturePoint.h */,
+			);
+			name = T1Autograph;
 			sourceTree = "<group>";
 		};
 		DAC412A7182E0D57009194B5 /* NewRelic_iOS_Agent_1.376 */ = {
@@ -610,12 +648,14 @@
 				DA23E6BA1826CB99000BD089 /* technician-reading-water-meter-28438611.jpg in Resources */,
 				DA50CD3C182C219600D7CD06 /* scan.png in Resources */,
 				DAC412AB182E0D57009194B5 /* LICENSE in Resources */,
+				DA9EDF8018762E4F00A9445A /* bluebutton@2x.png in Resources */,
 				DAF2BFA1182DC00900E573BF /* README.md in Resources */,
 				DA50CD9F182C6DDC00D7CD06 /* done.png in Resources */,
 				DA23E68518269253000BD089 /* InfoPlist.strings in Resources */,
 				DA50CD97182C666E00D7CD06 /* morework.png in Resources */,
 				DA50CD8F182C4A6A00D7CD06 /* NoImage.png in Resources */,
 				DA50CDA3182C6DFB00D7CD06 /* watermeter.png in Resources */,
+				DA9EDF7A18762CE500A9445A /* autograph_x.png in Resources */,
 				DAE9F665187152AF000A468A /* zbar-helpicons.png in Resources */,
 				DA50CD95182C665A00D7CD06 /* signature.png in Resources */,
 				DAE9F663187152AF000A468A /* zbar-back.png in Resources */,
@@ -626,6 +666,8 @@
 				DA23E6AA18269280000BD089 /* Storyboard.storyboard in Resources */,
 				DAE9F664187152AF000A468A /* zbar-help.html in Resources */,
 				DA50CD93182C664900D7CD06 /* scanimabe.png in Resources */,
+				DA9EDF7F18762E4F00A9445A /* bluebutton.png in Resources */,
+				DA9EDF7B18762CE500A9445A /* t1_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +878,7 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2,
 					/Users/mac2013/Documents/Neptune/MeterRecording/ZBarSDK,
 					/Users/mac2013/Documents/Neptune,
+					/Users/mac2013/Downloads/T1Autograph,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -870,6 +913,7 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2,
 					/Users/mac2013/Documents/Neptune/MeterRecording/ZBarSDK,
 					/Users/mac2013/Documents/Neptune,
+					/Users/mac2013/Downloads/T1Autograph,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -981,6 +1025,7 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2,
 					/Users/mac2013/Documents/Neptune/MeterRecording/ZBarSDK,
 					/Users/mac2013/Documents/Neptune,
+					/Users/mac2013/Downloads/T1Autograph,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

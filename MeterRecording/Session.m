@@ -2,12 +2,12 @@
 //  Session.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/28/13.
-//  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
+//  Created by Akash Aggarwal on 1/2/14.
+//  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
 #import "Session.h"
-#import "Schedule.h"
+#import "ScheduleClaim.h"
 
 
 @implementation Session

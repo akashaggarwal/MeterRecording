@@ -2,8 +2,8 @@
 //  Schedule.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/28/13.
-//  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
+//  Created by Akash Aggarwal on 1/2/14.
+//  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
 #import "Schedule.h"
@@ -29,5 +29,6 @@
 @dynamic scheduleDate;
 @dynamic scheduleID;
 @dynamic scheduleTime;
+@dynamic oldphotofilepath;
 
 @end

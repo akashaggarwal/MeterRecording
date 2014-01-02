@@ -10,8 +10,8 @@
 
 @interface NISignatureView : GLKView
 
-
+@property (weak, nonatomic) UIImage *myimage;
 - (void)erase;
 - (UIImage *) getSignatureImage;
-
+-(UIImage*) imageRepresentation;
 @end

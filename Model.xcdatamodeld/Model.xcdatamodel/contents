@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
+    <entity name="Schedule" representedClassName="ScheduleClaim" syncable="YES">
         <attribute name="accountNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="altphone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="installerID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="installerID" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="localschedulestatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newphotofilepath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="newreading" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newremoteid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newserial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsize" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oldphotofilepath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="oldSerial" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="oldSize" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo3filepath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="plumbingtime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prevRead" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="route" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduleDate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="scheduleID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheduleID" attributeType="String" syncable="YES"/>
         <attribute name="scheduleTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="signaturefilepath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="ScheduleClaim" representedClassName="ScheduleClaim" syncable="YES">
         <attribute name="accountNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -57,8 +67,8 @@
         <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Schedule" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Schedule" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ScheduleClaim" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ScheduleClaim" positionX="-945" positionY="228" width="128" height="465"/>
+        <element name="Session" positionX="-774" positionY="3" width="128" height="103"/>
+        <element name="Schedule" positionX="-774" positionY="477" width="128" height="463"/>
     </elements>
 </model>

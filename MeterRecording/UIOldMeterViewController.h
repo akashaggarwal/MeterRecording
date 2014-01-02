@@ -11,7 +11,7 @@
 
 #import "ScheduleClaim.h"
 
-@interface UIOldMeterViewController : UIBaseTableViewController <ZBarReaderDelegate>
+@interface UIOldMeterViewController : UIBaseTableViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnImage;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -23,6 +23,7 @@
 - (IBAction)scanSerial:(id)sender;
 
 - (IBAction)takePicture:(id)sender;
+
 
 
 @end

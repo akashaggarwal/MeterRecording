@@ -126,7 +126,7 @@ BOOL successful = NO;
         
         [[MeterApiClient sharedInstance] getPath:@"schedule" parameters:params
                                          success:^(AFHTTPRequestOperation *operation, id response) {
-                                             NSLog(@"Response: %@", response);
+                                             //NSLog(@"Response: %@", response);
                                              NSLog(@"SUCCESS IN FETCH");
                                              [SVProgressHUD  showWithStatus:@"Parsing and Loading Data"];
                                              NSMutableArray *results = [NSMutableArray array];
@@ -148,7 +148,7 @@ BOOL successful = NO;
                                                                                                          inManagedObjectContext:context];
                                                 s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]) ;
                                                  s.name =   NULL_TO_NIL([schedule valueForKey:@"Name"]) ;
-                                                 NSLog(@" name is %@, addres is %@", s.name, s.address);
+                                                // NSLog(@" name is %@, addres is %@", s.name, s.address);
                                                  
 
                                                  s.altphone =  NULL_TO_NIL([schedule valueForKey:@"AltPhone"]) ;

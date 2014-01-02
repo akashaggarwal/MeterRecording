@@ -2,8 +2,8 @@
 //  ScheduleClaim.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/28/13.
-//  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
+//  Created by Akash Aggarwal on 1/2/14.
+//  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
 #import "ScheduleClaim.h"
@@ -18,26 +18,26 @@
 @dynamic installerID;
 @dynamic latitude;
 @dynamic localschedulestatus;
+@dynamic longitude;
 @dynamic name;
+@dynamic newphotofilepath;
+@dynamic newreading;
+@dynamic newremoteid;
+@dynamic newserial;
+@dynamic newsize;
 @dynamic note;
+@dynamic oldphotofilepath;
 @dynamic oldSerial;
 @dynamic oldSize;
 @dynamic orderType;
 @dynamic phone;
+@dynamic photo3filepath;
+@dynamic plumbingtime;
 @dynamic prevRead;
 @dynamic route;
 @dynamic scheduleDate;
 @dynamic scheduleID;
 @dynamic scheduleTime;
-@dynamic longitude;
-@dynamic oldphotofilepath;
-@dynamic photo3filepath;
-@dynamic newserial;
-@dynamic newreading;
-@dynamic plumbingtime;
-@dynamic newremoteid;
-@dynamic newsize;
-@dynamic newphotofilepath;
 @dynamic signaturefilepath;
 
 @end

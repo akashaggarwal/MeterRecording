@@ -453,6 +453,27 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
     
     MyClaim *m = [MyClaim sharedContent];
    // [m resetClaim];
+//    ScheduleClaim *s = [[ScheduleClaim alloc] init];
+//    
+//    [s setAccountNumber:sch.accountNumber];
+//    s.address = sch.address;
+//    s.altphone = sch.altphone;
+//    s.city = sch.city;
+//    s.installerID = sch.installerID;
+//    s.latitude = sch.latitude;
+//    s.longitude = sch.longitude;
+//    s.name = sch.name;
+//    s.note = sch.note;
+//    s.oldSerial = sch.oldSerial;
+//    s.oldSize = sch.oldSize;
+//    s.orderType = sch.orderType;
+//    s.phone = sch.phone;
+//    s.prevRead = sch.prevRead;
+//    s.route = sch.route;
+//    s.scheduleDate = sch.scheduleDate;
+//    s.scheduleID = sch.scheduleID;
+//    s.scheduleTime = sch.scheduleTime;
+    
     m.claim = sch;
     NSString *destinationTitle = sch.name;
     [searchDetailViewController setTitle:destinationTitle];

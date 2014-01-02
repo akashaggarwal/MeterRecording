@@ -391,8 +391,22 @@ NISignaturePoint previousVertex;
 	CGDataProviderRelease(provider);
 	free(buffer);
 	free(buffer2);
-
+    self.myimage = myImage;
 	return myImage;
 }
 
+
+-(UIImage*) imageRepresentation {
+    
+    UIGraphicsBeginImageContext(self.bounds.size);
+    
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+    
+}
 @end

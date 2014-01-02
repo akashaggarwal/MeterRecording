@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA10AADD1875C7FD00117F71 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADC1875C7FD00117F71 /* ImageStore.m */; };
+		DA10AAE01875D66300117F71 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADF1875D66300117F71 /* Schedule.m */; };
+		DA10AAE31875F49100117F71 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AAE21875F49100117F71 /* Session.m */; };
+		DA10AAE91875F49200117F71 /* ScheduleClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AAE81875F49200117F71 /* ScheduleClaim.m */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
 		DA23E67F18269253000BD089 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67E18269253000BD089 /* UIKit.framework */; };
@@ -52,9 +56,6 @@
 		DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */; };
 		DAA9990018615DA400FCDBD1 /* MeterApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */; };
 		DAAFA3F1186F75340007B042 /* MyClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAFA3F0186F75340007B042 /* MyClaim.m */; };
-		DAAFA40C186F8BFE0007B042 /* ScheduleClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAFA40B186F8BFE0007B042 /* ScheduleClaim.m */; };
-		DAAFA40F186F8BFF0007B042 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAFA40E186F8BFF0007B042 /* Schedule.m */; };
-		DAAFA412186F8BFF0007B042 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAFA411186F8BFF0007B042 /* Session.m */; };
 		DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */; };
 		DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6764182B490800D85680 /* UIOldMeterViewController.m */; };
 		DABF6768182B491800D85680 /* UINewMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6767182B491800D85680 /* UINewMeterViewController.m */; };
@@ -89,6 +90,14 @@
 /* Begin PBXFileReference section */
 		6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		6C6F9A49F46142E78B1B1C80 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA10AADB1875C7FD00117F71 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
+		DA10AADC1875C7FD00117F71 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
+		DA10AADE1875D66300117F71 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		DA10AADF1875D66300117F71 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		DA10AAE11875F49100117F71 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		DA10AAE21875F49100117F71 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		DA10AAE71875F49200117F71 /* ScheduleClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleClaim.h; sourceTree = "<group>"; };
+		DA10AAE81875F49200117F71 /* ScheduleClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleClaim.m; sourceTree = "<group>"; };
 		DA23E67718269253000BD089 /* MeterRecording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeterRecording.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA23E67A18269253000BD089 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA23E67C18269253000BD089 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,12 +160,6 @@
 		DAA998FF18615DA400FCDBD1 /* MeterApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterApiClient.m; sourceTree = "<group>"; };
 		DAAFA3EF186F75340007B042 /* MyClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClaim.h; sourceTree = "<group>"; };
 		DAAFA3F0186F75340007B042 /* MyClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClaim.m; sourceTree = "<group>"; };
-		DAAFA40A186F8BFE0007B042 /* ScheduleClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleClaim.h; sourceTree = "<group>"; };
-		DAAFA40B186F8BFE0007B042 /* ScheduleClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleClaim.m; sourceTree = "<group>"; };
-		DAAFA40D186F8BFF0007B042 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
-		DAAFA40E186F8BFF0007B042 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
-		DAAFA410186F8BFF0007B042 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		DAAFA411186F8BFF0007B042 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		DABF6760182B436200D85680 /* UIScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScheduleDetailViewController.h; sourceTree = "<group>"; };
 		DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScheduleDetailViewController.m; sourceTree = "<group>"; };
 		DABF6763182B490800D85680 /* UIOldMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOldMeterViewController.h; sourceTree = "<group>"; };
@@ -381,13 +384,15 @@
 				DAAFA3F0186F75340007B042 /* MyClaim.m */,
 				DA23E6AB182692F3000BD089 /* AppContent.h */,
 				DA23E6AC182692F3000BD089 /* AppContent.m */,
+				DA10AAE71875F49200117F71 /* ScheduleClaim.h */,
+				DA10AAE81875F49200117F71 /* ScheduleClaim.m */,
 				DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */,
-				DAAFA40A186F8BFE0007B042 /* ScheduleClaim.h */,
-				DAAFA40B186F8BFE0007B042 /* ScheduleClaim.m */,
-				DAAFA40D186F8BFF0007B042 /* Schedule.h */,
-				DAAFA40E186F8BFF0007B042 /* Schedule.m */,
-				DAAFA410186F8BFF0007B042 /* Session.h */,
-				DAAFA411186F8BFF0007B042 /* Session.m */,
+				DA10AAE11875F49100117F71 /* Session.h */,
+				DA10AAE21875F49100117F71 /* Session.m */,
+				DA10AADE1875D66300117F71 /* Schedule.h */,
+				DA10AADF1875D66300117F71 /* Schedule.m */,
+				DA10AADB1875C7FD00117F71 /* ImageStore.h */,
+				DA10AADC1875C7FD00117F71 /* ImageStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -672,17 +677,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAAFA40C186F8BFE0007B042 /* ScheduleClaim.m in Sources */,
+				DA10AAE01875D66300117F71 /* Schedule.m in Sources */,
 				DA50CD30182BEDA600D7CD06 /* NISignatureView.m in Sources */,
 				DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */,
+				DA10AAE31875F49100117F71 /* Session.m in Sources */,
 				DAA9990018615DA400FCDBD1 /* MeterApiClient.m in Sources */,
 				DABF6768182B491800D85680 /* UINewMeterViewController.m in Sources */,
 				DABF676B182B492700D85680 /* UIPhoto3ViewController.m in Sources */,
 				DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */,
 				DAAFA3F1186F75340007B042 /* MyClaim.m in Sources */,
 				DA23E68B18269253000BD089 /* AppDelegate.m in Sources */,
-				DAAFA40F186F8BFF0007B042 /* Schedule.m in Sources */,
 				DA50CD3F182C3BBF00D7CD06 /* UIBaseTableViewController.m in Sources */,
+				DA10AADD1875C7FD00117F71 /* ImageStore.m in Sources */,
 				DA23E6C01826E077000BD089 /* ScheduleCell.m in Sources */,
 				DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */,
 				DA23E6AD182692F3000BD089 /* AppContent.m in Sources */,
@@ -692,7 +698,7 @@
 				DABF676E182B493400D85680 /* UISIgnatureViewController.m in Sources */,
 				DA50CD31182BEDA600D7CD06 /* NISignatureViewQuartz.m in Sources */,
 				DA23E68718269253000BD089 /* main.m in Sources */,
-				DAAFA412186F8BFF0007B042 /* Session.m in Sources */,
+				DA10AAE91875F49200117F71 /* ScheduleClaim.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

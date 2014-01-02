@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIBaseTableViewController.h"
 
-@interface UINewMeterViewController : UIBaseTableViewController
+@interface UINewMeterViewController : UIBaseTableViewController<UIImagePickerControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnImage;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *txtNewSerial;

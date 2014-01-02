@@ -2,8 +2,8 @@
 //  Schedule.h
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 12/28/13.
-//  Copyright (c) 2013 Akash Aggarwal. All rights reserved.
+//  Created by Akash Aggarwal on 1/2/14.
+//  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -30,5 +30,6 @@
 @property (nonatomic, retain) NSString * scheduleDate;
 @property (nonatomic, retain) NSString * scheduleID;
 @property (nonatomic, retain) NSString * scheduleTime;
+@property (nonatomic, retain) NSString * oldphotofilepath;
 
 @end

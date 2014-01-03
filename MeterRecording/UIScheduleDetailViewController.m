@@ -9,6 +9,7 @@
 #import "UIScheduleDetailViewController.h"
 #import "TestFlight.h"
 #import "UIOldMeterViewController.h"
+#import "ImageStore.h"
 
 @interface UIScheduleDetailViewController ()
 
@@ -28,11 +29,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.content = [AppContent sharedContent];
     [self resetlabels];
-     self.currentclaim = [MyClaim sharedContent];
+   
+}
+-(void) viewDidAppear:(BOOL)animated
+{
+    
+    self.currentclaim = [MyClaim sharedContent];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     if (self.currentclaim != nil)
@@ -50,11 +57,32 @@
         [self.oldsize setText:[self.currentclaim.claim  oldSize]];
         [self.ordertype setText:[self.currentclaim.claim  orderType]];
         [self.note setText:[self.currentclaim.claim  note]];
-        
+        [self.newserial setText:[self.currentclaim.claim newserial]];
+        [self.oldserial setText:[self.currentclaim.claim oldSerial]];
+        [self.newsize setText:[self.currentclaim.claim newsize]];
+        [self.oldsize setText:[self.currentclaim.claim oldSize]];
+        NSString *imageKey = self.currentclaim.claim.oldphotofilepath;
+        if (imageKey)
+        {
+            UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+            [self.imgViewOldPhoto setImage:imageToDisplay];
+        }
+        imageKey = self.currentclaim.claim.newphotofilepath;
+        if (imageKey)
+        {
+            UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+            [self.imgViewNewPhoto setImage:imageToDisplay];
+        }
+        imageKey = self.currentclaim.claim.signaturefilepath;
+        if (imageKey)
+        {
+            UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+            [self.imgViewSignature setImage:imageToDisplay];
+        }
         
     }
+    
 }
-
 -(void) resetlabels
 {
     [self.name setText:@""];
@@ -158,21 +186,67 @@
      }
 }
 
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"SKIP"])
+    {
+        NSLog(@"Skipped.");
+        
+        [self queueLocal];
+        
+        [TestFlight passCheckpoint:@"JOB SKIPPED"];
+        
+        
+    }
+    else if([title isEqualToString:@"COMPLETE"])
+    {
+        NSLog(@"COMPLETE");
+        [self queueLocal];
+        
+        [TestFlight passCheckpoint:@"JOB COMPLETE"];
+        
+    }
+    else
+    {
+        NSLog(@"Cancelled");
+    }
+}
 
+-(void) queueLocal
+{
+    ScheduleClaim *category1 = nil;
+    NSManagedObjectContext *context = [self.content managedObjectContext];
+    category1 = (ScheduleClaim *)[NSEntityDescription insertNewObjectForEntityForName:@"ScheduleClaim"
+                                                               inManagedObjectContext:context];
+    category1.accountNumber = self.currentclaim.claim.accountNumber;
+    category1.scheduleID= self.currentclaim.claim.scheduleID;
+    category1.scheduleDate= self.currentclaim.claim.scheduleDate;
+    category1.scheduleTime= self.currentclaim.claim.scheduleTime;
+    category1.claiminsertdatetime = [NSDate date];
+    category1.localschedulestatus = @"Q";
+    category1.name = self.currentclaim.claim.name;
+    category1.installerID = [self.content installerID];
+    bool b = [self.content saveChanges];
+    if (b)
+        NSLog(@"ScheduleClaim has been saved locally");
 
+    
+}
 - (IBAction)JobSkipped:(id)sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload to server?" message:@"Do you really want to skip this job?" delegate:self    cancelButtonTitle:@"Cancel"   otherButtonTitles:nil];
-     [alert addButtonWithTitle:@"OK"];
+     [alert addButtonWithTitle:@"SKIP"];
     // optional - add more buttons:
        [alert show];
     
-    [TestFlight passCheckpoint:@"JOB SKIPPED"];
+    
 }
 
 - (IBAction)JobCompleted:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload to server?" message:@"Do you really want to complete this job?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-     [alert addButtonWithTitle:@"Yes"];
+     [alert addButtonWithTitle:@"COMPLETE"];
     // optional - add more buttons:
     [alert show];
     

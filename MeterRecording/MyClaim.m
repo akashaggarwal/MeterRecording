@@ -29,10 +29,11 @@ ScheduleClaim *_claim;
     }
 }
 
--(void) resetClaim
-{
-    _claim = [[ScheduleClaim alloc] init];
-}
+//-(void) resetClaim
+//{
+//    singletonInstance = nil;
+//    _claim = [[ScheduleClaim alloc] init];
+//}
 
 
 @end

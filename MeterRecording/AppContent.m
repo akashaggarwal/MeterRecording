@@ -266,6 +266,7 @@ Session *_session;
     BOOL saveSuccessful = [_managedObjectContext save:&error];
     if (!saveSuccessful) {
         NSLog(@"An error occurred while saving data. Error: %@", [error localizedDescription]);
+         NSLog(@"An error occurred while saving data. Error: %@", [error userInfo]);
         [self showMessage:@"Error while saving" message:[error localizedDescription]];
     }
     return saveSuccessful;

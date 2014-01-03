@@ -13,6 +13,6 @@
 
 @property(strong, nonatomic) ScheduleClaim *claim;
 +(MyClaim *)sharedContent;
--(void) resetClaim;
-
+//-(void) resetClaim;
+//- (NSManagedObjectContext *)managedObjectContext ;
 @end

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ScheduleClaim.h"
 #import "MyClaim.h"
+#import "AppContent.h"
 
-@interface UIScheduleDetailViewController : UITableViewController
+
+@interface UIScheduleDetailViewController : UITableViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnCapture;
 @property (weak, nonatomic) IBOutlet UIButton *btnSkip;
 @property (weak, nonatomic) IBOutlet UIButton *btnComplete;
@@ -26,7 +28,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *oldsize;
 @property (weak, nonatomic) IBOutlet UILabel *ordertype;
 @property (weak, nonatomic) IBOutlet UILabel *note;
-
+@property (weak, nonatomic) IBOutlet UILabel *newserial;
+@property (weak, nonatomic) IBOutlet UILabel *newsize;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewOldPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewNewPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewSignature;
+@property (strong, nonatomic) AppContent *content;
 @property (weak, nonatomic) MyClaim *currentclaim;
 
 - (IBAction)JobSkipped:(id)sender;

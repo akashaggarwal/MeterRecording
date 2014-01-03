@@ -224,44 +224,44 @@
 
  */
 
-- (IBAction)accept:(id)sender {
-    NSLog(@"inside accept");
-    NISignatureView *v = (NISignatureView *)[self.view  viewWithTag:500];
-   //NISignatureView *v = self.signatureView;
-    UIImage *image = [v imageRepresentation];
-    //image = [v myimage];
-    
-    if (image != nil)
-    {
-        // Put that image onto the screen in our image view
-        // [self.imageView setImage:image];
-        //self.imagetaken = image;
-        // Create a CFUUID object - it knows how to create unique identifier strings
-        CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
-        // Create a string from unique identifier
-        CFStringRef newUniqueIDString =
-        CFUUIDCreateString (kCFAllocatorDefault, newUniqueID);
-        // Use that unique ID to set our item's imageKey
-        NSString *key = (__bridge NSString *)newUniqueIDString;
-        //[self setImageKey:key];
-        self.currentclaim.claim.signaturefilepath = key;
-        // Store image in the BNRImageStore with this key
-        [[ImageStore sharedStore] setImage:image
-                                    forKey:key];
-        CFRelease(newUniqueIDString);
-        CFRelease(newUniqueID);
-        NSLog(@"key is %@", key);
-
-    }
-
-}
-
-- (IBAction)clear:(id)sender {
-
-    NSLog(@"inside clear");
-    NISignatureView *v = (NISignatureView *)[self.view viewWithTag:500];
-    [v erase];
-}
+//- (IBAction)accept:(id)sender {
+//    NSLog(@"inside accept");
+//    NISignatureView *v = (NISignatureView *)[self.view  viewWithTag:500];
+//   //NISignatureView *v = self.signatureView;
+//    UIImage *image = [v imageRepresentation];
+//    //image = [v myimage];
+//    
+//    if (image != nil)
+//    {
+//        // Put that image onto the screen in our image view
+//        // [self.imageView setImage:image];
+//        //self.imagetaken = image;
+//        // Create a CFUUID object - it knows how to create unique identifier strings
+//        CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+//        // Create a string from unique identifier
+//        CFStringRef newUniqueIDString =
+//        CFUUIDCreateString (kCFAllocatorDefault, newUniqueID);
+//        // Use that unique ID to set our item's imageKey
+//        NSString *key = (__bridge NSString *)newUniqueIDString;
+//        //[self setImageKey:key];
+//        self.currentclaim.claim.signaturefilepath = key;
+//        // Store image in the BNRImageStore with this key
+//        [[ImageStore sharedStore] setImage:image
+//                                    forKey:key];
+//        CFRelease(newUniqueIDString);
+//        CFRelease(newUniqueID);
+//        NSLog(@"key is %@", key);
+//
+//    }
+//
+//}
+//
+//- (IBAction)clear:(id)sender {
+//
+//    NSLog(@"inside clear");
+//    NISignatureView *v = (NISignatureView *)[self.view viewWithTag:500];
+//    [v erase];
+//}
 
 
 - (IBAction)clearButtonAction:(id)sender {

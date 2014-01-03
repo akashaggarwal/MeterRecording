@@ -10,7 +10,6 @@
 		DA10AADD1875C7FD00117F71 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADC1875C7FD00117F71 /* ImageStore.m */; };
 		DA10AAE01875D66300117F71 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADF1875D66300117F71 /* Schedule.m */; };
 		DA10AAE31875F49100117F71 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AAE21875F49100117F71 /* Session.m */; };
-		DA10AAE91875F49200117F71 /* ScheduleClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AAE81875F49200117F71 /* ScheduleClaim.m */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
 		DA23E67F18269253000BD089 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67E18269253000BD089 /* UIKit.framework */; };
@@ -56,6 +55,7 @@
 		DA9EDF7B18762CE500A9445A /* t1_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7618762CE500A9445A /* t1_logo.png */; };
 		DA9EDF7F18762E4F00A9445A /* bluebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7D18762E4F00A9445A /* bluebutton.png */; };
 		DA9EDF8018762E4F00A9445A /* bluebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7E18762E4F00A9445A /* bluebutton@2x.png */; };
+		DA9EDF83187684CB00A9445A /* ScheduleClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9EDF82187684CB00A9445A /* ScheduleClaim.m */; };
 		DAA8B25018714DA40074AB41 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA8B24D18714DA40074AB41 /* libPods.a */; };
 		DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA998E41861364600FCDBD1 /* CoreData.framework */; };
 		DAA998E818613A6600FCDBD1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */; };
@@ -101,8 +101,6 @@
 		DA10AADF1875D66300117F71 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		DA10AAE11875F49100117F71 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		DA10AAE21875F49100117F71 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
-		DA10AAE71875F49200117F71 /* ScheduleClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleClaim.h; sourceTree = "<group>"; };
-		DA10AAE81875F49200117F71 /* ScheduleClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleClaim.m; sourceTree = "<group>"; };
 		DA23E67718269253000BD089 /* MeterRecording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeterRecording.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA23E67A18269253000BD089 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA23E67C18269253000BD089 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -164,6 +162,8 @@
 		DA9EDF7918762CE500A9445A /* T1SignaturePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1SignaturePoint.h; sourceTree = "<group>"; };
 		DA9EDF7D18762E4F00A9445A /* bluebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluebutton.png; path = ../MeterRecording/bluebutton.png; sourceTree = "<group>"; };
 		DA9EDF7E18762E4F00A9445A /* bluebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bluebutton@2x.png"; path = "../MeterRecording/bluebutton@2x.png"; sourceTree = "<group>"; };
+		DA9EDF81187684CB00A9445A /* ScheduleClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleClaim.h; sourceTree = "<group>"; };
+		DA9EDF82187684CB00A9445A /* ScheduleClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleClaim.m; sourceTree = "<group>"; };
 		DAA8B24B18714DA40074AB41 /* libPods-PonyDebugger.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PonyDebugger.a"; path = "Pods/build/Debug-iphoneos/libPods-PonyDebugger.a"; sourceTree = "<group>"; };
 		DAA8B24C18714DA40074AB41 /* libPods-SocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SocketRocket.a"; path = "Pods/build/Debug-iphoneos/libPods-SocketRocket.a"; sourceTree = "<group>"; };
 		DAA8B24D18714DA40074AB41 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -400,9 +400,9 @@
 				DAAFA3F0186F75340007B042 /* MyClaim.m */,
 				DA23E6AB182692F3000BD089 /* AppContent.h */,
 				DA23E6AC182692F3000BD089 /* AppContent.m */,
-				DA10AAE71875F49200117F71 /* ScheduleClaim.h */,
-				DA10AAE81875F49200117F71 /* ScheduleClaim.m */,
 				DAA998E618613A6600FCDBD1 /* Model.xcdatamodeld */,
+				DA9EDF81187684CB00A9445A /* ScheduleClaim.h */,
+				DA9EDF82187684CB00A9445A /* ScheduleClaim.m */,
 				DA10AAE11875F49100117F71 /* Session.h */,
 				DA10AAE21875F49100117F71 /* Session.m */,
 				DA10AADE1875D66300117F71 /* Schedule.h */,
@@ -740,7 +740,7 @@
 				DABF676E182B493400D85680 /* UISIgnatureViewController.m in Sources */,
 				DA50CD31182BEDA600D7CD06 /* NISignatureViewQuartz.m in Sources */,
 				DA23E68718269253000BD089 /* main.m in Sources */,
-				DA10AAE91875F49200117F71 /* ScheduleClaim.m in Sources */,
+				DA9EDF83187684CB00A9445A /* ScheduleClaim.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

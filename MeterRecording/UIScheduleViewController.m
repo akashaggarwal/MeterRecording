@@ -452,7 +452,7 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 {
     
     MyClaim *m = [MyClaim sharedContent];
-   // [m resetClaim];
+      // [m resetClaim];
 //    ScheduleClaim *s = [[ScheduleClaim alloc] init];
 //    
 //    [s setAccountNumber:sch.accountNumber];
@@ -475,7 +475,7 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 //    s.scheduleTime = sch.scheduleTime;
     
     m.claim = sch;
-    NSString *destinationTitle = sch.name;
+    NSString *destinationTitle = sch.name ;//[NSString stringWithFormat:@"%@\n%@\n%@", sch.name ,sch.address,sch.city];
     [searchDetailViewController setTitle:destinationTitle];
     //[searchDetailViewController setCurrentclaim:m];
 }

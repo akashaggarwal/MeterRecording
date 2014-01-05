@@ -154,16 +154,29 @@
 //    return self;
 //}
 //
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//
-//    // Uncomment the following line to preserve selection between presentations.
-//    // self.clearsSelectionOnViewWillAppear = NO;
-// 
-//    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+//    UITapGestureRecognizer* tapRecon = [[UITapGestureRecognizer alloc]
+//                                        initWithTarget:self action:@selector(navigationBarTap:)];
+//    tapRecon.numberOfTapsRequired = 1;
+//    [self.navigationController.navigationBar addGestureRecognizer:tapRecon];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)navigationBarTap:(UIGestureRecognizer*)recognizer {
+//    for (id view in self.view.subviews) {
+//        if ([view isKindOfClass:[UITextView class]] || [view isKindOfClass:[UITextField class]]) {
+//            [view resignFirstResponder];
+//        }
+//    }
+}
 //
 //- (void)didReceiveMemoryWarning
 //{

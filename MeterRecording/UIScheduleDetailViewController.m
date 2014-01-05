@@ -267,9 +267,12 @@
 //   
     
     
-    NSDictionary *params = @{
-                             @"deviceid" : @"1234"
-                             };
+//    NSDictionary *params = @{
+//                             @"deviceid" : @"1234"
+//                             };
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"1234",        @"deviceid", nil];
+
     NSData *oldphotodata = nil;
     NSData *newphotodata = nil;
     NSData *photo3photodata = nil;
@@ -296,7 +299,7 @@
         signaturedata = UIImageJPEGRepresentation(imageToDisplay, 1);
     }
     
-    NSURLRequest *postRequest = [[MeterApiClient sharedInstance] multipartFormRequestWithMethod:@"POST"
+    NSURLRequest *postRequest = [[MeterApiClient sharedInstance] multipartFormRequestWithMethod:@"post"
                                                                                       path:@"WorkOrder"
                                                                                 parameters:params
                                                                  constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -305,18 +308,17 @@
             //    [formData appendPartWithFileData:oldphotodata name:@"NewPhoto" fileName:@"newphoto.jpg" mimeType:@"image/jpeg"];
               //  [formData appendPartWithFileData:oldphotodata name:@"Photo3" fileName:@"photo3.jpg" mimeType:@"image/jpeg"];
               //  [formData appendPartWithFileData:oldphotodata name:@"Signature" fileName:@"signature.jpg" mimeType:@"image/jpeg"];
-                [formData appendPartWithFormData:@"1234" name:@"DeviceID"];
+                [formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];
               //  [formData appendPartWithFormData:self.currentclaim.claim.installerID name:@"InstallerID"];
-                                                                     
-                                                                     
                                                                      
                                                                      
                                                                  }];
     
-    AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:postRequest];
      [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         //CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
         //progressBlock(progress);
+          NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

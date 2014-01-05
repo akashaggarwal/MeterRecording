@@ -12,7 +12,7 @@
 #import "TestFlight.h"
 #import "MeterApiClient.h"
 #import "SVProgressHUD.h"
-
+#import <AFHTTPRequestOperationLogger.h>
 @implementation UILoginViewController
 
 
@@ -20,6 +20,7 @@ BOOL successful = NO;
 -(void) viewDidLoad
 {
      [super viewDidLoad];
+    [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] identifierForVendor]];
     [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
     [self getDeviceSpecs];
@@ -59,9 +60,10 @@ BOOL successful = NO;
     NSString *country = [locale localeIdentifier];
     NSString *appVersion = [[NSBundle mainBundle]
                             objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+    NSString *vendor = [[currentDevice identifierForVendor] UUIDString];
     NSString *deviceSpecs =
-    [NSString stringWithFormat:@"%@ - %@ - %@ - %@ - %@",
-     model, systemVersion, language, country, appVersion];
+    [NSString stringWithFormat:@"%@ - %@ - %@ - %@ - %@ - %@",
+     model, systemVersion, language, country, appVersion, vendor];
     NSLog(@"Device Specs --> %@",deviceSpecs);
     
 }

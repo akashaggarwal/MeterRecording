@@ -475,7 +475,7 @@
         <scene sceneID="Nw9-Rt-s1Z">
             <objects>
                 <tableViewController title="Old Meter Reading" id="jjd-3q-X9i" customClass="UIOldMeterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3wG-OZ-5U0">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3wG-OZ-5U0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -650,7 +650,7 @@
         <scene sceneID="oE2-eL-cWA">
             <objects>
                 <tableViewController title="New Meter Reading" id="BY5-sr-Gs5" customClass="UINewMeterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KZ7-ZQ-zfc">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KZ7-ZQ-zfc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.52830835480000005" green="0.7117740132" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -844,7 +844,7 @@
             </objects>
             <point key="canvasLocation" x="2347" y="412"/>
         </scene>
-        <!--Ignature View Controller - Item-->
+        <!--Ignature View Controller - Signature-->
         <scene sceneID="eEK-yd-EE8">
             <objects>
                 <viewController id="Bdk-aK-OGP" customClass="UISIgnatureViewController" sceneMemberID="viewController">
@@ -853,7 +853,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="h0y-Mc-WGn"/>
+                    <tabBarItem key="tabBarItem" title="Signature" id="h0y-Mc-WGn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3m-HO-P4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

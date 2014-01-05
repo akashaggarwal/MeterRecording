@@ -10,6 +10,9 @@
 #import "TestFlight.h"
 #import "UIOldMeterViewController.h"
 #import "ImageStore.h"
+#import "MeterApiClient.h"
+#import "AFNetworking.h"
+
 
 @interface UIScheduleDetailViewController ()
 
@@ -195,7 +198,7 @@
         NSLog(@"Skipped.");
         
         [self queueLocal];
-        
+        [self uploadtoServer];
         [TestFlight passCheckpoint:@"JOB SKIPPED"];
         
         
@@ -232,6 +235,112 @@
     if (b)
         NSLog(@"ScheduleClaim has been saved locally");
 
+    
+}
+
+-(void) uploadtoServer
+{
+    //make sure none of the parameters are nil, otherwise it will mess up our dictionary
+//    if (!self.currentclaim.claim.accountNumber) self.currentclaim.claim.accountNumber = @"";
+//    
+//   
+//    if (!self.currentclaim.claim.address) self.currentclaim.claim.address = @"";
+//    if (!self.currentclaim.claim.altphone ) self.currentclaim.claim.altphone = @"";
+//    if (!self.currentclaim.claim.city) self.currentclaim.claim.city = @"";
+// 
+//    if (!self.currentclaim.claim.latitude) self.currentclaim.claim.latitude = @"";
+//    if (!self.currentclaim.claim.longitude) self.currentclaim.claim.longitude = @"";
+//    if (!self.currentclaim.claim.name) self.currentclaim.claim.name = @"";
+//    if (!self.currentclaim.claim.newreading) self.currentclaim.claim.newreading = @"";
+//    if (!self.currentclaim.claim.newremoteid) self.currentclaim.claim.newremoteid = @"";
+//    if (!self.currentclaim.claim.newserial) self.currentclaim.claim.newserial = @"";
+//    if (!self.currentclaim.claim.newsize) self.currentclaim.claim.newsize = @"";
+//    if (!self.currentclaim.claim.note) self.currentclaim.claim.note = @"";
+//    if (!self.currentclaim.claim.oldSerial) self.currentclaim.claim.oldSerial = @"";
+//    if (!self.currentclaim.claim.oldSize) self.currentclaim.claim.oldSize = @"";
+//    if (!self.currentclaim.claim.orderType) self.currentclaim.claim.orderType = @"";
+//    if (!self.currentclaim.claim.phone) self.currentclaim.claim.phone = @"";
+//  
+//    if (!self.currentclaim.claim.plumbingtime) self.currentclaim.claim.plumbingtime = @"";
+//    if (!self.currentclaim.claim.prevRead) self.currentclaim.claim.prevRead = @"";
+//    if (!self.currentclaim.claim.route) self.currentclaim.claim.route = @"";
+//   
+    
+    
+    NSDictionary *params = @{
+                             @"deviceid" : @"1234"
+                             };
+    NSData *oldphotodata = nil;
+    NSData *newphotodata = nil;
+    NSData *photo3photodata = nil;
+    NSData *signaturedata = nil;
+
+    NSString *imageKey = self.currentclaim.claim.oldphotofilepath;
+        if (imageKey) {
+            UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+            oldphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+    }
+    imageKey = self.currentclaim.claim.newphotofilepath;
+    if (imageKey) {
+        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+        newphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+    }
+    imageKey = self.currentclaim.claim.photo3filepath;
+    if (imageKey) {
+        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+        photo3photodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+    }
+    imageKey = self.currentclaim.claim.signaturefilepath;
+    if (imageKey) {
+        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+        signaturedata = UIImageJPEGRepresentation(imageToDisplay, 1);
+    }
+    
+    NSURLRequest *postRequest = [[MeterApiClient sharedInstance] multipartFormRequestWithMethod:@"POST"
+                                                                                      path:@"WorkOrder"
+                                                                                parameters:params
+                                                                 constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+   
+               // [formData appendPartWithFileData:oldphotodata name:@"OldPhoto" fileName:@"oldphoto.jpg" mimeType:@"image/jpeg"];
+            //    [formData appendPartWithFileData:oldphotodata name:@"NewPhoto" fileName:@"newphoto.jpg" mimeType:@"image/jpeg"];
+              //  [formData appendPartWithFileData:oldphotodata name:@"Photo3" fileName:@"photo3.jpg" mimeType:@"image/jpeg"];
+              //  [formData appendPartWithFileData:oldphotodata name:@"Signature" fileName:@"signature.jpg" mimeType:@"image/jpeg"];
+                [formData appendPartWithFormData:@"1234" name:@"DeviceID"];
+              //  [formData appendPartWithFormData:self.currentclaim.claim.installerID name:@"InstallerID"];
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+                                                                 }];
+    
+    AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
+     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        //CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
+        //progressBlock(progress);
+    }];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSLog(@"Created, %@", responseObject);
+        if (operation.response.statusCode == 200 || operation.response.statusCode == 201) {
+            NSLog(@"Created, %@", responseObject);
+           // NSDictionary *updatedLatte = [responseObject objectForKey:@"latte"];
+            //[self updateFromJSON:updatedLatte];
+            //[self notifyCreated];
+            //completionBlock(YES, nil);
+        } else {
+           // completionBlock(NO, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //completionBlock(NO, error);
+         NSLog(@"Created, %@", error);
+         NSLog(@"Created, %@", [error userInfo]);
+    }];
+   // operation.SSLPinningMode = AFSSLPinningModeNone;
+    
+    //operation.securityPolicy.allowInvalidCertificates = YES;
+   // [operation start];
+    [[MeterApiClient sharedInstance] enqueueHTTPRequestOperation:operation];
+    
     
 }
 - (IBAction)JobSkipped:(id)sender {

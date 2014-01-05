@@ -45,7 +45,7 @@
 	CGFloat padding = self.view.frame.size.width / 15;
 	
 	// Make a view for the signature
-	UIView *autographView = [[UIView alloc] initWithFrame:CGRectMake(padding, 20, 280, 160)];
+	UIView *autographView = [[UIView alloc] initWithFrame:CGRectMake(padding, 20, 280, 260)];
 	
 	autographView.layer.borderColor  = [UIColor blackColor].CGColor;
 	autographView.layer.borderWidth  = 3;
@@ -105,7 +105,7 @@
 	
 	//	Demo buttons
 	UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[clearButton setFrame:CGRectMake(padding, 190, 130, 30)];
+	[clearButton setFrame:CGRectMake(padding, 290, 130, 30)];
 	[clearButton setTitle:@"Clear" forState:UIControlStateNormal];
 	[clearButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[clearButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
@@ -114,7 +114,7 @@
 	[self.view addSubview:clearButton];
 	
 	UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[doneButton setFrame:CGRectMake(150 + padding, 190, 130, 30)];
+	[doneButton setFrame:CGRectMake(150 + padding, 290, 130, 30)];
 	[doneButton setTitle:@"Done" forState:UIControlStateNormal];
 	[doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[doneButton.titleLabel setFont:[UIFont systemFontOfSize:16]];

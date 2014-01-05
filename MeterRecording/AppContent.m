@@ -272,4 +272,9 @@ Session *_session;
     return saveSuccessful;
 }
 
+
+-(NSString *) getDeviceID
+{
+    return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+}
 @end

@@ -29,4 +29,5 @@
 -(void) resetSession;
 -(void) purgeOldSessions;
 - (BOOL)saveChanges;
+-(NSString *) getDeviceID;
 @end

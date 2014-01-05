@@ -9,7 +9,9 @@
 #import "MeterApiClient.h"
 #import "AFNetworking.h"
 
-#define MetersAPIBaseURLString @"https://cincywebmobilesolutions.cloudapp.net/api"
+#define MetersAPIBaseURLString @"http://cincywebmobilesolutions.cloudapp.net/api"
+//#define MetersAPIBaseURLString @"https://workorders.neptuneequipment.com/api"
+
 #define MetersAPIToken @"1234abcd"
 
 @implementation MeterApiClient
@@ -30,12 +32,13 @@
         //custom settings
         [self setDefaultHeader:@"x-api-token" value:MetersAPIToken];
      //   #ifdef DEBUG
-            self.allowsInvalidSSLCertificate = true ;
+           self.allowsInvalidSSLCertificate = true ;
      //   #endif
         [self setDefaultHeader:@"Accept" value:@"application/json"];
          [self setDefaultHeader:@"Accept-Charset" value:@"utf-8"];
        // [self setDefaultHeader:@"Accept-Encoding" value:nil];
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        
     }
     
     return self;

@@ -20,6 +20,10 @@ BOOL successful = NO;
 -(void) viewDidLoad
 {
      [super viewDidLoad];
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] identifierForVendor]];
+    [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
+    [self getDeviceSpecs];
+    
     self.content = [AppContent sharedContent];
     
     self.txtInstallerID.delegate = self;
@@ -43,6 +47,24 @@ BOOL successful = NO;
 
 }
 
+
+-(void) getDeviceSpecs
+{
+    UIDevice *currentDevice = [UIDevice currentDevice];
+    NSString *model = [currentDevice model];
+    NSString *systemVersion = [currentDevice systemVersion];
+    NSArray *languageArray = [NSLocale preferredLanguages];
+    NSString *language = [languageArray objectAtIndex:0];
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *country = [locale localeIdentifier];
+    NSString *appVersion = [[NSBundle mainBundle]
+                            objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+    NSString *deviceSpecs =
+    [NSString stringWithFormat:@"%@ - %@ - %@ - %@ - %@",
+     model, systemVersion, language, country, appVersion];
+    NSLog(@"Device Specs --> %@",deviceSpecs);
+    
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
@@ -114,6 +136,8 @@ BOOL successful = NO;
 
 -(BOOL) performLogon
 {
+    NSString * deviceID = [self.content getDeviceID];
+    NSLog(@"your device id is %@", deviceID);
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             @"1234", @"deviceid",
                             [self.txtInstallerID text], @"installerid",
@@ -141,7 +165,7 @@ BOOL successful = NO;
                                              currentSession.installerID = [self.content installerID];
                                              currentSession.lastDateTime = [AppContent getCurrentDate];
                                              currentSession.sessionID = [AppContent GetUUID];
-                                             
+                                             bool bSessionFound = false;
                                              for (id schedule in response) {
                                                  Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
                                                       
@@ -167,13 +191,24 @@ BOOL successful = NO;
                                                  s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]) ;
                                                  s.accountNumber   = NULL_TO_NIL([schedule valueForKey:@"accountNumber"]) ;
                                                  s.installerID = [self.content installerID];
+                                                 bSessionFound = true;
                                                  [currentSession addSchedulesObject:s];
                                                 
                                                  
                                              }
-                                             if ([self.content saveChanges])
+                                             
+                                             if (!bSessionFound)
                                              {
-                                                 [self performSegueWithIdentifier:@"Login" sender:self];
+                                                 [context rollback];
+                                                 [self.content showMessage:@"No Schedules Found" message:@"There are no schedules"];
+
+                                             }
+                                             else
+                                             {
+                                                 if ([self.content saveChanges])
+                                                 {
+                                                     [self performSegueWithIdentifier:@"Login" sender:self];
+                                                 }
                                              }
                                              [SVProgressHUD dismiss];
                                              

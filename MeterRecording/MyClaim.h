@@ -15,4 +15,9 @@
 +(MyClaim *)sharedContent;
 //-(void) resetClaim;
 //- (NSManagedObjectContext *)managedObjectContext ;
+@property(strong, nonatomic) NSString *submitType;
+
+- (void)saveWithProgress:(void (^)(CGFloat progress))progressBlock completion:(void (^)(BOOL success, NSError *error))completionBlock;
+- (void)saveWithCompletion:(void (^)(BOOL success, NSError *error))completionBlock;
+
 @end

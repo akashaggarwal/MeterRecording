@@ -233,6 +233,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         // Use that unique ID to set our item's imageKey
         NSString *key = (__bridge NSString *)newUniqueIDString;
         //[self setImageKey:key];
+         key = [NSString stringWithFormat:@"%@_%@",self.currentclaim.claim.scheduleID , key];
         self.currentclaim.claim.oldphotofilepath = key;
         // Store image in the BNRImageStore with this key
         [[ImageStore sharedStore] setImage:image

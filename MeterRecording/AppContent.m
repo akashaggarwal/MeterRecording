@@ -277,4 +277,7 @@ Session *_session;
 {
     return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 }
+
+
+
 @end

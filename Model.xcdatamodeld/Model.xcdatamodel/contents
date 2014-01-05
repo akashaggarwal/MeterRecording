@@ -36,6 +36,7 @@
         <attribute name="altphone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="claiminsertdatetime" attributeType="Date" syncable="YES"/>
+        <attribute name="claimupdatedatetime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="installerID" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="localschedulestatus" attributeType="String" syncable="YES"/>
@@ -60,6 +61,7 @@
         <attribute name="scheduleID" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="scheduleTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="signaturefilepath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="submittype" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="installerID" attributeType="String" indexed="YES" syncable="YES"/>
@@ -68,8 +70,8 @@
         <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Schedule" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Schedule" positionX="-774" positionY="477" width="128" height="463"/>
-        <element name="ScheduleClaim" positionX="-945" positionY="228" width="128" height="478"/>
-        <element name="Session" positionX="-774" positionY="3" width="128" height="103"/>
+        <element name="Schedule" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ScheduleClaim" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

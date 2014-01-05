@@ -2,7 +2,7 @@
 //  ScheduleClaim.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 1/3/14.
+//  Created by Akash Aggarwal on 1/5/14.
 //  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @dynamic address;
 @dynamic altphone;
 @dynamic city;
+@dynamic claiminsertdatetime;
 @dynamic installerID;
 @dynamic latitude;
 @dynamic localschedulestatus;
@@ -39,6 +40,7 @@
 @dynamic scheduleID;
 @dynamic scheduleTime;
 @dynamic signaturefilepath;
-@dynamic claiminsertdatetime;
+@dynamic claimupdatedatetime;
+@dynamic submittype;
 
 @end

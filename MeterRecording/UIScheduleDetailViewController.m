@@ -12,7 +12,8 @@
 #import "ImageStore.h"
 #import "MeterApiClient.h"
 #import "AFNetworking.h"
-
+#import "BLProgressView.h"
+#import "SVProgressHUD.h"
 
 @interface UIScheduleDetailViewController ()
 
@@ -191,24 +192,36 @@
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    [self.view endEditing:YES];
     
+
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if([title isEqualToString:@"SKIP"])
     {
+       
         NSLog(@"Skipped.");
-        
         [self queueLocal];
-        [self uploadtoServer];
-        [TestFlight passCheckpoint:@"JOB SKIPPED"];
+        self.currentclaim.submitType = @"S";
+          NSLog(@"QUEUED LOCALLY");
+        [self uploadtoServer:@"S"];
+          NSLog(@"UPLOADED TO SERVER AS SKIPPED");
+//        [self updateLocal];
+//        NSLog(@"UPDATED LOCAL DB AS COMPLETE");
+
+       // [TestFlight passCheckpoint:@"JOB SKIPPED"];
         
         
     }
     else if([title isEqualToString:@"COMPLETE"])
     {
-        NSLog(@"COMPLETE");
+    self.currentclaim.submitType = @"C";
         [self queueLocal];
-        
-        [TestFlight passCheckpoint:@"JOB COMPLETE"];
+            NSLog(@"QUEUED LOCALLY");
+         [self uploadtoServer:@"C"];
+          NSLog(@"UPLODED TO SERVER AS COMPLETE");
+//          [self updateLocal];
+//          NSLog(@"UPDATED LOCAL DB AS COMPLETE");
+       // [TestFlight passCheckpoint:@"JOB COMPLETE"];
         
     }
     else
@@ -221,26 +234,138 @@
 {
     ScheduleClaim *category1 = nil;
     NSManagedObjectContext *context = [self.content managedObjectContext];
-    category1 = (ScheduleClaim *)[NSEntityDescription insertNewObjectForEntityForName:@"ScheduleClaim"
-                                                               inManagedObjectContext:context];
-    category1.accountNumber = self.currentclaim.claim.accountNumber;
-    category1.scheduleID= self.currentclaim.claim.scheduleID;
-    category1.scheduleDate= self.currentclaim.claim.scheduleDate;
-    category1.scheduleTime= self.currentclaim.claim.scheduleTime;
-    category1.claiminsertdatetime = [NSDate date];
-    category1.localschedulestatus = @"Q";
-    category1.name = self.currentclaim.claim.name;
-    category1.installerID = [self.content installerID];
-    bool b = [self.content saveChanges];
-    if (b)
-        NSLog(@"ScheduleClaim has been saved locally");
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ScheduleClaim"
+                                              inManagedObjectContext:context];
+    request.entity = entity;
+    //self.currentclaim = [MyClaim sharedContent];
+    
+    // not using and LocalScheduleStatus because they could update completed claim too
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"scheduleID == %@ AND installerID == %@ ",self.currentclaim.claim.scheduleID, self.currentclaim.claim.installerID];
+    
+    
+   // NSPredicate *p = [NSPredicate predicateWithFormat:@"scheduleID == %@ AND installerID == %@ AND localschedulestatus == 'Q'",self.currentclaim.claim.scheduleID, self.currentclaim.claim.installerID];
+        request.predicate = p;
+    NSError *err = nil;
+    NSArray *listOfObjects = [context executeFetchRequest:request
+                                                    error:&err];
+    NSLog(@"errors are %@",[err localizedDescription]);
+    // if no records queued or
+    if (listOfObjects == nil || [listOfObjects count] == 0 )
+    {
+        NSLog(@"no queued claims ");
+        category1 = (ScheduleClaim *)[NSEntityDescription insertNewObjectForEntityForName:@"ScheduleClaim"
+                                                                   inManagedObjectContext:context];
+        category1.accountNumber = self.currentclaim.claim.accountNumber;
+        category1.scheduleID= self.currentclaim.claim.scheduleID;
+        category1.scheduleDate= self.currentclaim.claim.scheduleDate;
+        category1.scheduleTime= self.currentclaim.claim.scheduleTime;
+        category1.claiminsertdatetime = [NSDate date];
+        category1.claimupdatedatetime = [NSDate date];
+        category1.localschedulestatus = @"Q";
+        category1.name = self.currentclaim.claim.name;
+        category1.installerID = [self.content installerID];
+        bool b = [self.content saveChanges];
+        if (b)
+            NSLog(@"ScheduleClaim has been saved locally");
+    }
+    else if ( [listOfObjects count] == 1)
+    {
+        
+        category1 = [listOfObjects lastObject];
+        NSLog(@" local status of existing claim found is %@", [category1 localschedulestatus]);
+        category1.accountNumber = self.currentclaim.claim.accountNumber;
+        category1.scheduleID= self.currentclaim.claim.scheduleID;
+        category1.scheduleDate= self.currentclaim.claim.scheduleDate;
+        category1.scheduleTime= self.currentclaim.claim.scheduleTime;
+        category1.claiminsertdatetime = [NSDate date];
+        category1.claimupdatedatetime = [NSDate date];
+        category1.localschedulestatus = @"Q";
+        category1.name = self.currentclaim.claim.name;
+        category1.installerID = [self.content installerID];
+        bool b = [self.content saveChanges];
+        if (b)
+            NSLog(@"ScheduleClaim has been saved locally");
+        
+        
+    }
+    else
+    {
+        
+        NSLog(@" should not have come here , multiple records found, investigate issue");
+        abort();
+    }
+    
+    
+    
+
 
     
 }
 
--(void) uploadtoServer
+-(void) updateLocal
 {
-    //make sure none of the parameters are nil, otherwise it will mess up our dictionary
+    ScheduleClaim *category1 = nil;
+    NSManagedObjectContext *context = [self.content managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ScheduleClaim"
+                                              inManagedObjectContext:context];
+    request.entity = entity;
+    //self.currentclaim = [MyClaim sharedContent];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"scheduleID == %@ AND installerID == %@ AND localschedulestatus == 'Q'",self.currentclaim.claim.scheduleID, self.currentclaim.claim.installerID];
+    
+    // NSPredicate *p = [NSPredicate predicateWithFormat:@"installerID contains %@ AND lastDateTime contains '%@'", self.installerID, currentDate];
+    //A
+    request.predicate = p;
+    NSError *err = nil;
+    NSArray *listOfObjects = [context executeFetchRequest:request
+                                                    error:&err];
+    NSLog(@"errors are %@",[err localizedDescription]);
+    if (listOfObjects == nil)
+    {
+        NSLog(@"no queued claims this should not have happened because local record should have been created");
+        abort();
+    }
+    else
+    {
+        category1 = [listOfObjects lastObject];
+        category1.localschedulestatus = @"C";
+        category1.claimupdatedatetime = [NSDate date];
+        bool b = [self.content saveChanges];
+        if (b)
+            NSLog(@"ScheduleClaim has been saved locally");
+        
+    }
+
+    
+    
+}
+-(void) uploadtoServer: (NSString *) submitType
+{
+    
+    [SVProgressHUD  showWithStatus:@"Uploading data to server, Please wait depending on size of images and network connectivity this might take a minute or two"];
+      BLProgressView *progressView = [BLProgressView presentInWindow:self.view.window];
+   // self.currentclaim.claim.submittype = submitType;
+    
+    // save it
+    [self.currentclaim saveWithProgress:^(CGFloat progress) {
+        [progressView setProgress:progress];
+    } completion:^(BOOL success, NSError *error) {
+        [progressView dismiss];
+        [SVProgressHUD  dismiss];
+        if (success) {
+            [self updateLocal];
+            [self.content showMessage:@"Success" message:@"Your data has been successfully uploaded"];
+                       //[self.navigationController popViewControllerAnimated:YES];
+        } else {
+            NSLog(@"ERROR: %@", error);
+            [self.content showMessage:@"Error" message:[error localizedDescription]];
+
+        }
+    }];
+
+//    //make sure none of the parameters are nil, otherwise it will mess up our dictionary
 //    if (!self.currentclaim.claim.accountNumber) self.currentclaim.claim.accountNumber = @"";
 //    
 //   
@@ -248,8 +373,8 @@
 //    if (!self.currentclaim.claim.altphone ) self.currentclaim.claim.altphone = @"";
 //    if (!self.currentclaim.claim.city) self.currentclaim.claim.city = @"";
 // 
-//    if (!self.currentclaim.claim.latitude) self.currentclaim.claim.latitude = @"";
-//    if (!self.currentclaim.claim.longitude) self.currentclaim.claim.longitude = @"";
+//    //if (!self.currentclaim.claim.latitude) self.currentclaim.claim.latitude = @"";
+//    //if (!self.currentclaim.claim.longitude) self.currentclaim.claim.longitude = @"";
 //    if (!self.currentclaim.claim.name) self.currentclaim.claim.name = @"";
 //    if (!self.currentclaim.claim.newreading) self.currentclaim.claim.newreading = @"";
 //    if (!self.currentclaim.claim.newremoteid) self.currentclaim.claim.newremoteid = @"";
@@ -265,83 +390,114 @@
 //    if (!self.currentclaim.claim.prevRead) self.currentclaim.claim.prevRead = @"";
 //    if (!self.currentclaim.claim.route) self.currentclaim.claim.route = @"";
 //   
-    
-    
-//    NSDictionary *params = @{
-//                             @"deviceid" : @"1234"
-//                             };
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"1234",        @"deviceid", nil];
-
-    NSData *oldphotodata = nil;
-    NSData *newphotodata = nil;
-    NSData *photo3photodata = nil;
-    NSData *signaturedata = nil;
-
-    NSString *imageKey = self.currentclaim.claim.oldphotofilepath;
-        if (imageKey) {
-            UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-            oldphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
-    }
-    imageKey = self.currentclaim.claim.newphotofilepath;
-    if (imageKey) {
-        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        newphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
-    }
-    imageKey = self.currentclaim.claim.photo3filepath;
-    if (imageKey) {
-        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        photo3photodata = UIImageJPEGRepresentation(imageToDisplay, 1);
-    }
-    imageKey = self.currentclaim.claim.signaturefilepath;
-    if (imageKey) {
-        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        signaturedata = UIImageJPEGRepresentation(imageToDisplay, 1);
-    }
-    
-    NSURLRequest *postRequest = [[MeterApiClient sharedInstance] multipartFormRequestWithMethod:@"post"
-                                                                                      path:@"WorkOrder"
-                                                                                parameters:params
-                                                                 constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-   
-               // [formData appendPartWithFileData:oldphotodata name:@"OldPhoto" fileName:@"oldphoto.jpg" mimeType:@"image/jpeg"];
-            //    [formData appendPartWithFileData:oldphotodata name:@"NewPhoto" fileName:@"newphoto.jpg" mimeType:@"image/jpeg"];
-              //  [formData appendPartWithFileData:oldphotodata name:@"Photo3" fileName:@"photo3.jpg" mimeType:@"image/jpeg"];
-              //  [formData appendPartWithFileData:oldphotodata name:@"Signature" fileName:@"signature.jpg" mimeType:@"image/jpeg"];
-                [formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];
-              //  [formData appendPartWithFormData:self.currentclaim.claim.installerID name:@"InstallerID"];
-                                                                     
-                                                                     
-                                                                 }];
-    
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:postRequest];
-     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        //CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
-        //progressBlock(progress);
-          NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
-    }];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@"Created, %@", responseObject);
-        if (operation.response.statusCode == 200 || operation.response.statusCode == 201) {
-            NSLog(@"Created, %@", responseObject);
-           // NSDictionary *updatedLatte = [responseObject objectForKey:@"latte"];
-            //[self updateFromJSON:updatedLatte];
-            //[self notifyCreated];
-            //completionBlock(YES, nil);
-        } else {
-           // completionBlock(NO, nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //completionBlock(NO, error);
-         NSLog(@"Created, %@", error);
-         NSLog(@"Created, %@", [error userInfo]);
-    }];
-   // operation.SSLPinningMode = AFSSLPinningModeNone;
-    
-    //operation.securityPolicy.allowInvalidCertificates = YES;
-   // [operation start];
-    [[MeterApiClient sharedInstance] enqueueHTTPRequestOperation:operation];
+//    
+//    
+////    NSDictionary *params = @{
+////                             @"deviceid" : @"1234"
+////                             };
+//    
+//   // NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"1234",        @"deviceid", nil];
+//
+//    NSData *oldphotodata = nil;
+//    NSData *newphotodata = nil;
+//    NSData *photo3photodata = nil;
+//    NSData *signaturedata = nil;
+//
+//    NSString *imageKey = self.currentclaim.claim.oldphotofilepath;
+//        if (imageKey) {
+//            UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+//            oldphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+//    }
+//    imageKey = self.currentclaim.claim.newphotofilepath;
+//    if (imageKey) {
+//        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+//        newphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+//    }
+//    imageKey = self.currentclaim.claim.photo3filepath;
+//    if (imageKey) {
+//        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+//        photo3photodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+//    }
+//    imageKey = self.currentclaim.claim.signaturefilepath;
+//    if (imageKey) {
+//        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+//        signaturedata = UIImageJPEGRepresentation(imageToDisplay, 1);
+//    }
+//    
+//    NSURLRequest *postRequest = [[MeterApiClient sharedInstance] multipartFormRequestWithMethod:@"post"
+//                                                                                      path:@"WorkOrder"
+//                                                                                parameters:nil
+//                                                                 constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//                                                                     
+//                if (self.currentclaim.claim.oldphotofilepath)
+//                    [formData appendPartWithFileData:oldphotodata name:@"OldPhoto" fileName:self.currentclaim.claim.oldphotofilepath mimeType:@"image/jpeg"];
+//                if (self.currentclaim.claim.newphotofilepath)
+//                    [formData appendPartWithFileData:oldphotodata name:@"NewPhoto" fileName:self.currentclaim.claim.newphotofilepath mimeType:@"image/jpeg"];
+//                if (self.currentclaim.claim.photo3filepath)
+//                    [formData appendPartWithFileData:oldphotodata name:@"Photo3" fileName:self.currentclaim.claim.photo3filepath mimeType:@"image/jpeg"];
+//                if (self.currentclaim.claim.signaturefilepath)
+//                    [formData appendPartWithFileData:oldphotodata name:@"SignaturePhoto" fileName:self.currentclaim.claim.signaturefilepath mimeType:@"image/jpeg"];
+//                                                                     
+//                                                                     
+//                [formData appendPartWithFormData:[[self.content getDeviceID] dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.installerID dataUsingEncoding:NSUTF8StringEncoding] name:@"installerID"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.newserial dataUsingEncoding:NSUTF8StringEncoding] name:@"NewSerial"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.oldSerial dataUsingEncoding:NSUTF8StringEncoding] name:@"CorrectSerial"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.prevRead dataUsingEncoding:NSUTF8StringEncoding] name:@"PrevRead"];
+//                //[formData appendPartWithFormData:[self.currentclaim.claim.o dataUsingEncoding:NSUTF8StringEncoding] name:@"OldRead"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.newreading dataUsingEncoding:NSUTF8StringEncoding] name:@"NewRead"];
+//                //[formData appendPartWithFormData:[self.currentclaim.claim dataUsingEncoding:NSUTF8StringEncoding] name:@"AltRead"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.plumbingtime dataUsingEncoding:NSUTF8StringEncoding] name:@"PlumbingTime"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.oldSize dataUsingEncoding:NSUTF8StringEncoding] name:@"OldSize"];
+//                [formData appendPartWithFormData:[self.currentclaim.claim.newsize dataUsingEncoding:NSUTF8StringEncoding] name:@"NewSize"];
+//                //[formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"SkipReason"];
+//                if ([submitType compare:@"S"])
+//                {
+//                    [formData appendPartWithFormData:[@"0" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobComplete"];
+//                    [formData appendPartWithFormData:[@"1" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobSkipped"];
+//                    
+//                }
+//                if ([submitType compare:@"C"])
+//                {
+//                    [formData appendPartWithFormData:[@"1" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobComplete"];
+//                    [formData appendPartWithFormData:[@"0" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobSkipped"];
+//                }
+//                                                                     //[formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"CompoundMeter"];
+//                //[formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];
+//                                                             
+//                                                                     
+//                                                                     
+//                                                                     
+//                                                                 }];
+//    
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:postRequest];
+//     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+//        //CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
+//        //progressBlock(progress);
+//          NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+//    }];
+//    
+//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//         NSLog(@"Created, %@", responseObject);
+//        if (operation.response.statusCode == 200 || operation.response.statusCode == 201) {
+//            NSLog(@"Created, %@", responseObject);
+//           // NSDictionary *updatedLatte = [responseObject objectForKey:@"latte"];
+//            //[self updateFromJSON:updatedLatte];
+//            //[self notifyCreated];
+//            //completionBlock(YES, nil);
+//        } else {
+//           // completionBlock(NO, nil);
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        //completionBlock(NO, error);
+//         NSLog(@"Created, %@", error);
+//         NSLog(@"Created, %@", [error userInfo]);
+//    }];
+//   // operation.SSLPinningMode = AFSSLPinningModeNone;
+//    
+//    //operation.securityPolicy.allowInvalidCertificates = YES;
+//   // [operation start];
+//    [[MeterApiClient sharedInstance] enqueueHTTPRequestOperation:operation];
     
     
 }

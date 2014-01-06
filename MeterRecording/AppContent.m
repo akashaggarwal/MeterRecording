@@ -8,6 +8,8 @@
 
 #import "AppContent.h"
 #import <CoreData/CoreData.h>
+#import <AdSupport/ASIdentifierManager.h>
+#import "MBProgressHUD.h"
 
 @interface AppContent() {
     
@@ -80,7 +82,21 @@ Session *_session;
 
 }
 
-
+-(void) showHUDMessage: (NSString *)s view:(UIView *) v
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:v animated:YES];
+    
+    // Configure for text only and offset down
+    hud.mode = MBProgressHUDModeText;
+    //hud.detailsLabelFont = [UIFont smallSystemFontSize];
+    hud.detailsLabelText = s;
+    hud.margin = 10.f;
+    hud.yOffset = 150.f;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    [hud hide:YES afterDelay:5];
+    
+}
 -(Session*) session
 {
     NSLog(@"inside session fetch");
@@ -275,7 +291,7 @@ Session *_session;
 
 -(NSString *) getDeviceID
 {
-    return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 }
 
 

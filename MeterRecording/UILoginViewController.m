@@ -13,6 +13,9 @@
 #import "MeterApiClient.h"
 #import "SVProgressHUD.h"
 #import <AFHTTPRequestOperationLogger.h>
+
+
+
 @implementation UILoginViewController
 
 
@@ -20,8 +23,17 @@ BOOL successful = NO;
 -(void) viewDidLoad
 {
      [super viewDidLoad];
+    [self.imgHeader setUserInteractionEnabled:YES];
+   // UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showDeviceID:)];
+    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showDeviceID:)];
+    [recognizer setNumberOfTouchesRequired:1];
+   
+    [self.imgHeader addGestureRecognizer:recognizer];
+    
+    
     [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] identifierForVendor]];
+    NSString *adId = [self.content getDeviceID];
+    [TestFlight setDeviceIdentifier:adId];
     [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
     [self getDeviceSpecs];
     
@@ -61,9 +73,10 @@ BOOL successful = NO;
     NSString *appVersion = [[NSBundle mainBundle]
                             objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
     NSString *vendor = [[currentDevice identifierForVendor] UUIDString];
+    NSString *adId = [self.content getDeviceID];
     NSString *deviceSpecs =
-    [NSString stringWithFormat:@"%@ - %@ - %@ - %@ - %@ - %@",
-     model, systemVersion, language, country, appVersion, vendor];
+    [NSString stringWithFormat:@"%@ - %@ - %@ - %@ - %@ - %@ - %@" ,
+     model, systemVersion, language, country, appVersion, vendor, adId];
     NSLog(@"Device Specs --> %@",deviceSpecs);
     
 }
@@ -109,6 +122,15 @@ BOOL successful = NO;
     [self performLogon];
 
     
+}
+
+- (void)showDeviceID: (UISwipeGestureRecognizer*)gestureRecognizer {
+    NSLog(@"device id shown->%@", [self.content getDeviceID]);
+    [self.content showHUDMessage:[self.content getDeviceID] view:self.navigationController.view];
+
+//    MBProgressHUD *hud = [[MBProgressHUD alloc] init];
+//    [hud setLabelText:[self.content getDeviceID]];
+//    [hud show:true];
 }
 
 -(IBAction)closeKeyboard:(id)sender

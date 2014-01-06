@@ -69,12 +69,26 @@ ScheduleClaim *_claim;
     if (!self.claim.prevRead) self.claim.prevRead = @"";
     if (!self.claim.route) self.claim.route = @"";
     
-    NSLog(@"**** Logging the data**** ");
+    NSLog(@"**** Logging the data STARTS**** ");
     NSLog(@"new serial ->%@",self.claim.newserial);
+     NSLog(@"old serial ->%@",self.claim.oldSerial);
     NSLog(@"new size ->%@",self.claim.newsize);
-    NSLog(@"plumbing time->%@",self.claim.plumbingtime);
-    NSLog(@"old serial ->%@",self.claim.oldSerial);
+  
+   
     NSLog(@"old size ->%@",self.claim.oldSize);
+      NSLog(@"plumbing time->%@",self.claim.plumbingtime);
+    NSLog(@"new serial ->%@",self.claim.oldphotofilepath);
+    NSLog(@"new serial ->%@",self.claim.newphotofilepath);
+    NSLog(@"new serial ->%@",self.claim.photo3filepath);
+    NSLog(@"new serial ->%@",self.claim.signaturefilepath);
+    
+    NSLog(@"new serial ->%@",self.claim.prevRead);
+    NSLog(@"new serial ->%@",self.claim.newreading);
+
+    NSLog(@"new serial ->%@",self.claim.signaturefilepath);
+    
+    NSLog(@"**** Logging the data ENDS**** ");
+    
     
     //    NSDictionary *params = @{
     //                             @"deviceid" : @"1234"

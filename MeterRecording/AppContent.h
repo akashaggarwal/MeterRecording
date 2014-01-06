@@ -30,7 +30,7 @@
 -(void) purgeOldSessions;
 - (BOOL)saveChanges;
 -(NSString *) getDeviceID;
-
+-(void) showHUDMessage: (NSString *)s view:(UIView *) v;
 
 
 @end

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) AppContent *content;
 - (IBAction)showSchedule:(id)sender;
 
+- (void)showDeviceID :(UILongPressGestureRecognizer*)gestureRecognizer;
 -(IBAction)closeKeyboard:(id)sender;
 -(BOOL) performLogon;
 @end

@@ -33,6 +33,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="technician-reading-water-meter-28438611.jpg" id="lR9-6A-d9n">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="232"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.52830835480308602" green="0.71177401323807588" blue="1" alpha="1" colorSpace="calibratedRGB"/>

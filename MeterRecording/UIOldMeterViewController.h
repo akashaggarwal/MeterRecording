@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIBaseTableViewController.h"
 
-#import "ScheduleClaim.h"
+#import "Schedule.h"
 
 @interface UIOldMeterViewController : UIBaseTableViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate>
 

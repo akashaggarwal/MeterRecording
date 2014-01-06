@@ -20,44 +20,50 @@
 
 
 BOOL successful = NO;
+
+
 -(void) viewDidLoad
 {
-     [super viewDidLoad];
-    [self.imgHeader setUserInteractionEnabled:YES];
-   // UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showDeviceID:)];
-    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showDeviceID:)];
-    [recognizer setNumberOfTouchesRequired:1];
-   
-    [self.imgHeader addGestureRecognizer:recognizer];
+    [super viewDidLoad];
     
+    [self setupGesture];
     
     [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
-    NSString *adId = [self.content getDeviceID];
-    [TestFlight setDeviceIdentifier:adId];
-    [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
+    [self setupTestFlight];
     [self getDeviceSpecs];
     
     self.content = [AppContent sharedContent];
     
     self.txtInstallerID.delegate = self;
     
-//       for( int i=1;i< 10;i++)
-//    {
-//         Schedule* s = [self getDummySchedule:i];
-//        [self.content.session addSchedulesObject:s];
-//    }
-       // NSLog(@"%d schedules",[self.content.session.schedules count]);
-    
-  
-//    
-//    self.content.schedules = [[NSMutableArray init] alloc];
-//    [self.content.schedules addObject:[self getDummySchedule:1]];
-//    [self.content.schedules addObject:[self getDummySchedule:2]];
-//    [self.content.schedules addObject:[self getDummySchedule:3]];
-//    [self.content.schedules addObject:[self getDummySchedule:4]];
-//
-//    NSLog(@"%d schedules",[self.content.schedules count]);
 
+}
+
+-(void) dismissKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
+- (void)setupGesture
+{
+    [self.imgHeader setUserInteractionEnabled:YES];
+
+    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showDeviceID:)];
+    [recognizer setNumberOfTouchesRequired:1];
+    
+    [self.imgHeader addGestureRecognizer:recognizer];
+    
+    
+    UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [tapBackground setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:tapBackground];
+}
+
+- (void)setupTestFlight
+{
+    NSString *adId = [self.content getDeviceID];
+    [TestFlight setDeviceIdentifier:adId];
+    [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
 }
 
 
@@ -84,9 +90,7 @@ BOOL successful = NO;
     [textField resignFirstResponder];
     return YES;
 }
-//(void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-//
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
+
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField
 {
@@ -113,7 +117,7 @@ BOOL successful = NO;
     NSLog(@"installerid is %@", installerID);
     if ([installerID length] == 0 )
     {
-        [self.content  showMessage:@"error" message:@"enter id"];
+        [self.content  showMessage:@"Error" message:@"Please enter the Installer ID"];
         return ;
     }
     [self.content setInstallerID:installerID];
@@ -128,9 +132,7 @@ BOOL successful = NO;
     NSLog(@"device id shown->%@", [self.content getDeviceID]);
     [self.content showHUDMessage:[self.content getDeviceID] view:self.navigationController.view];
 
-//    MBProgressHUD *hud = [[MBProgressHUD alloc] init];
-//    [hud setLabelText:[self.content getDeviceID]];
-//    [hud show:true];
+
 }
 
 -(IBAction)closeKeyboard:(id)sender
@@ -140,22 +142,6 @@ BOOL successful = NO;
     
 }
 
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-//{
-//    NSString *installerID = [self.txtInstallerID text];
-//    NSLog(@"installerid is %@", installerID);
-//    if ([installerID length] == 0 )
-//    {
-//        [self.content  showMessage:@"error" message:@"enter id"];
-//        return false;
-//    }
-//    self.content.installerID = installerID;
-//    [SVProgressHUD show];
-//     [self performLogon];
-//    //NSLog(@"logon return value ->%@",logon);
-//    // returning false since seque will be performed manually by code
-//    return false;
-//}
 #define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
 
 -(BOOL) performLogon
@@ -163,7 +149,7 @@ BOOL successful = NO;
     NSString * deviceID = [self.content getDeviceID];
     NSLog(@"your device id is %@", deviceID);
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"1234", @"deviceid",
+                            [self.content getDeviceID], @"deviceid",
                             [self.txtInstallerID text], @"installerid",
                             nil];
      [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"instllerid"];
@@ -183,7 +169,7 @@ BOOL successful = NO;
                                              NSManagedObjectContext *context = [self.content managedObjectContext];
                                              Session *currentSession = self.content.session;;
                                              
-                                             currentSession = (Session *)[NSEntityDescription insertNewObjectForEntityForName:@"Session"
+                                             currentSession = (Session *)[NSEntityDescription insertNewObjectForEntityForName:ENTITY_SESSION
                                                                                                        inManagedObjectContext:context];
                                              
                                              currentSession.installerID = [self.content installerID];
@@ -191,7 +177,7 @@ BOOL successful = NO;
                                              currentSession.sessionID = [AppContent GetUUID];
                                              bool bSessionFound = false;
                                              for (id schedule in response) {
-                                                 Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
+                                                 Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:ENTITY_SCHEDULE
                                                       
                                                                                                          inManagedObjectContext:context];
                                                 s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]) ;
@@ -215,6 +201,9 @@ BOOL successful = NO;
                                                  s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]) ;
                                                  s.accountNumber   = NULL_TO_NIL([schedule valueForKey:@"accountNumber"]) ;
                                                  s.installerID = [self.content installerID];
+                                                 s.sessionStartDate = [AppContent getCurrentDate];
+                                                 // default status is unscheduled
+                                                 s.localschedulestatus = CLAIM_INCOMPLETE;
                                                  bSessionFound = true;
                                                  [currentSession addSchedulesObject:s];
                                                 
@@ -235,23 +224,7 @@ BOOL successful = NO;
                                                  }
                                              }
                                              [SVProgressHUD dismiss];
-                                             
-                                             
-//                                             NSError *error = nil;
-//                                             if ([context save:&error])
-//                                             {
-//                                                 successful = YES;
-//                                                 [SVProgressHUD dismiss];
-//                                                 NSLog(@" saved successfullly %@", error);
-//                                                 [self performSegueWithIdentifier:@"Login" sender:self];
-//                                             }
-//                                             else
-//                                             {
-//                                                 [SVProgressHUD dismiss];
-//                                                 [self.content showMessage:@"saveerror:" message:[error localizedDescription]];
-//                                              NSLog(@" saved with error object %@", error);
-//                                             }
-                                  
+                                 
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                              NSLog(@"Error fetching schedules!");

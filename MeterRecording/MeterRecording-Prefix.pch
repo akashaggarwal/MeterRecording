@@ -14,7 +14,9 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "ZBarSDK.h"
+    #import "MyConstants.h"
+    #import "TestFlight.h"
 #endif
-#import "TestFlight.h"
+
 #define NSLog TFLog
 #define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)

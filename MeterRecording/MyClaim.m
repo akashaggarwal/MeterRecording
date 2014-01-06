@@ -7,7 +7,7 @@
 //
 
 #import "MyClaim.h"
-#import "ScheduleClaim.h"
+#import "Schedule.h"
 #import "ImageStore.h"
 #import "MeterApiClient.h"
 #import "AFNetworking.h"
@@ -16,7 +16,7 @@
 @implementation MyClaim
 
 static MyClaim *singletonInstance = nil;
-ScheduleClaim *_claim;
+Schedule *_claim;
 
 
 + (MyClaim *)sharedContent{
@@ -89,12 +89,7 @@ ScheduleClaim *_claim;
     
     NSLog(@"**** Logging the data ENDS**** ");
     
-    
-    //    NSDictionary *params = @{
-    //                             @"deviceid" : @"1234"
-    //                             };
-    
-    // NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"1234",        @"deviceid", nil];
+
     
     NSData *oldphotodata = nil;
     NSData *newphotodata = nil;

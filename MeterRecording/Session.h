@@ -2,14 +2,14 @@
 //  Session.h
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 1/5/14.
+//  Created by Akash Aggarwal on 1/6/14.
 //  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ScheduleClaim;
+@class Schedule;
 
 @interface Session : NSManagedObject
 
@@ -21,14 +21,14 @@
 
 @interface Session (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(ScheduleClaim *)value inSchedulesAtIndex:(NSUInteger)idx;
+- (void)insertObject:(Schedule *)value inSchedulesAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromSchedulesAtIndex:(NSUInteger)idx;
 - (void)insertSchedules:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
 - (void)removeSchedulesAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInSchedulesAtIndex:(NSUInteger)idx withObject:(ScheduleClaim *)value;
+- (void)replaceObjectInSchedulesAtIndex:(NSUInteger)idx withObject:(Schedule *)value;
 - (void)replaceSchedulesAtIndexes:(NSIndexSet *)indexes withSchedules:(NSArray *)values;
-- (void)addSchedulesObject:(ScheduleClaim *)value;
-- (void)removeSchedulesObject:(ScheduleClaim *)value;
+- (void)addSchedulesObject:(Schedule *)value;
+- (void)removeSchedulesObject:(Schedule *)value;
 - (void)addSchedules:(NSOrderedSet *)values;
 - (void)removeSchedules:(NSOrderedSet *)values;
 @end

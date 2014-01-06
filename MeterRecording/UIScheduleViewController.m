@@ -12,6 +12,7 @@
 #import "UIScheduleDetailViewController.h"
 
 
+
 @interface UIScheduleViewController ()
 
 @end
@@ -91,14 +92,14 @@
     //DataStore *dataStore = [DataStore sharedDataStore];
     NSManagedObjectContext *context = [self.content managedObjectContext];
     
-    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Schedule"];
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:ENTITY_SCHEDULE];
     
-    NSSortDescriptor *primarySort = [NSSortDescriptor sortDescriptorWithKey:@"city"
-                                                                  ascending:YES];
-//    NSSortDescriptor *secondarySort = [NSSortDescriptor sortDescriptorWithKey:@"itemName"
-//                                                                    ascending:YES];
+    NSSortDescriptor *primarySort = [NSSortDescriptor sortDescriptorWithKey:@"localschedulestatus"
+                                                                  ascending:NO];
+    //NSSortDescriptor *secondarySort = [NSSortDescriptor sortDescriptorWithKey:@"name"
+  //                                                                  ascending:YES];
 //    
-    NSArray *sortArray = [NSArray arrayWithObjects:primarySort,  nil];
+    NSArray *sortArray = [NSArray arrayWithObjects:primarySort ,nil];
     
     [fetch setSortDescriptors:sortArray];
     
@@ -113,7 +114,7 @@
     
     NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetch
                                                                           managedObjectContext:context
-                                                                            sectionNameKeyPath:@"city"
+                                                                            sectionNameKeyPath:@"localschedulestatus"
                                                                                      cacheName:nil];
     
     [self setFetchedResultsController:frc];
@@ -269,7 +270,13 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
     
     NSArray *sections = [[self fetchedResultsController] sections];
     id<NSFetchedResultsSectionInfo> currentSection = [sections objectAtIndex:section];
-    return [currentSection name];
+    NSString *sectionName = [currentSection name];
+    if ([sectionName isEqualToString:CLAIM_COMPLETED])
+        return @"COMPLETED";
+    if ([sectionName isEqualToString:CLAIM_QUEUED])
+        return @"QUEUED";
+    
+    return @"INCOMPLETE";
     
 }
 

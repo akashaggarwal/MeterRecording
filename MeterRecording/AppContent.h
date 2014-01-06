@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Session.h"
-#import "ScheduleClaim.h"
+#import "Schedule.h"
 
 
 @interface AppContent : NSObject

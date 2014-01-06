@@ -105,10 +105,10 @@ Session *_session;
           NSLog(@"returning session already in memory for  installerid->%@",[self installerID]);
         return _session;
     }
-    NSString *entityName = @"Session";
+
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_SESSION
                                               inManagedObjectContext:context];
     request.entity = entity;
     NSDate *currentDate = [AppContent getCurrentDate];
@@ -152,10 +152,10 @@ Session *_session;
 -(void) purgeOldSessions
 {
     
-    NSString *entityName = @"Session";
+ 
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_SESSION
                                               inManagedObjectContext:context];
     request.entity = entity;
     NSDate *currentDate = [AppContent getCurrentDate];
@@ -181,6 +181,43 @@ Session *_session;
         
         [context deleteObject:s];
    
+    }
+    [context save:nil];
+}
+
+
+-(void) purgeOldSchedulesNotQueued
+{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_SCHEDULE
+                                              inManagedObjectContext:context];
+    request.entity = entity;
+    NSDate *currentDate = [AppContent getCurrentDate];
+    
+    
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"sessionStartDate != %@ ",currentDate];
+    
+    request.predicate = p;
+    NSError *err = nil;
+    NSArray *listOfObjects = [context executeFetchRequest:request
+                                                    error:&err];
+    NSLog(@"errors are %@",[err localizedDescription]);
+    if (listOfObjects == nil)
+    {
+        NSLog(@"no old schedules ");
+        
+    }
+    for(Schedule *s in listOfObjects)
+    {
+        if ([s.localschedulestatus isEqualToString:CLAIM_QUEUED])
+            NSLog(@"Found queued claim with schedule with id->%@ ", s.scheduleID);
+        else
+        {
+            NSLog(@"deleting schedule with id->%@ ", s.scheduleID);
+            [context deleteObject:s];
+        }
     }
     [context save:nil];
 }

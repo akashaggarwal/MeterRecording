@@ -1,21 +1,22 @@
 //
-//  ScheduleClaim.m
-//  MeterRecording
+//  Schedule.m
+//  
 //
-//  Created by Akash Aggarwal on 1/5/14.
-//  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
+//  Created by Akash Aggarwal on 1/6/14.
+//
 //
 
-#import "ScheduleClaim.h"
+#import "Schedule.h"
 
 
-@implementation ScheduleClaim
+@implementation Schedule
 
 @dynamic accountNumber;
 @dynamic address;
 @dynamic altphone;
 @dynamic city;
 @dynamic claiminsertdatetime;
+@dynamic claimupdatedatetime;
 @dynamic installerID;
 @dynamic latitude;
 @dynamic localschedulestatus;
@@ -40,7 +41,6 @@
 @dynamic scheduleID;
 @dynamic scheduleTime;
 @dynamic signaturefilepath;
-@dynamic claimupdatedatetime;
 @dynamic submittype;
 
 @end

@@ -1,22 +1,23 @@
 //
-//  ScheduleClaim.h
-//  MeterRecording
+//  Schedule.h
+//  
 //
-//  Created by Akash Aggarwal on 1/5/14.
-//  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
+//  Created by Akash Aggarwal on 1/6/14.
+//
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
 
-@interface ScheduleClaim : NSManagedObject
+@interface Schedule : NSManagedObject
 
 @property (nonatomic, retain) NSString * accountNumber;
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * altphone;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSDate * claiminsertdatetime;
+@property (nonatomic, retain) NSDate * claimupdatedatetime;
 @property (nonatomic, retain) NSString * installerID;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSString * localschedulestatus;
@@ -41,7 +42,6 @@
 @property (nonatomic, retain) NSString * scheduleID;
 @property (nonatomic, retain) NSString * scheduleTime;
 @property (nonatomic, retain) NSString * signaturefilepath;
-@property (nonatomic, retain) NSDate * claimupdatedatetime;
 @property (nonatomic, retain) NSString * submittype;
 
 @end

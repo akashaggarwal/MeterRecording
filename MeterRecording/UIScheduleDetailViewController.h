@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScheduleClaim.h"
+#import "Schedule.h"
 #import "MyClaim.h"
 #import "AppContent.h"
 
@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewSignature;
 @property (strong, nonatomic) AppContent *content;
 @property (weak, nonatomic) MyClaim *currentclaim;
+@property (weak, nonatomic) IBOutlet UILabel *claimStatus;
 
 - (IBAction)JobSkipped:(id)sender;
 - (IBAction)JobCompleted:(id)sender;

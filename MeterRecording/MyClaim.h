@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ScheduleClaim.h"
+#import "Schedule.h"
 
 @interface MyClaim : NSObject
 
-@property(strong, nonatomic) ScheduleClaim *claim;
+@property(strong, nonatomic) Schedule *claim;
 +(MyClaim *)sharedContent;
 //-(void) resetClaim;
 //- (NSManagedObjectContext *)managedObjectContext ;

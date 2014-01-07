@@ -62,6 +62,8 @@
 		DAAD99F0187B303000F7482E /* MyConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD99EF187B303000F7482E /* MyConstants.m */; };
 		DAAD99F3187B4D9200F7482E /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD99F2187B4D9200F7482E /* Session.m */; };
 		DAAD99F6187B4D9300F7482E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD99F5187B4D9300F7482E /* Schedule.m */; };
+		DAAD99F9187BCC0300F7482E /* Completed.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAD99F7187BCC0300F7482E /* Completed.png */; };
+		DAAD99FA187BCC0300F7482E /* Queued.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAD99F8187BCC0300F7482E /* Queued.png */; };
 		DAAFA3F1186F75340007B042 /* MyClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAFA3F0186F75340007B042 /* MyClaim.m */; };
 		DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */; };
 		DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6764182B490800D85680 /* UIOldMeterViewController.m */; };
@@ -177,6 +179,8 @@
 		DAAD99F2187B4D9200F7482E /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		DAAD99F4187B4D9300F7482E /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		DAAD99F5187B4D9300F7482E /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		DAAD99F7187BCC0300F7482E /* Completed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Completed.png; path = Images/Completed.png; sourceTree = "<group>"; };
+		DAAD99F8187BCC0300F7482E /* Queued.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Queued.png; path = Images/Queued.png; sourceTree = "<group>"; };
 		DAAFA3EF186F75340007B042 /* MyClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClaim.h; sourceTree = "<group>"; };
 		DAAFA3F0186F75340007B042 /* MyClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClaim.m; sourceTree = "<group>"; };
 		DABF6760182B436200D85680 /* UIScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScheduleDetailViewController.h; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 		DA23E6B81826CA5B000BD089 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DAAD99F7187BCC0300F7482E /* Completed.png */,
+				DAAD99F8187BCC0300F7482E /* Queued.png */,
 				DA50CDA4182C74E200D7CD06 /* ImageAssets.xcassets */,
 				DA50CDA0182C6DFB00D7CD06 /* watericon.png */,
 				DA50CDA1182C6DFB00D7CD06 /* watermeter.png */,
@@ -670,6 +676,7 @@
 				DA50CD28182BDCAF00D7CD06 /* watermeter.png in Resources */,
 				DA50CD9D182C6DCB00D7CD06 /* camera.png in Resources */,
 				DABF6771182B4B2400D85680 /* newmeter.png in Resources */,
+				DAAD99FA187BCC0300F7482E /* Queued.png in Resources */,
 				DABF6772182B4B2400D85680 /* oldmeter.png in Resources */,
 				DA23E6BA1826CB99000BD089 /* technician-reading-water-meter-28438611.jpg in Resources */,
 				DA50CD3C182C219600D7CD06 /* scan.png in Resources */,
@@ -694,6 +701,7 @@
 				DA50CD93182C664900D7CD06 /* scanimabe.png in Resources */,
 				DA9EDF7F18762E4F00A9445A /* bluebutton.png in Resources */,
 				DA9EDF7B18762CE500A9445A /* t1_logo.png in Resources */,
+				DAAD99F9187BCC0300F7482E /* Completed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

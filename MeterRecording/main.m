@@ -17,6 +17,7 @@ int main(int argc, char * argv[])
         NSLog(@"inside app delegate launch");
         AppContent *content =[[AppContent alloc] init];
         [content purgeOldSessions];
+        [content purgeOldSchedulesNotQueued];
         
 //        Session *s = content.session;
 //        s.installerID = @"1";

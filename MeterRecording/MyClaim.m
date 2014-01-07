@@ -69,6 +69,8 @@ Schedule *_claim;
     if (!self.claim.prevRead) self.claim.prevRead = @"";
     if (!self.claim.route) self.claim.route = @"";
     
+      NSString *deviceID = [[AppContent sharedContent] getDeviceID];
+    
     NSLog(@"**** Logging the data STARTS**** ");
     NSLog(@"new serial ->%@",self.claim.newserial);
      NSLog(@"old serial ->%@",self.claim.oldSerial);
@@ -85,8 +87,14 @@ Schedule *_claim;
     NSLog(@"new serial ->%@",self.claim.prevRead);
     NSLog(@"new serial ->%@",self.claim.newreading);
 
-    NSLog(@"new serial ->%@",self.claim.signaturefilepath);
+
     
+    NSLog(@"old photo ->%@",self.claim.oldphotofilepath);
+    NSLog(@"new photo ->%@",self.claim.newphotofilepath);
+    NSLog(@"photo 3 ->%@",self.claim.photo3filepath);
+    NSLog(@"signature ->%@",self.claim.signaturefilepath);
+    
+    NSLog(@"device id ->%@",deviceID);
     NSLog(@"**** Logging the data ENDS**** ");
     
 
@@ -99,25 +107,25 @@ Schedule *_claim;
     NSString *imageKey = self.claim.oldphotofilepath;
     if (imageKey) {
         UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        oldphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+        oldphotodata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
     }
     imageKey = self.claim.newphotofilepath;
     if (imageKey) {
         UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        newphotodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+        newphotodata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
     }
     imageKey = self.claim.photo3filepath;
     if (imageKey) {
         UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        photo3photodata = UIImageJPEGRepresentation(imageToDisplay, 1);
+        photo3photodata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
     }
     imageKey = self.claim.signaturefilepath;
     if (imageKey) {
         UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
-        signaturedata = UIImageJPEGRepresentation(imageToDisplay, 1);
+        signaturedata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
     }
     
-    NSString *deviceID = [[AppContent sharedContent] getDeviceID];
+  
     NSURLRequest *postRequest = [[MeterApiClient sharedInstance] multipartFormRequestWithMethod:@"post"
                                                                                            path:@"WorkOrder"
                                                                                      parameters:nil
@@ -126,11 +134,12 @@ Schedule *_claim;
                                                                           if (self.claim.oldphotofilepath)
                                                                               [formData appendPartWithFileData:oldphotodata name:@"OldPhoto" fileName:self.claim.oldphotofilepath mimeType:@"image/jpeg"];
                                                                           if (self.claim.newphotofilepath)
-                                                                              [formData appendPartWithFileData:oldphotodata name:@"NewPhoto" fileName:self.claim.newphotofilepath mimeType:@"image/jpeg"];
+                                                                              [formData appendPartWithFileData:newphotodata name:@"NewPhoto" fileName:self.claim.newphotofilepath mimeType:@"image/jpeg"];
                                                                           if (self.claim.photo3filepath)
-                                                                              [formData appendPartWithFileData:oldphotodata name:@"Photo3" fileName:self.claim.photo3filepath mimeType:@"image/jpeg"];
+                                                                              [formData appendPartWithFileData:photo3photodata name:@"Photo3" fileName:self.claim.photo3filepath mimeType:@"image/jpeg"];
+                                                                          
                                                                           if (self.claim.signaturefilepath)
-                                                                              [formData appendPartWithFileData:oldphotodata name:@"SignaturePhoto" fileName:self.claim.signaturefilepath mimeType:@"image/jpeg"];
+                                                                              [formData appendPartWithFileData:signaturedata name:@"SignaturePhoto" fileName:self.claim.signaturefilepath mimeType:@"image/jpeg"];
                                                                           
                                                                           
                                                                           [formData appendPartWithFormData:[deviceID dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];
@@ -147,14 +156,14 @@ Schedule *_claim;
                                                                           //[formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"SkipReason"];
                                                                           
                                                                           NSLog(@"submission type was %@", self.submitType);
-                                                                          if ([self.submitType compare:@"S"])
+                                                                          if ([self.submitType isEqualToString:@"S"])
                                                                           {
                                                                               [formData appendPartWithFormData:[@"0" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobComplete"];
                                                                               [formData appendPartWithFormData:[@"1" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobSkipped"];
                                                                               
                                                                           }
                                                                           
-                                                                          if ([self.submitType  compare:@"C"])
+                                                                          if ([self.submitType  isEqualToString:@"C"])
                                                                           {
                                                                               [formData appendPartWithFormData:[@"1" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobComplete"];
                                                                               [formData appendPartWithFormData:[@"0" dataUsingEncoding:NSUTF8StringEncoding] name:@"JobSkipped"];
@@ -171,7 +180,7 @@ Schedule *_claim;
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
         progressBlock(progress);
-        //NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

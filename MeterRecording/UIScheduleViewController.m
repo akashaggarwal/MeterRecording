@@ -179,6 +179,13 @@
             cell.lblCity.text = sch.city;
             cell.lblScheduleDate.text =  sch.scheduleDate;
             cell.lblScheduleTime.text= sch.scheduleTime;
+            if ([sch.localschedulestatus isEqualToString:CLAIM_QUEUED])
+                cell.imgstatus.image = [UIImage imageNamed:@"Queued"];
+            if ([sch.localschedulestatus isEqualToString:CLAIM_COMPLETED])
+                cell.imgstatus.image = [UIImage imageNamed:@"Completed"];
+            if ([sch.localschedulestatus isEqualToString:CLAIM_INCOMPLETE])
+                cell.imgstatus.image = nil;
+            
             break;
         }
             
@@ -263,6 +270,13 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
     cell.lblScheduleDate.text =  sch.scheduleDate;
     cell.lblScheduleTime.text= sch.scheduleTime;
     
+    if ([sch.localschedulestatus isEqualToString:CLAIM_QUEUED])
+        cell.imgstatus.image = [UIImage imageNamed:@"Queued"];
+    if ([sch.localschedulestatus isEqualToString:CLAIM_COMPLETED])
+        cell.imgstatus.image = [UIImage imageNamed:@"Completed"];
+    if ([sch.localschedulestatus isEqualToString:CLAIM_INCOMPLETE])
+        cell.imgstatus.image = nil;
+
     return cell;
 }
 

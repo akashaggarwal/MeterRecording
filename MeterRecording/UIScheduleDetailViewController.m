@@ -194,7 +194,7 @@
     //self.currentclaim = [MyClaim sharedContent];
     
     // not using and LocalScheduleStatus because they could update completed claim too
-    NSPredicate *p = [NSPredicate predicateWithFormat:@"scheduleID == %@ AND installerID == %@ ",self.currentclaim.claim.scheduleID, self.currentclaim.claim.installerID];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"scheduleID == %@ AND installerID == %@ AND localschedulestatus == %@",self.currentclaim.claim.scheduleID, self.currentclaim.claim.installerID, self.currentclaim.claim.localschedulestatus];
     
     
    // NSPredicate *p = [NSPredicate predicateWithFormat:@"scheduleID == %@ AND installerID == %@ AND localschedulestatus == 'Q'",self.currentclaim.claim.scheduleID, self.currentclaim.claim.installerID];

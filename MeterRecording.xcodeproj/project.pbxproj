@@ -156,8 +156,6 @@
 		DA66CE0C187E5E2300045C9B /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		DA66CE0D187E5E2300045C9B /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		DA66CE0E187E5E2300045C9B /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		DA66CE12187E5FE400045C9B /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ZBarSDK/libzbar.a; sourceTree = "<group>"; };
-		DA66CE14187E66B300045C9B /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../../libzbar.a; sourceTree = "<group>"; };
 		DA9EDF7218762CC600A9445A /* libT1Autograph.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libT1Autograph.a; path = ../../../Downloads/T1Autograph/libT1Autograph.a; sourceTree = "<group>"; };
 		DA9EDF7518762CE500A9445A /* autograph_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autograph_x.png; sourceTree = "<group>"; };
 		DA9EDF7618762CE500A9445A /* t1_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t1_logo.png; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		DAC81470186CC70D00FEA4FA /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SVProgressHUD.a"; path = "Pods/build/Release-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
-		DAE9F642187151DA000A468A /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../libzbar.a; sourceTree = "<group>"; };
 		DAF2BFA3182DFC6800E573BF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		DAF2BFA5182DFE5A00E573BF /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		DAF92F39186CCECF008CE749 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
@@ -277,10 +274,7 @@
 		DA23E67918269253000BD089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DA66CE14187E66B300045C9B /* libzbar.a */,
-				DA66CE12187E5FE400045C9B /* libzbar.a */,
 				DA9EDF7218762CC600A9445A /* libT1Autograph.a */,
-				DAE9F642187151DA000A468A /* libzbar.a */,
 				DAA8B24B18714DA40074AB41 /* libPods-PonyDebugger.a */,
 				DAA8B24C18714DA40074AB41 /* libPods-SocketRocket.a */,
 				DAA8B24D18714DA40074AB41 /* libPods.a */,
@@ -831,6 +825,7 @@
 					/Users/mac2013/Documents/Neptune,
 					/Users/mac2013/Downloads/T1Autograph,
 					/Users/mac2013/Documents,
+					/Users/mac2013/Documents/Neptune/MeterRecording,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -877,6 +872,7 @@
 					/Users/mac2013/Documents/Neptune,
 					/Users/mac2013/Downloads/T1Autograph,
 					/Users/mac2013/Documents,
+					/Users/mac2013/Documents/Neptune/MeterRecording,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1000,6 +996,7 @@
 					/Users/mac2013/Documents/Neptune,
 					/Users/mac2013/Downloads/T1Autograph,
 					/Users/mac2013/Documents,
+					/Users/mac2013/Documents/Neptune/MeterRecording,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -148,21 +148,27 @@ BOOL successful = NO;
 {
     NSString * deviceID = [self.content getDeviceID];
     NSLog(@"your device id is %@", deviceID);
+    NSLog(@"installerid is %@", [self.txtInstallerID text]);
+    
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [self.content getDeviceID], @"deviceid",
-                            [self.txtInstallerID text], @"installerid",
+                            [self.content getDeviceID], @"DeviceID",
+                            [self.txtInstallerID text], @"InstallerID",
                             nil];
-     [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"instllerid"];
+     [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"installerid"];
     if (self.content.session == nil)
     {
         NSLog(@" null session so fetching data ");
         
         
-        [[MeterApiClient sharedInstance] getPath:@"schedule" parameters:params
+        [[MeterApiClient sharedInstance] getPath:@"Schedule" parameters:params
                                          success:^(AFHTTPRequestOperation *operation, id response) {
                                              //NSLog(@"Response: %@", response);
                                              NSLog(@"SUCCESS IN FETCH");
                                              [SVProgressHUD  showWithStatus:@"Parsing and Loading Data"];
+                                             @try
+                                             {
+                                                 // do something
+                                            
                                              NSMutableArray *results = [NSMutableArray array];
                                              
                                              
@@ -180,6 +186,10 @@ BOOL successful = NO;
                                                  Schedule *s = (Schedule *)[NSEntityDescription insertNewObjectForEntityForName:ENTITY_SCHEDULE
                                                       
                                                                                                          inManagedObjectContext:context];
+                                                 s.scheduleID   = [NULL_TO_NIL([schedule valueForKey:@"ScheduleID"])  stringValue];
+                                                 
+                                                 NSLog(@" parsing scheduleid->%@", s.scheduleID);
+
                                                 s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]) ;
                                                  s.name =   NULL_TO_NIL([schedule valueForKey:@"Name"]) ;
                                                 // NSLog(@" name is %@, addres is %@", s.name, s.address);
@@ -194,11 +204,10 @@ BOOL successful = NO;
                                                  s.oldSize = NULL_TO_NIL([schedule valueForKey:@"OldSize"]) ;
                                                  s.orderType =   NULL_TO_NIL([schedule valueForKey:@"OrderType"]) ;
                                                  s.phone =   NULL_TO_NIL([schedule valueForKey:@"Phone"]) ;
-                                                 s.prevRead   = NULL_TO_NIL([schedule valueForKey:@"PrevRead"]);
+                                                 s.prevRead   = [NULL_TO_NIL([schedule valueForKey:@"PrevRead"]) stringValue];
                                                  s.route =   NULL_TO_NIL([schedule valueForKey:@"Route"]) ;
                                                  s.scheduleDate =   NULL_TO_NIL([schedule valueForKey:@"ScheduleDate"]);
-                                                 s.scheduleID   = [NULL_TO_NIL([schedule valueForKey:@"ScheduleID"])  stringValue];
-                                                 s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]) ;
+                                                s.scheduleTime   = NULL_TO_NIL([schedule valueForKey:@"ScheduleTime"]) ;
                                                  s.accountNumber   = NULL_TO_NIL([schedule valueForKey:@"accountNumber"]) ;
                                                  s.installerID = [self.content installerID];
                                                  s.sessionStartDate = [AppContent getCurrentDate];
@@ -223,7 +232,17 @@ BOOL successful = NO;
                                                      [self performSegueWithIdentifier:@"Login" sender:self];
                                                  }
                                              }
-                                             [SVProgressHUD dismiss];
+                                            
+                                             }
+                                             @catch (NSException *exception) {
+                                                 // error happened! do something about the error state
+                                                  NSLog(@"error occured while parsing->%@", [exception description]);
+                                                 [self.content showMessage:@"Error occured in parsing" message:[exception description]];
+                                             }
+                                             @finally {
+                                                 // do something to keep the program still running properly
+                                                  [SVProgressHUD dismiss];
+                                             }
                                  
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {

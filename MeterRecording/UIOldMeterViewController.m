@@ -7,7 +7,7 @@
 //
 
 #import "UIOldMeterViewController.h"
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "ImageStore.h"
 @interface UIOldMeterViewController ()
 
@@ -190,34 +190,35 @@
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSLog(@"value scanned is");
-    
-    //    if ([picker isKindOfClass:[ZBarReaderViewController class]])
-    //    {
-    //
-    //        // ADD: get the decode results
-    //        id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
-    //        ZBarSymbol *symbol = nil;
-    //        for(symbol in results)
-    //            // EXAMPLE: just grab the first barcode
-    //            break;
-    //        NSLog(@"value scanned is %s", symbol.data);
-    //        // EXAMPLE: do something useful with the barcode data
-    //        //_txtSerial.text = symbol.data;
-    //
-    //    }
-    //    else
-    //    {
-    // Get picked image from info dictionary
-    
-    NSString *oldKey = self.currentclaim.claim.oldphotofilepath;
-    
-    // Did the item already have an image?
-    if (oldKey) {
+    if(1 == 2)
+    {
         
-        // Delete the old image
-        [[ImageStore sharedStore] deleteImageForKey:oldKey];
+//    if ([picker isKindOfClass:[ZBarReaderViewController class]])
+//    {
+//    
+//    //        // ADD: get the decode results
+//            id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+//            ZBarSymbol *symbol = nil;
+//            for(symbol in results)
+//                // EXAMPLE: just grab the first barcode
+//                break;
+//            NSLog(@"value scanned is %s", symbol.data);
+//            self.txtCorrectSerial.text = symbol.data;
     }
-    //NSLog(@" tag is %@", picker.view.tag);
+    else
+    {
+        //Get picked image from info dictionary
+    
+        NSString *oldKey = self.currentclaim.claim.oldphotofilepath;
+    
+        // Did the item already have an image?
+        if (oldKey)
+        {
+        
+            // Delete the old image
+            [[ImageStore sharedStore] deleteImageForKey:oldKey];
+        }
+        //NSLog(@" tag is %@", picker.view.tag);
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     if (image != nil)
@@ -241,10 +242,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         CFRelease(newUniqueIDString);
         CFRelease(newUniqueID);
     }
-    //    }
+}
     // Take image picker off the screen -
     // you must call this dismiss method
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 

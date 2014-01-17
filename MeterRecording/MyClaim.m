@@ -143,6 +143,8 @@ Schedule *_claim;
                                                                           
                                                                           
                                                                           [formData appendPartWithFormData:[deviceID dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];
+                                                                          [formData appendPartWithFormData:[self.claim.scheduleID dataUsingEncoding:NSUTF8StringEncoding] name:@"ScheduleID"];
+                                                                         
                                                                           [formData appendPartWithFormData:[self.claim.installerID dataUsingEncoding:NSUTF8StringEncoding] name:@"installerID"];
                                                                           [formData appendPartWithFormData:[self.claim.newserial dataUsingEncoding:NSUTF8StringEncoding] name:@"NewSerial"];
                                                                           [formData appendPartWithFormData:[self.claim.oldSerial dataUsingEncoding:NSUTF8StringEncoding] name:@"CorrectSerial"];
@@ -154,6 +156,7 @@ Schedule *_claim;
                                                                           [formData appendPartWithFormData:[self.claim.oldSize dataUsingEncoding:NSUTF8StringEncoding] name:@"OldSize"];
                                                                           [formData appendPartWithFormData:[self.claim.newsize dataUsingEncoding:NSUTF8StringEncoding] name:@"NewSize"];
                                                                           //[formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"SkipReason"];
+                                                                          [formData appendPartWithFormData:[self.claim.newremoteid dataUsingEncoding:NSUTF8StringEncoding] name:@"NewRemoteID"];
                                                                           
                                                                           NSLog(@"submission type was %@", self.submitType);
                                                                           if ([self.submitType isEqualToString:@"S"])

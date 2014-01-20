@@ -92,14 +92,14 @@
 -(void) updateClaimStatusLabel
 {
     if ([self.currentclaim.claim.localschedulestatus isEqualToString:CLAIM_QUEUED])
-        [self.claimStatus setText:@"Your claim is in queued status , you must submit it again when internet connection is available"];
+        [self.claimStatus setText:@"Your work order is in queued status , you must submit it again when internet connection is available"];
     
     if ([self.currentclaim.claim.localschedulestatus isEqualToString:CLAIM_COMPLETED])
     {
         NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
                                                               dateStyle:NSDateFormatterShortStyle
                                                               timeStyle:NSDateFormatterShortStyle];
-        [self.claimStatus setText:[NSString stringWithFormat:@"Your claim was submitted to server at %@",dateString]];
+        [self.claimStatus setText:[NSString stringWithFormat:@"Your work order was submitted to server at %@",dateString]];
         
     }
     
@@ -277,7 +277,7 @@
     NSLog(@"errors are %@",[err localizedDescription]);
     if (listOfObjects == nil)
     {
-        NSLog(@"no queued claims this should not have happened because local record should have been created");
+        NSLog(@"no queued work orders this should not have happened because local record should have been created");
         abort();
     }
     else
@@ -339,6 +339,6 @@
     // optional - add more buttons:
     [alert show];
     
-    [TestFlight passCheckpoint:@"JOB SUBMITTED"];
+    //[TestFlight passCheckpoint:@"JOB SUBMITTED"];
 }
 @end

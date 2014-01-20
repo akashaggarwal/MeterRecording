@@ -158,8 +158,10 @@
 {
     [super viewDidLoad];
     
-//    UITapGestureRecognizer* tapRecon = [[UITapGestureRecognizer alloc]
-//                                        initWithTarget:self action:@selector(navigationBarTap:)];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]
+                                        initWithTarget:self action:@selector(navigationBarTap:)];
+    tap.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:tap];
 //    tapRecon.numberOfTapsRequired = 1;
 //    [self.navigationController.navigationBar addGestureRecognizer:tapRecon];
 
@@ -171,6 +173,9 @@
 }
 
 - (void)navigationBarTap:(UIGestureRecognizer*)recognizer {
+    
+           [self.view endEditing:YES];
+  
 //    for (id view in self.view.subviews) {
 //        if ([view isKindOfClass:[UITextView class]] || [view isKindOfClass:[UITextField class]]) {
 //            [view resignFirstResponder];

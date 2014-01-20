@@ -828,7 +828,7 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording,
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WorkOrder;
 				PROVISIONING_PROFILE = "5BDD261D-63DD-4AF1-9EBF-AD2B50FC7443";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -875,7 +875,7 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording,
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WorkOrder;
 				PROVISIONING_PROFILE = "5BDD261D-63DD-4AF1-9EBF-AD2B50FC7443";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -999,7 +999,7 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording,
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WorkOrder;
 				PROVISIONING_PROFILE = "5BDD261D-63DD-4AF1-9EBF-AD2B50FC7443";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;

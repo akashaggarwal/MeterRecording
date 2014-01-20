@@ -352,11 +352,11 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 //
 //
 //#pragma mark - TableView Delegate
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Perform segue to candy detail
-//     NSLog(@"inside prepare for seque ->");
-//    [self performSegueWithIdentifier:@"searchDetail" sender:tableView];
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Perform segue to candy detail
+     NSLog(@"inside prepare for seque ->");
+    [self performSegueWithIdentifier:@"searchDetail" sender:tableView];
+}
 //
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

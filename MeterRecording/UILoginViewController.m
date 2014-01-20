@@ -63,7 +63,8 @@ BOOL successful = NO;
 {
     NSString *adId = [self.content getDeviceID];
     [TestFlight setDeviceIdentifier:adId];
-    [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
+    // app token
+   [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
 }
 
 

@@ -129,6 +129,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedules" id="5Vr-Gg-2MB"/>
                     <connections>
+                        <outlet property="mytableView" destination="2SW-6F-SZg" id="jg1-Fj-jYk"/>
                         <outlet property="searchDisplayController" destination="fDg-fv-f0I" id="F0A-HR-VDO"/>
                     </connections>
                 </tableViewController>

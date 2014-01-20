@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSLog(@"inside view did load");
+    NSLog(@"inside view did load");
     
     self.content = [AppContent sharedContent];
    // NSLog(@"%d schedules",[self.content.session.schedules count]);
@@ -53,7 +53,7 @@
    // [[self tableView] reloadData];
     [self setupSearchBar];
     [[self tableView] reloadData];
-    
+    [self.searchDisplayController.searchResultsTableView setRowHeight:self.tableView.rowHeight];
 }
 
 
@@ -170,7 +170,7 @@
             
         case NSFetchedResultsChangeUpdate:
         {
-            ScheduleCell *cell = [[self tableView] cellForRowAtIndexPath:indexPath];
+            ScheduleCell *cell = (ScheduleCell *)[[self tableView] cellForRowAtIndexPath:indexPath];
             Schedule *sch = [[self fetchedResultsController] objectAtIndexPath:indexPath];
             NSLog(@"name is ->%@", sch.name);
              NSLog(@"id is ->%@", sch.scheduleID);
@@ -238,6 +238,7 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
     }
     else
     {
+        NSLog(@"inside numberofrowsinsection %d",[_filteredschedules count]);
          return [_filteredschedules count];
     }
 }
@@ -245,12 +246,21 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ScheduleCell";
-    ScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    ScheduleCell *cell ;
+      if (tableView == self.tableView)
+      {
+          cell = [self.mytableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+      }
+    else
+    {
+        cell = [self.mytableView dequeueReusableCellWithIdentifier:CellIdentifier ];
+
+    }
     if ( cell == nil )
     {
+         NSLog(@"cell is nil");
         cell = [[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.backgroundColor = [UIColor blueColor];
+        //cell.backgroundColor = [UIColor blueColor];
     }
     Schedule *sch = nil ;
     if (tableView == self.tableView)
@@ -260,7 +270,7 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
     else
     {
         sch = [_filteredschedules objectAtIndex:indexPath.row];
-             // NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
+         NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
     }
     //Schedule *sch = [[self fetchedResultsController] objectAtIndexPath:indexPath];
      NSLog(@"name is ->%@", sch.name);
@@ -300,105 +310,6 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 1;
-//}
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//#warning Incomplete method implementation.
-//    // Return the number of rows in the section.
-//    if (tableView == self.tableView) {
-//        return [self.content.session.schedules count];
-//    }
-//    else
-//    {
-//         //NSLog(@" inside number of rows %d", [_filteredschedules count]);
-//         return [_filteredschedules count];
-//    }
-//    
-//}
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"ScheduleCell";
-//    ScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if ( cell == nil )
-//    {
-//        cell = [[ScheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        cell.backgroundColor = [UIColor blueColor];
-//    }
-//    Schedule *sch = nil ;
-//    if (tableView == self.tableView) {
-//         sch = [self.content.session.schedules  objectAtIndex:indexPath.row];
-//        //NSLog(@" inside cellForRowAtIndexPath regular controller is %d", indexPath.row);
-//       
-//    } else {
-//        sch = [_filteredschedules objectAtIndex:indexPath.row];
-//         // NSLog(@" inside cellForRowAtIndexPath search controller is %d", [_filteredschedules count]);
-//    }
-//    if (indexPath.row %2  == 0)
-//    {
-//        UIImage *selectedImage0 = [UIImage imageNamed:@"morework.png"];
-//        cell.imgstatus.image = selectedImage0;
-//        
-//    }
-//    //Schedule *sch = [self.content.schedules objectAtIndex:indexPath.row];
-//   // NSLog(@" name is %@", sch.name);
-//    cell.lblName.text = sch.name;
-//    cell.lblAddress.text = sch.address;
-//    cell.lblCity.text = sch.city;
-//    cell.lblScheduleDate.text =  sch.scheduleDate;
-//    cell.lblScheduleTime.text= sch.scheduleTime;
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
 
 
 
@@ -408,13 +319,14 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
-    NSLog(@"inside filtercontext");
+    NSLog(@"inside filtercontext %@",searchText);
 
     [self.filteredschedules removeAllObjects];
     // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.address contains[c] %@",searchText];
-   // NSArray *temp = [self.content.session.schedules
-   // _filteredschedules = [NSMutableArray arrayWithArray:[self.content.session.schedules filteredArrayUsingPredicate:predicate]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@",searchText];
+    NSArray *temp = [self.content.session.schedules array];
+    NSLog(@"count is %d",[temp count]);
+    _filteredschedules = [NSMutableArray arrayWithArray:[temp filteredArrayUsingPredicate:predicate]];
     NSLog(@"filtered array count is %d", [_filteredschedules count]);
 }
 
@@ -442,25 +354,32 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 //#pragma mark - TableView Delegate
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    // Perform segue to candy detail
+//     NSLog(@"inside prepare for seque ->");
 //    [self performSegueWithIdentifier:@"searchDetail" sender:tableView];
 //}
 //
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+     NSLog(@"inside prepare for seque ->");
     if ([[segue identifier] isEqualToString:@"searchDetail"]) {
         Schedule *sch = nil ;
-       
+        NSLog(@"inside searchdetail  seque ->");
+
         UIScheduleDetailViewController  *searchDetailViewController = [segue destinationViewController];
         // In order to manipulate the destination view controller, another check on which table (search or normal) is displayed is needed
         if(sender == self.searchDisplayController.searchResultsTableView)
         {
+            NSLog(@"search table results seque ->");
             NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+             NSLog(@"indexpath row is ->%d", indexPath.row);
             sch = [_filteredschedules objectAtIndex:indexPath.row];
            [self setClaimData:sch controller:searchDetailViewController];
             
         }
         else
         {
+             NSLog(@"regular table results seque ->");
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             sch = [self.fetchedResultsController objectAtIndexPath:indexPath];
            [self setClaimData:sch controller:searchDetailViewController];

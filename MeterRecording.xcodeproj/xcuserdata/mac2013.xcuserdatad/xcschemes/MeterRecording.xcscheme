@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA23E67618269253000BD089"
-               BuildableName = "MeterRecording.app"
+               BuildableName = "WorkOrder.app"
                BlueprintName = "MeterRecording"
                ReferencedContainer = "container:MeterRecording.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA23E67618269253000BD089"
-            BuildableName = "MeterRecording.app"
+            BuildableName = "WorkOrder.app"
             BlueprintName = "MeterRecording"
             ReferencedContainer = "container:MeterRecording.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA23E67618269253000BD089"
-            BuildableName = "MeterRecording.app"
+            BuildableName = "WorkOrder.app"
             BlueprintName = "MeterRecording"
             ReferencedContainer = "container:MeterRecording.xcodeproj">
          </BuildableReference>
@@ -86,7 +86,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA23E67618269253000BD089"
-            BuildableName = "MeterRecording.app"
+            BuildableName = "WorkOrder.app"
             BlueprintName = "MeterRecording"
             ReferencedContainer = "container:MeterRecording.xcodeproj">
          </BuildableReference>

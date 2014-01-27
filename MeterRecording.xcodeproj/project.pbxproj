@@ -252,8 +252,6 @@
 		DAC81470186CC70D00FEA4FA /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SVProgressHUD.a"; path = "Pods/build/Release-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
 		DAF92F39186CCECF008CE749 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		DAF92F3B186CCED6008CE749 /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SVProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
-		DAFCEAB118956FCA0067A134 /* libRedLaserSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRedLaserSDK.a; sourceTree = "<group>"; };
-		DAFCEAB218956FCA0067A134 /* RedLaserSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedLaserSDK.h; sourceTree = "<group>"; };
 		DAFCEAB51895705C0067A134 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DAFCEAB8189570800067A134 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DAFCEABA1895708C0067A134 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -426,7 +424,6 @@
 		DA23E66E18269253000BD089 = {
 			isa = PBXGroup;
 			children = (
-				DAFCEAB418956FD40067A134 /* RedLaser */,
 				DA02CEF51891EABA00593B18 /* ZBarSDK */,
 				DA73B612188F3D7700B1E6A5 /* TestFlightSDK2.1.4 */,
 				DA9EDF7C18762CED00A9445A /* T1Autograph */,
@@ -685,15 +682,6 @@
 				DAAD99EF187B303000F7482E /* MyConstants.m */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		DAFCEAB418956FD40067A134 /* RedLaser */ = {
-			isa = PBXGroup;
-			children = (
-				DAFCEAB118956FCA0067A134 /* libRedLaserSDK.a */,
-				DAFCEAB218956FCA0067A134 /* RedLaserSDK.h */,
-			);
-			name = RedLaser;
 			sourceTree = "<group>";
 		};
 		DAFCEAC2189571970067A134 /* MeterRecording */ = {

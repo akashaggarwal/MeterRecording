@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UIBaseTableViewController.h"
+#import "ZBarSDK.h"
 
-@interface UINewMeterViewController : UIBaseTableViewController<UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface UINewMeterViewController : UIBaseTableViewController<ZBarReaderDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnImage;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *txtNewSerial;
@@ -20,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnScan;
 
 - (IBAction)takePicture:(id)sender;
-- (IBAction)scan:(id)sender;
+- (IBAction)scanSerial:(id)sender;
 
 @end

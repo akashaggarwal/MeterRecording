@@ -7,7 +7,7 @@
 //
 
 #import "UIBaseTableViewController.h"
-//#import "ZBarSDK.h"
+#import "ZBarSDK.h"
 #import "ImageStore.h"
 
 @interface UIBaseTableViewController ()
@@ -105,21 +105,21 @@
 {
     
 //    // ADD: present a barcode reader that scans from the camera feed
-//    ZBarReaderViewController *reader = [ZBarReaderViewController new];
-//    reader.readerDelegate = self;
-//    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
 //    
-//    ZBarImageScanner *scanner = reader.scanner;
+    ZBarImageScanner *scanner = reader.scanner;
 //    // TODO: (optional) additional reader configuration here
 //    
 //    // EXAMPLE: disable rarely used I2/5 to improve performance
-//    [scanner setSymbology: ZBAR_I25
-//                   config: ZBAR_CFG_ENABLE
-//                       to: 0];
+    [scanner setSymbology: ZBAR_I25
+                   config: ZBAR_CFG_ENABLE
+                       to: 0];
 //    
 //    // present and release the controller
-//    [self presentModalViewController: reader
-//                            animated: YES];
+    [self presentModalViewController: reader
+                            animated: YES];
     
     
 }

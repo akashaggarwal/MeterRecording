@@ -323,7 +323,7 @@ sectionIndexTitleForSectionName:(NSString *)sectionName {
 
     [self.filteredschedules removeAllObjects];
     // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@",searchText];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"address BEGINSWITH[cd] %@",searchText];
     NSArray *temp = [self.content.session.schedules array];
     NSLog(@"count is %d",[temp count]);
     _filteredschedules = [NSMutableArray arrayWithArray:[temp filteredArrayUsingPredicate:predicate]];

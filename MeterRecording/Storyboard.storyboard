@@ -685,7 +685,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="scan:" destination="BY5-sr-Gs5" eventType="touchUpInside" id="UoY-xF-KWs"/>
+                                                        <action selector="scanSerial:" destination="BY5-sr-Gs5" eventType="touchUpInside" id="y5U-3d-3fN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -842,7 +842,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymx-gz-r5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2347" y="412"/>
+            <point key="canvasLocation" x="2349" y="936"/>
         </scene>
         <!--Ignature View Controller - Signature-->
         <scene sceneID="eEK-yd-EE8">
@@ -850,7 +850,7 @@
                 <viewController id="Bdk-aK-OGP" customClass="UISIgnatureViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rgr-CZ-UNU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Signature" id="h0y-Mc-WGn"/>

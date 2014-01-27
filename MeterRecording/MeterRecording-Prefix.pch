@@ -13,7 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "ZBarSDK.h"
+    #import <CoreMedia/CoreMedia.h>
     #import "MyConstants.h"
     #import "TestFlight.h"
 #endif

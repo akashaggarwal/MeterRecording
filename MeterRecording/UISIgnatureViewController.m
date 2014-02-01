@@ -57,7 +57,7 @@
 	self.autograph = [T1Autograph autographWithView:autographView delegate:self];
 	
 	// to remove the watermark, get a license code from Ten One, and enter it here
-	[self.autograph setLicenseCode:@"4fabb271f7d93f07346bd02cec7a1ebe10ab7bec"];
+	[self.autograph setLicenseCode:@"2bd89622fffcf56dd1ca11ce93ee104543519594"];
 	
 	
 	

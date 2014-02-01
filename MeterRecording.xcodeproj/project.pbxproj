@@ -62,9 +62,11 @@
 		DA628B34188EFCB30088B6C0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2A188EFCB30088B6C0 /* Icon@2x.png */; };
 		DA628B35188EFCB30088B6C0 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2B188EFCB30088B6C0 /* iTunesArtwork.png */; };
 		DA628B36188EFCB30088B6C0 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */; };
+		DA66DC7C189CA51A00088F6B /* Logo trident.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA66DC7B189CA51A00088F6B /* Logo trident.jpg */; };
 		DA73B61A188F3D7700B1E6A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA73B614188F3D7700B1E6A5 /* README.md */; };
 		DA73B61B188F3D7700B1E6A5 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DA73B615188F3D7700B1E6A5 /* release_notes.md */; };
 		DA73B61C188F3D9600B1E6A5 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA73B613188F3D7700B1E6A5 /* libTestFlight.a */; };
+		DA99A3DD1895EE4400C20C74 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCEABA1895708C0067A134 /* MobileCoreServices.framework */; };
 		DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9EDF7218762CC600A9445A /* libT1Autograph.a */; };
 		DA9EDF7A18762CE500A9445A /* autograph_x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7518762CE500A9445A /* autograph_x.png */; };
 		DA9EDF7B18762CE500A9445A /* t1_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7618762CE500A9445A /* t1_logo.png */; };
@@ -200,6 +202,7 @@
 		DA628B2A188EFCB30088B6C0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DA628B2B188EFCB30088B6C0 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		DA66DC7B189CA51A00088F6B /* Logo trident.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Logo trident.jpg"; path = "MeterRecording/Logo trident.jpg"; sourceTree = "<group>"; };
 		DA73B613188F3D7700B1E6A5 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		DA73B614188F3D7700B1E6A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DA73B615188F3D7700B1E6A5 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA99A3DD1895EE4400C20C74 /* MobileCoreServices.framework in Frameworks */,
+				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
 				DAFCEAFE189571A70067A134 /* libzbar.a in Frameworks */,
 				DAFCEAC1189570BC0067A134 /* libz.dylib in Frameworks */,
 				DAFCEAB7189570720067A134 /* AVFoundation.framework in Frameworks */,
@@ -331,7 +336,6 @@
 				DAA8B25018714DA40074AB41 /* libPods.a in Frameworks */,
 				DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */,
 				DAC412B1182E0D9D009194B5 /* CoreTelephony.framework in Frameworks */,
-				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
 				DA50CD47182C42B700D7CD06 /* libiconv.dylib in Frameworks */,
 				DA50CD45182C429F00D7CD06 /* CoreVideo.framework in Frameworks */,
 				DA50CD43182C429100D7CD06 /* CoreMedia.framework in Frameworks */,
@@ -572,6 +576,7 @@
 		DA23E6B81826CA5B000BD089 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA66DC7B189CA51A00088F6B /* Logo trident.jpg */,
 				DA628B22188EFCB30088B6C0 /* App Icon [Squared] */,
 				DAAD99F7187BCC0300F7482E /* Completed.png */,
 				DAAD99F8187BCC0300F7482E /* Queued.png */,
@@ -867,6 +872,7 @@
 				DA02CF171891EABA00593B18 /* zbar-samples.png in Resources */,
 				DA9EDF7B18762CE500A9445A /* t1_logo.png in Resources */,
 				DAAD99F9187BCC0300F7482E /* Completed.png in Resources */,
+				DA66DC7C189CA51A00088F6B /* Logo trident.jpg in Resources */,
 				DA628B21188EF64F0088B6C0 /* Image.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

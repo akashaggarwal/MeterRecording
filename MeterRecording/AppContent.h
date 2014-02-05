@@ -31,6 +31,7 @@
 - (BOOL)saveChanges;
 -(NSString *) getDeviceID;
 -(void) showHUDMessage: (NSString *)s view:(UIView *) v;
--(void) purgeOldSchedulesNotQueued;
+-(bool) purgeOldSchedulesNotQueued;
+-(NSString *) getImagesPath;
 
 @end

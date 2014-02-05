@@ -186,7 +186,7 @@ Session *_session;
 }
 
 
--(void) purgeOldSchedulesNotQueued
+-(bool) purgeOldSchedulesNotQueued
 {
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -209,10 +209,14 @@ Session *_session;
         NSLog(@"no old schedules ");
         
     }
+    bool queuedClaimsFound;
     for(Schedule *s in listOfObjects)
     {
         if ([s.localschedulestatus isEqualToString:CLAIM_QUEUED])
+        {
+            queuedClaimsFound= true;
             NSLog(@"Found queued claim with schedule with id->%@ ", s.scheduleID);
+        }
         else
         {
             NSLog(@"deleting schedule with id->%@ ", s.scheduleID);
@@ -220,7 +224,8 @@ Session *_session;
         }
     }
     [context save:nil];
-}
+    return queuedClaimsFound;
+   }
 
 //
 //- (NSMutableArray*)schedules
@@ -264,7 +269,16 @@ Session *_session;
 }
 
 
-
+-(NSString *) getImagesPath
+{
+        NSArray *documentDirectories =
+        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                            NSUserDomainMask,
+                                            YES);
+        
+        NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+        return [documentDirectory stringByAppendingString:@"/images"];
+}
 
 
 -(NSURL *)dataStoreURL {

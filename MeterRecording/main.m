@@ -17,7 +17,25 @@ int main(int argc, char * argv[])
         NSLog(@"inside app delegate launch");
         AppContent *content =[[AppContent alloc] init];
         [content purgeOldSessions];
-        [content purgeOldSchedulesNotQueued];
+        bool queuedClaims = [content purgeOldSchedulesNotQueued];
+        if (!queuedClaims)
+        {
+            NSLog(@"no queued claims found so cleanup local folders");
+            NSArray *documentDirectories =
+            NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                NSUserDomainMask,
+                                                YES);
+            
+            NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+            
+            
+          //  NSString *path = [content getImagesPath];
+            NSLog(@"path is %@", documentDirectory);
+            
+            [[NSFileManager defaultManager] removeItemAtPath:documentDirectory
+                                                       error:NULL];
+            NSLog(@"local folders cleaned up successfully");
+        }
         
 //        Session *s = content.session;
 //        s.installerID = @"1";

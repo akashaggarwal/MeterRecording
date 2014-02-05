@@ -8,6 +8,7 @@
 
 #import "ImageStore.h"
 
+
 @implementation ImageStore
 
 + (id)allocWithZone:(NSZone *)zone
@@ -95,6 +96,8 @@
 
 - (NSString *)imagePathForKey:(NSString *)key
 {
+    
+    
     NSArray *documentDirectories =
     NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                         NSUserDomainMask,
@@ -102,7 +105,7 @@
     
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
-    return [documentDirectory stringByAppendingPathComponent:key];
+    return [documentDirectory stringByAppendingPathComponent: key];
 }
 
 @end

@@ -62,6 +62,7 @@
 		DA628B34188EFCB30088B6C0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2A188EFCB30088B6C0 /* Icon@2x.png */; };
 		DA628B35188EFCB30088B6C0 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2B188EFCB30088B6C0 /* iTunesArtwork.png */; };
 		DA628B36188EFCB30088B6C0 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */; };
+		DA65462518A2BF5D00325112 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA65462418A2BF5D00325112 /* Crashlytics.framework */; };
 		DA66DC7C189CA51A00088F6B /* Logo trident.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA66DC7B189CA51A00088F6B /* Logo trident.jpg */; };
 		DA73B61A188F3D7700B1E6A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA73B614188F3D7700B1E6A5 /* README.md */; };
 		DA73B61B188F3D7700B1E6A5 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DA73B615188F3D7700B1E6A5 /* release_notes.md */; };
@@ -202,6 +203,7 @@
 		DA628B2A188EFCB30088B6C0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DA628B2B188EFCB30088B6C0 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		DA65462418A2BF5D00325112 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		DA66DC7B189CA51A00088F6B /* Logo trident.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Logo trident.jpg"; path = "MeterRecording/Logo trident.jpg"; sourceTree = "<group>"; };
 		DA73B613188F3D7700B1E6A5 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		DA73B614188F3D7700B1E6A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				DAFCEAC1189570BC0067A134 /* libz.dylib in Frameworks */,
 				DAFCEAB7189570720067A134 /* AVFoundation.framework in Frameworks */,
 				DA73B61C188F3D9600B1E6A5 /* libTestFlight.a in Frameworks */,
+				DA65462518A2BF5D00325112 /* Crashlytics.framework in Frameworks */,
 				DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */,
 				DAA8B25018714DA40074AB41 /* libPods.a in Frameworks */,
 				DAA998E51861364600FCDBD1 /* CoreData.framework in Frameworks */,
@@ -453,6 +456,7 @@
 		DA23E67918269253000BD089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA65462418A2BF5D00325112 /* Crashlytics.framework */,
 				DAFCEAFD189571A70067A134 /* libzbar.a */,
 				DAFCEAC2189571970067A134 /* MeterRecording */,
 				DAFCEAC0189570BC0067A134 /* libz.dylib */,
@@ -765,6 +769,7 @@
 				DA23E67418269253000BD089 /* Frameworks */,
 				DA23E67518269253000BD089 /* Resources */,
 				F883F956B44141329DE76E9E /* Copy Pods Resources */,
+				DA65462318A2BF1400325112 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -902,6 +907,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		DA65462318A2BF1400325112 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 0c962dcb4b83942d176450b83cbbc11ae08af07d 91cfd9e40d6e85b610244ffff1ef425cdb3d5a09c3b196c8c91366a466bde483";
 		};
 		F883F956B44141329DE76E9E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1083,7 +1101,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = /Users/mac2013/Documents/Neptune/MeterRecording;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1133,7 +1151,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = /Users/mac2013/Documents/Neptune/MeterRecording;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1260,7 +1278,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = /Users/mac2013/Documents/Neptune/MeterRecording;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

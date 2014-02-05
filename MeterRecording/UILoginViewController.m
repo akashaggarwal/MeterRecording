@@ -13,7 +13,7 @@
 #import "MeterApiClient.h"
 #import "SVProgressHUD.h"
 #import <AFHTTPRequestOperationLogger.h>
-
+#import <Crashlytics/Crashlytics.h>
 
 
 @implementation UILoginViewController
@@ -65,6 +65,7 @@ BOOL successful = NO;
     [TestFlight setDeviceIdentifier:adId];
     // app token
    [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
+    [Crashlytics startWithAPIKey:@"0c962dcb4b83942d176450b83cbbc11ae08af07d"];
 }
 
 

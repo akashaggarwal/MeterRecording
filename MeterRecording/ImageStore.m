@@ -105,6 +105,9 @@
     
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
+
+   // documentDirectory = [documentDirectory stringByAppendingPathComponent: @"/images"];
+    NSLog(@"PATH IS %@", documentDirectory);
     return [documentDirectory stringByAppendingPathComponent: key];
 }
 

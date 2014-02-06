@@ -186,7 +186,7 @@ Session *_session;
 }
 
 
--(bool) purgeOldSchedulesNotQueued
+-(void) purgeOldSchedulesNotQueued
 {
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -209,12 +209,12 @@ Session *_session;
         NSLog(@"no old schedules ");
         
     }
-    bool queuedClaimsFound;
+  
     for(Schedule *s in listOfObjects)
     {
+        NSLog(@"local schedule status->%@",[s localschedulestatus]);
         if ([s.localschedulestatus isEqualToString:CLAIM_QUEUED])
         {
-            queuedClaimsFound= true;
             NSLog(@"Found queued claim with schedule with id->%@ ", s.scheduleID);
         }
         else
@@ -224,8 +224,43 @@ Session *_session;
         }
     }
     [context save:nil];
-    return queuedClaimsFound;
+    
    }
+
+
+-(bool) IsCompletedOrQueuedSchedulePresent
+{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_SCHEDULE
+                                              inManagedObjectContext:context];
+    request.entity = entity;
+ 
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"localschedulestatus != '0' "];
+    
+    request.predicate = p;
+    NSError *err = nil;
+    NSArray *listOfObjects = [context executeFetchRequest:request
+                                                    error:&err];
+    NSLog(@"errors are %@",[err localizedDescription]);
+    if (listOfObjects == nil)
+    {
+        NSLog(@"no old queued or completed claims ");
+        return false;
+        
+    }
+    NSLog(@" old queued or completed claims count->%d",[listOfObjects count]);
+    if ([listOfObjects count] > 0)
+    {
+     return true;
+    }
+    else
+        return false;
+    
+   
+}
+
 
 //
 //- (NSMutableArray*)schedules
@@ -342,7 +377,10 @@ Session *_session;
 
 -(NSString *) getDeviceID
 {
-    return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSString *deviceID =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] ;
+    NSString *versionNumber = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *info = [NSString stringWithFormat:@"DeviceID:%@\n\nVersion:%@",deviceID,versionNumber ];
+    return info;
 }
 
 

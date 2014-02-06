@@ -378,11 +378,18 @@ Session *_session;
 -(NSString *) getDeviceID
 {
     NSString *deviceID =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] ;
+    //NSString *versionNumber = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    //NSString *info = [NSString stringWithFormat:@"DeviceID:%@\n\nVersion:%@",deviceID,versionNumber ];
+    return deviceID;
+}
+
+
+-(NSString *) getDeviceInfo
+{
+    NSString *deviceID =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] ;
     NSString *versionNumber = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     NSString *info = [NSString stringWithFormat:@"DeviceID:%@\n\nVersion:%@",deviceID,versionNumber ];
     return info;
 }
-
-
 
 @end

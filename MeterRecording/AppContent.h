@@ -30,6 +30,7 @@
 -(void) purgeOldSessions;
 - (BOOL)saveChanges;
 -(NSString *) getDeviceID;
+-(NSString *) getDeviceInfo;
 -(void) showHUDMessage: (NSString *)s view:(UIView *) v;
 -(void) purgeOldSchedulesNotQueued;
 -(NSString *) getImagesPath;

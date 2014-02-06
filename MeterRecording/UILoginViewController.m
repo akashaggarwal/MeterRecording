@@ -125,7 +125,7 @@ BOOL successful = NO;
 
 - (void)showDeviceID: (UISwipeGestureRecognizer*)gestureRecognizer {
     NSLog(@"device id shown->%@", [self.content getDeviceID]);
-    [self.content showHUDMessage:[self.content getDeviceID] view:self.navigationController.view];
+    [self.content showHUDMessage:[self.content getDeviceInfo] view:self.navigationController.view];
 
 
 }

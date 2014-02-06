@@ -1129,7 +1129,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = WorkOrder;
-				PROVISIONING_PROFILE = "4DAC7838-3369-4F0E-B105-0D0A82C3E171";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1180,7 +1180,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = WorkOrder;
-				PROVISIONING_PROFILE = "4DAC7838-3369-4F0E-B105-0D0A82C3E171";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1276,8 +1276,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = /Users/mac2013/Documents/Neptune/MeterRecording;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
@@ -1308,7 +1308,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = WorkOrder;
-				PROVISIONING_PROFILE = "4DAC7838-3369-4F0E-B105-0D0A82C3E171";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

@@ -68,7 +68,20 @@
             else {
                 
                 NSLog(@"string does not contain neptune! so deleting %@", filename);
-                [[NSFileManager defaultManager]  removeItemAtPath:filename error:NULL];
+                NSString *fullfilename = [documentDirectory stringByAppendingPathComponent:filename];
+
+                //NSString *fullfilename = [NSString stringWithFormat:@"%@/%@",documentDirectory,filename];
+                 NSLog(@"full file path %@", fullfilename);
+                NSError *err= nil;
+                BOOL success = [[NSFileManager defaultManager]  removeItemAtPath:fullfilename error:&err];
+                if (success)
+                {
+                    NSLog(@"deleted file successfully");
+                }
+                else
+                {
+                    NSLog(@"%@", [err localizedDescription]);
+                }
                 
             }
             

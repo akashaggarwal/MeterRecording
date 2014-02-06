@@ -11,6 +11,9 @@
 		DA02CF151891EABA00593B18 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF101891EABA00593B18 /* zbar-help.html */; };
 		DA02CF161891EABA00593B18 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF111891EABA00593B18 /* zbar-helpicons.png */; };
 		DA02CF171891EABA00593B18 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF121891EABA00593B18 /* zbar-samples.png */; };
+		DA03489A18A31BF800F9F146 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA03489418A31BF800F9F146 /* README.md */; };
+		DA03489B18A31BF800F9F146 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DA03489518A31BF800F9F146 /* release_notes.md */; };
+		DA03489C18A31C5400F9F146 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA03489318A31BF800F9F146 /* libTestFlight.a */; };
 		DA10AADD1875C7FD00117F71 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADC1875C7FD00117F71 /* ImageStore.m */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
@@ -23,7 +26,7 @@
 		DA23E69618269253000BD089 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67E18269253000BD089 /* UIKit.framework */; };
 		DA23E69E18269253000BD089 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA23E69C18269253000BD089 /* InfoPlist.strings */; };
 		DA23E6A018269253000BD089 /* MeterRecordingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E69F18269253000BD089 /* MeterRecordingTests.m */; };
-		DA23E6AA18269280000BD089 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA23E6A918269280000BD089 /* Storyboard.storyboard */; };
+		DA23E6AA18269280000BD089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA23E6A918269280000BD089 /* Main.storyboard */; };
 		DA23E6AD182692F3000BD089 /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E6AC182692F3000BD089 /* AppContent.m */; };
 		DA23E6B51826AEC5000BD089 /* UILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23E6B41826AEC5000BD089 /* UILoginViewController.m */; };
 		DA23E6BA1826CB99000BD089 /* technician-reading-water-meter-28438611.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA23E6B91826CB99000BD089 /* technician-reading-water-meter-28438611.jpg */; };
@@ -64,9 +67,6 @@
 		DA628B36188EFCB30088B6C0 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */; };
 		DA65462518A2BF5D00325112 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA65462418A2BF5D00325112 /* Crashlytics.framework */; };
 		DA66DC7C189CA51A00088F6B /* Logo trident.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA66DC7B189CA51A00088F6B /* Logo trident.jpg */; };
-		DA73B61A188F3D7700B1E6A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA73B614188F3D7700B1E6A5 /* README.md */; };
-		DA73B61B188F3D7700B1E6A5 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DA73B615188F3D7700B1E6A5 /* release_notes.md */; };
-		DA73B61C188F3D9600B1E6A5 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA73B613188F3D7700B1E6A5 /* libTestFlight.a */; };
 		DA99A3DD1895EE4400C20C74 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCEABA1895708C0067A134 /* MobileCoreServices.framework */; };
 		DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9EDF7218762CC600A9445A /* libT1Autograph.a */; };
 		DA9EDF7A18762CE500A9445A /* autograph_x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9EDF7518762CE500A9445A /* autograph_x.png */; };
@@ -138,6 +138,12 @@
 		DA02CF101891EABA00593B18 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		DA02CF111891EABA00593B18 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		DA02CF121891EABA00593B18 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		DA03489318A31BF800F9F146 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		DA03489418A31BF800F9F146 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DA03489518A31BF800F9F146 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		DA03489618A31BF800F9F146 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		DA03489718A31BF800F9F146 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		DA03489818A31BF800F9F146 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		DA10AADB1875C7FD00117F71 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 		DA10AADC1875C7FD00117F71 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 		DA23E67718269253000BD089 /* WorkOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +161,7 @@
 		DA23E69B18269253000BD089 /* MeterRecordingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeterRecordingTests-Info.plist"; sourceTree = "<group>"; };
 		DA23E69D18269253000BD089 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA23E69F18269253000BD089 /* MeterRecordingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeterRecordingTests.m; sourceTree = "<group>"; };
-		DA23E6A918269280000BD089 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		DA23E6A918269280000BD089 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA23E6AB182692F3000BD089 /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
 		DA23E6AC182692F3000BD089 /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
 		DA23E6B31826AEC5000BD089 /* UILoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoginViewController.h; sourceTree = "<group>"; };
@@ -205,12 +211,6 @@
 		DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		DA65462418A2BF5D00325112 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		DA66DC7B189CA51A00088F6B /* Logo trident.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Logo trident.jpg"; path = "MeterRecording/Logo trident.jpg"; sourceTree = "<group>"; };
-		DA73B613188F3D7700B1E6A5 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		DA73B614188F3D7700B1E6A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		DA73B615188F3D7700B1E6A5 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		DA73B616188F3D7700B1E6A5 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		DA73B617188F3D7700B1E6A5 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		DA73B618188F3D7700B1E6A5 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		DA9EDF7218762CC600A9445A /* libT1Autograph.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libT1Autograph.a; path = ../../../Downloads/T1Autograph/libT1Autograph.a; sourceTree = "<group>"; };
 		DA9EDF7518762CE500A9445A /* autograph_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autograph_x.png; sourceTree = "<group>"; };
 		DA9EDF7618762CE500A9445A /* t1_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t1_logo.png; sourceTree = "<group>"; };
@@ -328,12 +328,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA03489C18A31C5400F9F146 /* libTestFlight.a in Frameworks */,
 				DA99A3DD1895EE4400C20C74 /* MobileCoreServices.framework in Frameworks */,
 				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
 				DAFCEAFE189571A70067A134 /* libzbar.a in Frameworks */,
 				DAFCEAC1189570BC0067A134 /* libz.dylib in Frameworks */,
 				DAFCEAB7189570720067A134 /* AVFoundation.framework in Frameworks */,
-				DA73B61C188F3D9600B1E6A5 /* libTestFlight.a in Frameworks */,
 				DA65462518A2BF5D00325112 /* Crashlytics.framework in Frameworks */,
 				DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */,
 				DAA8B25018714DA40074AB41 /* libPods.a in Frameworks */,
@@ -428,11 +428,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DA03489218A31BF800F9F146 /* TestFlightSDK2.2.1 */ = {
+			isa = PBXGroup;
+			children = (
+				DA03489318A31BF800F9F146 /* libTestFlight.a */,
+				DA03489418A31BF800F9F146 /* README.md */,
+				DA03489518A31BF800F9F146 /* release_notes.md */,
+				DA03489618A31BF800F9F146 /* TestFlight+AsyncLogging.h */,
+				DA03489718A31BF800F9F146 /* TestFlight+ManualSessions.h */,
+				DA03489818A31BF800F9F146 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.2.1;
+			sourceTree = "<group>";
+		};
 		DA23E66E18269253000BD089 = {
 			isa = PBXGroup;
 			children = (
+				DA03489218A31BF800F9F146 /* TestFlightSDK2.2.1 */,
 				DA02CEF51891EABA00593B18 /* ZBarSDK */,
-				DA73B612188F3D7700B1E6A5 /* TestFlightSDK2.1.4 */,
 				DA9EDF7C18762CED00A9445A /* T1Autograph */,
 				DA50CD29182BED9500D7CD06 /* Signature */,
 				DA23E6B81826CA5B000BD089 /* Resources */,
@@ -501,7 +514,7 @@
 				DA23E6B11826AE73000BD089 /* Controllers */,
 				DA23E68918269253000BD089 /* AppDelegate.h */,
 				DA23E68A18269253000BD089 /* AppDelegate.m */,
-				DA23E6A918269280000BD089 /* Storyboard.storyboard */,
+				DA23E6A918269280000BD089 /* Main.storyboard */,
 				DA23E68118269253000BD089 /* Supporting Files */,
 			);
 			path = MeterRecording;
@@ -632,19 +645,6 @@
 				DA628B2C188EFCB30088B6C0 /* iTunesArtwork@2x.png */,
 			);
 			path = "App Icon [Squared]";
-			sourceTree = "<group>";
-		};
-		DA73B612188F3D7700B1E6A5 /* TestFlightSDK2.1.4 */ = {
-			isa = PBXGroup;
-			children = (
-				DA73B613188F3D7700B1E6A5 /* libTestFlight.a */,
-				DA73B614188F3D7700B1E6A5 /* README.md */,
-				DA73B615188F3D7700B1E6A5 /* release_notes.md */,
-				DA73B616188F3D7700B1E6A5 /* TestFlight+AsyncLogging.h */,
-				DA73B617188F3D7700B1E6A5 /* TestFlight+ManualSessions.h */,
-				DA73B618188F3D7700B1E6A5 /* TestFlight.h */,
-			);
-			path = TestFlightSDK2.1.4;
 			sourceTree = "<group>";
 		};
 		DA9EDF7418762CE500A9445A /* Images */ = {
@@ -838,6 +838,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA03489B18A31BF800F9F146 /* release_notes.md in Resources */,
 				DA628B2F188EFCB30088B6C0 /* Icon-Small-50.png in Resources */,
 				DA628B2E188EFCB30088B6C0 /* Icon-72@2x.png in Resources */,
 				DA50CD28182BDCAF00D7CD06 /* watermeter.png in Resources */,
@@ -860,17 +861,16 @@
 				DA50CD8F182C4A6A00D7CD06 /* NoImage.png in Resources */,
 				DA50CDA3182C6DFB00D7CD06 /* watermeter.png in Resources */,
 				DA628B35188EFCB30088B6C0 /* iTunesArtwork.png in Resources */,
+				DA03489A18A31BF800F9F146 /* README.md in Resources */,
 				DA628B33188EFCB30088B6C0 /* Icon.png in Resources */,
-				DA73B61B188F3D7700B1E6A5 /* release_notes.md in Resources */,
 				DA9EDF7A18762CE500A9445A /* autograph_x.png in Resources */,
 				DA50CD95182C665A00D7CD06 /* signature.png in Resources */,
 				DA50CD3A182BF25600D7CD06 /* Camera-iOS-7-256.png in Resources */,
 				DA628B30188EFCB30088B6C0 /* Icon-Small-50@2x.png in Resources */,
 				DA50CDA2182C6DFB00D7CD06 /* watericon.png in Resources */,
 				DA02CF151891EABA00593B18 /* zbar-help.html in Resources */,
-				DA73B61A188F3D7700B1E6A5 /* README.md in Resources */,
 				DA50CD9B182C6DB800D7CD06 /* calendar.png in Resources */,
-				DA23E6AA18269280000BD089 /* Storyboard.storyboard in Resources */,
+				DA23E6AA18269280000BD089 /* Main.storyboard in Resources */,
 				DA50CD93182C664900D7CD06 /* scanimabe.png in Resources */,
 				DA9EDF7F18762E4F00A9445A /* bluebutton.png in Resources */,
 				DA628B2D188EFCB30088B6C0 /* Icon-72.png in Resources */,
@@ -1127,10 +1127,11 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/ZBarSDK,
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.1.4,
 					/Users/mac2013/Documents/Neptune/ZBarSDK,
+					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.2.1,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = WorkOrder;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4DAC7838-3369-4F0E-B105-0D0A82C3E171";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1177,10 +1178,11 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/ZBarSDK,
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.1.4,
 					/Users/mac2013/Documents/Neptune/ZBarSDK,
+					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.2.1,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = WorkOrder;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4DAC7838-3369-4F0E-B105-0D0A82C3E171";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1276,8 +1278,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = /Users/mac2013/Documents/Neptune/MeterRecording;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeterRecording/MeterRecording-Prefix.pch";
@@ -1304,10 +1306,11 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/ZBarSDK,
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.1.4,
 					/Users/mac2013/Documents/Neptune/ZBarSDK,
+					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.2.1,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = WorkOrder;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4DAC7838-3369-4F0E-B105-0D0A82C3E171";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

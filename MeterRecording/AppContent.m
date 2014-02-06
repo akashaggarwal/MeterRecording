@@ -115,7 +115,7 @@ Session *_session;
     NSLog(@"installerid->%@ , session id ->%@", self.installerID, [AppContent getCurrentDate]);
     
     NSString *attributeName = @"installerID";
-    NSString *attributeValue = self.installerID;
+    //NSString *attributeValue = self.installerID;
     NSPredicate *p = [NSPredicate predicateWithFormat:@"(installerID == %@) AND (lastDateTime == %@)",
                              self.installerID, currentDate];
     

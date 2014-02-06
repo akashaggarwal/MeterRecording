@@ -13,7 +13,8 @@
 		DA02CF171891EABA00593B18 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF121891EABA00593B18 /* zbar-samples.png */; };
 		DA03489A18A31BF800F9F146 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA03489418A31BF800F9F146 /* README.md */; };
 		DA03489B18A31BF800F9F146 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DA03489518A31BF800F9F146 /* release_notes.md */; };
-		DA03489C18A31C5400F9F146 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA03489318A31BF800F9F146 /* libTestFlight.a */; };
+		DA03489D18A32E9800F9F146 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCEAC0189570BC0067A134 /* libz.dylib */; };
+		DA03489E18A32EEF00F9F146 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA03489318A31BF800F9F146 /* libTestFlight.a */; };
 		DA10AADD1875C7FD00117F71 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADC1875C7FD00117F71 /* ImageStore.m */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
@@ -95,7 +96,6 @@
 		DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC412AE182E0D84009194B5 /* SystemConfiguration.framework */; };
 		DAC412B1182E0D9D009194B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC412B0182E0D9D009194B5 /* CoreTelephony.framework */; };
 		DAFCEAB7189570720067A134 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50CD40182C428200D7CD06 /* AVFoundation.framework */; };
-		DAFCEAC1189570BC0067A134 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCEAC0189570BC0067A134 /* libz.dylib */; };
 		DAFCEAFE189571A70067A134 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCEAFD189571A70067A134 /* libzbar.a */; };
 /* End PBXBuildFile section */
 
@@ -112,7 +112,6 @@
 /* Begin PBXFileReference section */
 		6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		6C6F9A49F46142E78B1B1C80 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA02CEF21890AB2900593B18 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		DA02CEF91891EABA00593B18 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		DA02CEFA1891EABA00593B18 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		DA02CEFB1891EABA00593B18 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -328,11 +327,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA03489C18A31C5400F9F146 /* libTestFlight.a in Frameworks */,
+				DA03489E18A32EEF00F9F146 /* libTestFlight.a in Frameworks */,
+				DA03489D18A32E9800F9F146 /* libz.dylib in Frameworks */,
 				DA99A3DD1895EE4400C20C74 /* MobileCoreServices.framework in Frameworks */,
 				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
 				DAFCEAFE189571A70067A134 /* libzbar.a in Frameworks */,
-				DAFCEAC1189570BC0067A134 /* libz.dylib in Frameworks */,
 				DAFCEAB7189570720067A134 /* AVFoundation.framework in Frameworks */,
 				DA65462518A2BF5D00325112 /* Crashlytics.framework in Frameworks */,
 				DA9EDF7318762CC600A9445A /* libT1Autograph.a in Frameworks */,
@@ -478,7 +477,6 @@
 				DAFCEABA1895708C0067A134 /* MobileCoreServices.framework */,
 				DAFCEAB8189570800067A134 /* CoreLocation.framework */,
 				DAFCEAB51895705C0067A134 /* AdSupport.framework */,
-				DA02CEF21890AB2900593B18 /* libz.1.2.5.dylib */,
 				DA9EDF7218762CC600A9445A /* libT1Autograph.a */,
 				DAA8B24B18714DA40074AB41 /* libPods-PonyDebugger.a */,
 				DAA8B24C18714DA40074AB41 /* libPods-SocketRocket.a */,

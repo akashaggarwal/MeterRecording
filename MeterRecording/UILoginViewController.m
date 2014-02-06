@@ -164,7 +164,7 @@ BOOL successful = NO;
                                              {
                                                  // do something
                                             
-                                             NSMutableArray *results = [NSMutableArray array];
+                                            // NSMutableArray *results = [NSMutableArray array];
                                              
                                              
                                              NSManagedObjectContext *context = [self.content managedObjectContext];

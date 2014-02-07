@@ -139,7 +139,7 @@ Schedule *_claim;
                                                                               [formData appendPartWithFileData:photo3photodata name:@"Photo3" fileName:self.claim.photo3filepath mimeType:@"image/jpeg"];
                                                                           
                                                                           if (self.claim.signaturefilepath)
-                                                                              [formData appendPartWithFileData:signaturedata name:@"SignaturePhoto" fileName:self.claim.signaturefilepath mimeType:@"image/jpeg"];
+                                                                              [formData appendPartWithFileData:signaturedata name:@"Sig1" fileName:self.claim.signaturefilepath mimeType:@"image/jpeg"];
                                                                           
                                                                           
                                                                           [formData appendPartWithFormData:[deviceID dataUsingEncoding:NSUTF8StringEncoding] name:@"DeviceID"];

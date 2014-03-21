@@ -11,10 +11,7 @@
 		DA02CF151891EABA00593B18 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF101891EABA00593B18 /* zbar-help.html */; };
 		DA02CF161891EABA00593B18 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF111891EABA00593B18 /* zbar-helpicons.png */; };
 		DA02CF171891EABA00593B18 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = DA02CF121891EABA00593B18 /* zbar-samples.png */; };
-		DA03489A18A31BF800F9F146 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA03489418A31BF800F9F146 /* README.md */; };
-		DA03489B18A31BF800F9F146 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DA03489518A31BF800F9F146 /* release_notes.md */; };
 		DA03489D18A32E9800F9F146 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCEAC0189570BC0067A134 /* libz.dylib */; };
-		DA03489E18A32EEF00F9F146 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA03489318A31BF800F9F146 /* libTestFlight.a */; };
 		DA10AADD1875C7FD00117F71 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA10AADC1875C7FD00117F71 /* ImageStore.m */; };
 		DA23E67B18269253000BD089 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67A18269253000BD089 /* Foundation.framework */; };
 		DA23E67D18269253000BD089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA23E67C18269253000BD089 /* CoreGraphics.framework */; };
@@ -86,6 +83,10 @@
 		DAAD99F9187BCC0300F7482E /* Completed.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAD99F7187BCC0300F7482E /* Completed.png */; };
 		DAAD99FA187BCC0300F7482E /* Queued.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAD99F8187BCC0300F7482E /* Queued.png */; };
 		DAAFA3F1186F75340007B042 /* MyClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAFA3F0186F75340007B042 /* MyClaim.m */; };
+		DABA0FB818DB8F220083AFBA /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABA0FB718DB8F220083AFBA /* StartupViewController.m */; };
+		DABA0FC118DB92D50083AFBA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DABA0FBB18DB92D50083AFBA /* README.md */; };
+		DABA0FC218DB92D50083AFBA /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = DABA0FBC18DB92D50083AFBA /* release_notes.md */; };
+		DABA0FC318DB92FC0083AFBA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DABA0FBA18DB92D50083AFBA /* libTestFlight.a */; };
 		DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */; };
 		DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6764182B490800D85680 /* UIOldMeterViewController.m */; };
 		DABF6768182B491800D85680 /* UINewMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6767182B491800D85680 /* UINewMeterViewController.m */; };
@@ -137,12 +138,6 @@
 		DA02CF101891EABA00593B18 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		DA02CF111891EABA00593B18 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		DA02CF121891EABA00593B18 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
-		DA03489318A31BF800F9F146 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		DA03489418A31BF800F9F146 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		DA03489518A31BF800F9F146 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		DA03489618A31BF800F9F146 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		DA03489718A31BF800F9F146 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		DA03489818A31BF800F9F146 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		DA10AADB1875C7FD00117F71 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 		DA10AADC1875C7FD00117F71 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 		DA23E67718269253000BD089 /* WorkOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +234,14 @@
 		DAAD99F8187BCC0300F7482E /* Queued.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Queued.png; path = Images/Queued.png; sourceTree = "<group>"; };
 		DAAFA3EF186F75340007B042 /* MyClaim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClaim.h; sourceTree = "<group>"; };
 		DAAFA3F0186F75340007B042 /* MyClaim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClaim.m; sourceTree = "<group>"; };
+		DABA0FB618DB8F220083AFBA /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupViewController.h; sourceTree = "<group>"; };
+		DABA0FB718DB8F220083AFBA /* StartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupViewController.m; sourceTree = "<group>"; };
+		DABA0FBA18DB92D50083AFBA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		DABA0FBB18DB92D50083AFBA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DABA0FBC18DB92D50083AFBA /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		DABA0FBD18DB92D50083AFBA /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		DABA0FBE18DB92D50083AFBA /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		DABA0FBF18DB92D50083AFBA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		DABF6760182B436200D85680 /* UIScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScheduleDetailViewController.h; sourceTree = "<group>"; };
 		DABF6761182B436200D85680 /* UIScheduleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScheduleDetailViewController.m; sourceTree = "<group>"; };
 		DABF6763182B490800D85680 /* UIOldMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOldMeterViewController.h; sourceTree = "<group>"; };
@@ -327,7 +330,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA03489E18A32EEF00F9F146 /* libTestFlight.a in Frameworks */,
+				DABA0FC318DB92FC0083AFBA /* libTestFlight.a in Frameworks */,
 				DA03489D18A32E9800F9F146 /* libz.dylib in Frameworks */,
 				DA99A3DD1895EE4400C20C74 /* MobileCoreServices.framework in Frameworks */,
 				DAC412AF182E0D84009194B5 /* SystemConfiguration.framework in Frameworks */,
@@ -427,23 +430,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		DA03489218A31BF800F9F146 /* TestFlightSDK2.2.1 */ = {
-			isa = PBXGroup;
-			children = (
-				DA03489318A31BF800F9F146 /* libTestFlight.a */,
-				DA03489418A31BF800F9F146 /* README.md */,
-				DA03489518A31BF800F9F146 /* release_notes.md */,
-				DA03489618A31BF800F9F146 /* TestFlight+AsyncLogging.h */,
-				DA03489718A31BF800F9F146 /* TestFlight+ManualSessions.h */,
-				DA03489818A31BF800F9F146 /* TestFlight.h */,
-			);
-			path = TestFlightSDK2.2.1;
-			sourceTree = "<group>";
-		};
 		DA23E66E18269253000BD089 = {
 			isa = PBXGroup;
 			children = (
-				DA03489218A31BF800F9F146 /* TestFlightSDK2.2.1 */,
+				DABA0FB918DB92D50083AFBA /* TestFlightSDK3 */,
 				DA02CEF51891EABA00593B18 /* ZBarSDK */,
 				DA9EDF7C18762CED00A9445A /* T1Autograph */,
 				DA50CD29182BED9500D7CD06 /* Signature */,
@@ -566,6 +556,8 @@
 				DABF676D182B493400D85680 /* UISIgnatureViewController.m */,
 				DA50CD3D182C3BBF00D7CD06 /* UIBaseTableViewController.h */,
 				DA50CD3E182C3BBF00D7CD06 /* UIBaseTableViewController.m */,
+				DABA0FB618DB8F220083AFBA /* StartupViewController.h */,
+				DABA0FB718DB8F220083AFBA /* StartupViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -689,6 +681,19 @@
 				DAAD99EF187B303000F7482E /* MyConstants.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		DABA0FB918DB92D50083AFBA /* TestFlightSDK3 */ = {
+			isa = PBXGroup;
+			children = (
+				DABA0FBA18DB92D50083AFBA /* libTestFlight.a */,
+				DABA0FBB18DB92D50083AFBA /* README.md */,
+				DABA0FBC18DB92D50083AFBA /* release_notes.md */,
+				DABA0FBD18DB92D50083AFBA /* TestFlight+AsyncLogging.h */,
+				DABA0FBE18DB92D50083AFBA /* TestFlight+ManualSessions.h */,
+				DABA0FBF18DB92D50083AFBA /* TestFlight.h */,
+			);
+			path = TestFlightSDK3;
 			sourceTree = "<group>";
 		};
 		DAFCEAC2189571970067A134 /* MeterRecording */ = {
@@ -836,7 +841,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA03489B18A31BF800F9F146 /* release_notes.md in Resources */,
+				DABA0FC218DB92D50083AFBA /* release_notes.md in Resources */,
 				DA628B2F188EFCB30088B6C0 /* Icon-Small-50.png in Resources */,
 				DA628B2E188EFCB30088B6C0 /* Icon-72@2x.png in Resources */,
 				DA50CD28182BDCAF00D7CD06 /* watermeter.png in Resources */,
@@ -859,7 +864,7 @@
 				DA50CD8F182C4A6A00D7CD06 /* NoImage.png in Resources */,
 				DA50CDA3182C6DFB00D7CD06 /* watermeter.png in Resources */,
 				DA628B35188EFCB30088B6C0 /* iTunesArtwork.png in Resources */,
-				DA03489A18A31BF800F9F146 /* README.md in Resources */,
+				DABA0FC118DB92D50083AFBA /* README.md in Resources */,
 				DA628B33188EFCB30088B6C0 /* Icon.png in Resources */,
 				DA9EDF7A18762CE500A9445A /* autograph_x.png in Resources */,
 				DA50CD95182C665A00D7CD06 /* signature.png in Resources */,
@@ -945,6 +950,7 @@
 				DABF6762182B436200D85680 /* UIScheduleDetailViewController.m in Sources */,
 				DAA9990018615DA400FCDBD1 /* MeterApiClient.m in Sources */,
 				DABF6768182B491800D85680 /* UINewMeterViewController.m in Sources */,
+				DABA0FB818DB8F220083AFBA /* StartupViewController.m in Sources */,
 				DABF676B182B492700D85680 /* UIPhoto3ViewController.m in Sources */,
 				DABF6765182B490800D85680 /* UIOldMeterViewController.m in Sources */,
 				DAAFA3F1186F75340007B042 /* MyClaim.m in Sources */,
@@ -1018,7 +1024,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1048,9 +1057,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1058,7 +1068,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1082,10 +1095,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1094,7 +1108,10 @@
 			baseConfigurationReference = 6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -1128,14 +1145,15 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.1.4,
 					/Users/mac2013/Documents/Neptune/ZBarSDK,
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.2.1,
+					"$(PROJECT_DIR)/TestFlightSDK3",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = WorkOrder;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1145,7 +1163,10 @@
 			baseConfigurationReference = 6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -1179,14 +1200,15 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.1.4,
 					/Users/mac2013/Documents/Neptune/ZBarSDK,
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.2.1,
+					"$(PROJECT_DIR)/TestFlightSDK3",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = WorkOrder;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1237,7 +1259,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1262,10 +1287,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Adhoc;
 		};
@@ -1274,7 +1300,10 @@
 			baseConfigurationReference = 6194CE8753FE4E45BEC1D0AA /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -1308,14 +1337,15 @@
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.1.4,
 					/Users/mac2013/Documents/Neptune/ZBarSDK,
 					/Users/mac2013/Documents/Neptune/MeterRecording/TestFlightSDK2.2.1,
+					"$(PROJECT_DIR)/TestFlightSDK3",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = WorkOrder;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Adhoc;

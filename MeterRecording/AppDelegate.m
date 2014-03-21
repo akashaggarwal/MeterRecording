@@ -16,92 +16,16 @@
 {
     NSLog(@"inside app delegate");
     
-    AppContent *content =[[AppContent alloc] init];
-    NSString *adId = [content getDeviceID];
-    [self setupTestFlight:adId];
+    [self setupTestFlight];
 
-    [content purgeOldSessions];
-    [content purgeOldSchedulesNotQueued];
-    
-    NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                        NSUserDomainMask,
-                                        YES);
-    
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    
-    //documentDirectory = [documentDirectory stringByAppendingPathComponent: @"/images"];
-    
-    //  NSString *path = [content getImagesPath];
-    NSLog(@"path is %@", documentDirectory);
-    NSError * err;
-    NSArray *imagefiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&err];
-    NSLog(@"number of local images->%d",[imagefiles count]);
-    
-    
-    
-    bool queuedOrCompletedClaimsFound = [content IsCompletedOrQueuedSchedulePresent];
-    
-    
-    
-    
-    
-    if (!queuedOrCompletedClaimsFound)
-    {
-        NSLog(@"no queued or completed claims found so cleanup local folders");
-        //            [[NSFileManager defaultManager] removeItemAtPath:documentDirectory
-        //                                           error:NULL];
-        
-        for(NSString *filename in imagefiles)
-        {
-            
-            NSLog(@"filename->%@", filename);
-            
-            NSRange rangeValue = [filename rangeOfString:@"neptune" options:NSCaseInsensitiveSearch];
-            
-            if (rangeValue.length > 0){
-                
-                NSLog(@"string contains neptune");
-                
-            }
-            
-            else {
-                
-                NSLog(@"string does not contain neptune! so deleting %@", filename);
-                NSString *fullfilename = [documentDirectory stringByAppendingPathComponent:filename];
-
-                //NSString *fullfilename = [NSString stringWithFormat:@"%@/%@",documentDirectory,filename];
-                 NSLog(@"full file path %@", fullfilename);
-                NSError *err= nil;
-                BOOL success = [[NSFileManager defaultManager]  removeItemAtPath:fullfilename error:&err];
-                if (success)
-                {
-                    NSLog(@"deleted file successfully");
-                }
-                else
-                {
-                    NSLog(@"%@", [err localizedDescription]);
-                }
-                
-            }
-            
-            
-        }
-        
-        
-        NSLog(@"local folders cleaned up successfully");
-    }
-    else{
-        NSLog(@"there were  queued or completed claims found so NO cleanup");
-    }
-    // Override point for customization after application launch.
+       // Override point for customization after application launch.
     return YES;
 }
 
-- (void)setupTestFlight:(NSString *) adId
+- (void)setupTestFlight
 {
    
-    [TestFlight setDeviceIdentifier:adId];
+    //[TestFlight setDeviceIdentifier:adId];
     // app token
     [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
     [Crashlytics startWithAPIKey:@"0c962dcb4b83942d176450b83cbbc11ae08af07d"];

@@ -27,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     [super adjustforiOS7];
+    
     self.currentclaim = [MyClaim sharedContent];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -90,18 +93,33 @@
     if (self.currentclaim != nil)
     {
    
-        NSString *imageKey = self.currentclaim.claim.photo3filepath;
+        NSString *photo3imageKey = self.currentclaim.claim.photo3filepath;
+        NSString *photo4imageKey = self.currentclaim.claim.photo4filepath;
+        NSString *photo5imageKey = self.currentclaim.claim.photo5filepath;
         
-        if (imageKey) {
+        if (photo3imageKey) {
             // Get image for image key from image store
             UIImage *imageToDisplay =
-            [[ImageStore sharedStore] imageForKey:imageKey];
+            [[ImageStore sharedStore] imageForKey:photo3imageKey];
             
             // Use that image to put on the screen in imageView
-            [self.imageView setImage:imageToDisplay];
-        } else {
-            // Clear the imageView
-            //[self.imageView setImage:nil];
+            [self.photo3imageView setImage:imageToDisplay];
+        }
+        if (photo4imageKey) {
+            // Get image for image key from image store
+            UIImage *imageToDisplay =
+            [[ImageStore sharedStore] imageForKey:photo4imageKey];
+            
+            // Use that image to put on the screen in imageView
+            [self.photo4imageView setImage:imageToDisplay];
+        }
+        if (photo5imageKey) {
+            // Get image for image key from image store
+            UIImage *imageToDisplay =
+            [[ImageStore sharedStore] imageForKey:photo5imageKey];
+            
+            // Use that image to put on the screen in imageView
+            [self.photo5imageView setImage:imageToDisplay];
         }
     }
     
@@ -227,8 +245,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     //    else
     //    {
     // Get picked image from info dictionary
+    NSLog(@" tag of picker view is %ld",(long)picker.view.tag);
     
-    NSString *oldKey = self.currentclaim.claim.photo3filepath;
+    long tag = (long)picker.view.tag;
+    NSString *oldKey = nil;
+    if (tag ==3 )
+        oldKey = self.currentclaim.claim.photo3filepath;
+    else if (tag ==4 )
+        oldKey = self.currentclaim.claim.photo4filepath;
+    else if (tag ==5 )
+        oldKey = self.currentclaim.claim.photo5filepath;
     
     // Did the item already have an image?
     if (oldKey) {
@@ -252,7 +278,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         // Use that unique ID to set our item's imageKey
         NSString *key = (__bridge NSString *)newUniqueIDString;
         //[self setImageKey:key];
-        self.currentclaim.claim.photo3filepath = key;
+        
+        if (tag ==3 )
+            self.currentclaim.claim.photo3filepath = key;
+        else if (tag ==4 )
+            self.currentclaim.claim.photo4filepath = key;
+        else if (tag ==5 )
+            self.currentclaim.claim.photo5filepath = key;
+        
         // Store image in the BNRImageStore with this key
         [[ImageStore sharedStore] setImage:image
                                     forKey:key];

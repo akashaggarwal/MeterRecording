@@ -2,7 +2,7 @@
 //  Schedule.m
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 1/6/14.
+//  Created by Akash Aggarwal on 5/11/14.
 //  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
@@ -40,8 +40,11 @@
 @dynamic scheduleDate;
 @dynamic scheduleID;
 @dynamic scheduleTime;
+@dynamic sessionStartDate;
 @dynamic signaturefilepath;
 @dynamic submittype;
-@dynamic sessionStartDate;
+@dynamic wiringtime;
+@dynamic photo4filepath;
+@dynamic photo5filepath;
 
 @end

@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtNewRemoteID;
 @property (weak, nonatomic) IBOutlet UIButton *btnScan;
 
+@property (weak, nonatomic) IBOutlet UITextField *txtWiringTime;
+
 - (IBAction)takePicture:(id)sender;
 - (IBAction)scanSerial:(id)sender;
 

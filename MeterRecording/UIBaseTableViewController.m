@@ -92,7 +92,7 @@
     } else {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
-    //imagePicker.view.tag = [sender tag];
+    imagePicker.view.tag = [sender tag];
     // This line of code will generate a warning right now, ignore it
     [imagePicker setDelegate:self];
     // Place image picker on the screen
@@ -122,6 +122,16 @@
                             animated: YES];
     
     
+}
+
+-(void) adjustforiOS7
+{
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        // For insetting with a navigation bar
+        UIEdgeInsets insets = UIEdgeInsetsMake(64, 0, 0, 0);
+        self.tableView.contentInset = insets;
+        self.tableView.scrollIndicatorInsets = insets;
+    }
 }
 //
 //- (void) imagePickerController: (UIImagePickerController*) reader

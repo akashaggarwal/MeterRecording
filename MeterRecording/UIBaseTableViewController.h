@@ -22,4 +22,6 @@
 //@property(weak, nonatomic) NSString *scannedData;
 //@property(weak, nonatomic) UIImage *imagetaken;
 //@property (nonatomic, copy) NSString *imageKey;
+
+-(void) adjustforiOS7;
 @end

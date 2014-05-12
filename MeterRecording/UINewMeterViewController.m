@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
 
+    [super adjustforiOS7];
+    // Check to see if we are running on iOS 6
+  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -50,7 +53,7 @@
         self.txtPlumbingTime.text = self.currentclaim.claim.plumbingtime;
         self.txtNewRemoteID.text = self.currentclaim.claim.newremoteid;
         self.txtNewSize.text = self.currentclaim.claim.newsize;
-        
+        self.txtWiringTime.text = self.currentclaim.claim.wiringtime;
         
         NSString *imageKey = self.currentclaim.claim.newphotofilepath;
         
@@ -75,7 +78,7 @@
     self.currentclaim.claim.plumbingtime=  self.txtPlumbingTime.text ;
     self.currentclaim.claim.newremoteid=  self.txtNewRemoteID.text ;
     self.currentclaim.claim.newsize =  self.txtNewSize.text ;
-
+    self.currentclaim.claim.wiringtime = self.txtWiringTime.text;
     
     
 }

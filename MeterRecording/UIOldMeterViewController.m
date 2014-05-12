@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     //[super adjustforiOS7];
      self.currentclaim = [MyClaim sharedContent];
    
     // Uncomment the following line to preserve selection between presentations.

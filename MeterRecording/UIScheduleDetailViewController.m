@@ -34,9 +34,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self adjustforiOS7];
     self.content = [AppContent sharedContent];
     [self resetlabels];
    
+}
+
+-(void) adjustforiOS7
+{
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        // For insetting with a navigation bar
+        UIEdgeInsets insets = UIEdgeInsetsMake(64, 0, 0, 0);
+        self.tableView.contentInset = insets;
+        self.tableView.scrollIndicatorInsets = insets;
+    }
 }
 -(void) viewDidAppear:(BOOL)animated
 {

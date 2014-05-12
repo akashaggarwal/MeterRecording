@@ -2,7 +2,7 @@
 //  Schedule.h
 //  MeterRecording
 //
-//  Created by Akash Aggarwal on 1/6/14.
+//  Created by Akash Aggarwal on 5/11/14.
 //  Copyright (c) 2014 Akash Aggarwal. All rights reserved.
 //
 
@@ -41,8 +41,11 @@
 @property (nonatomic, retain) NSString * scheduleDate;
 @property (nonatomic, retain) NSString * scheduleID;
 @property (nonatomic, retain) NSString * scheduleTime;
+@property (nonatomic, retain) NSString * sessionStartDate;
 @property (nonatomic, retain) NSString * signaturefilepath;
 @property (nonatomic, retain) NSString * submittype;
-@property (nonatomic, retain) NSString * sessionStartDate;
+@property (nonatomic, retain) NSString * wiringtime;
+@property (nonatomic, retain) NSString * photo4filepath;
+@property (nonatomic, retain) NSString * photo5filepath;
 
 @end

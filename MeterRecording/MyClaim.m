@@ -66,6 +66,7 @@ Schedule *_claim;
     if (!self.claim.phone) self.claim.phone = @"";
     
     if (!self.claim.plumbingtime) self.claim.plumbingtime = @"";
+     if (!self.claim.wiringtime) self.claim.wiringtime = @"";
     if (!self.claim.prevRead) self.claim.prevRead = @"";
     if (!self.claim.route) self.claim.route = @"";
     
@@ -79,21 +80,23 @@ Schedule *_claim;
    
     NSLog(@"old size ->%@",self.claim.oldSize);
       NSLog(@"plumbing time->%@",self.claim.plumbingtime);
-    NSLog(@"new serial ->%@",self.claim.oldphotofilepath);
-    NSLog(@"new serial ->%@",self.claim.newphotofilepath);
-    NSLog(@"new serial ->%@",self.claim.photo3filepath);
-    NSLog(@"new serial ->%@",self.claim.signaturefilepath);
+     NSLog(@"wiring time->%@",self.claim.wiringtime);
+  
     
-    NSLog(@"new serial ->%@",self.claim.prevRead);
-    NSLog(@"new serial ->%@",self.claim.newreading);
+    NSLog(@"prev reading  ->%@",self.claim.prevRead);
+    NSLog(@"new reading->%@",self.claim.newreading);
 
 
     
     NSLog(@"old photo ->%@",self.claim.oldphotofilepath);
     NSLog(@"new photo ->%@",self.claim.newphotofilepath);
     NSLog(@"photo 3 ->%@",self.claim.photo3filepath);
+    NSLog(@"photo 4 ->%@",self.claim.photo4filepath);
+
+    NSLog(@"photo 5 ->%@",self.claim.photo5filepath);
+
     NSLog(@"signature ->%@",self.claim.signaturefilepath);
-    
+     NSLog(@"notes ->%@",self.claim.note);
     NSLog(@"device id ->%@",deviceID);
     NSLog(@"**** Logging the data ENDS**** ");
     
@@ -102,6 +105,8 @@ Schedule *_claim;
     NSData *oldphotodata = nil;
     NSData *newphotodata = nil;
     NSData *photo3photodata = nil;
+    NSData *photo4photodata = nil;
+    NSData *photo5photodata = nil;
     NSData *signaturedata = nil;
     
     NSString *imageKey = self.claim.oldphotofilepath;
@@ -118,6 +123,16 @@ Schedule *_claim;
     if (imageKey) {
         UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
         photo3photodata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
+    }
+    imageKey = self.claim.photo4filepath;
+    if (imageKey) {
+        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+        photo4photodata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
+    }
+    imageKey = self.claim.photo5filepath;
+    if (imageKey) {
+        UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+        photo5photodata = UIImageJPEGRepresentation(imageToDisplay, 0.2);
     }
     imageKey = self.claim.signaturefilepath;
     if (imageKey) {
@@ -137,7 +152,10 @@ Schedule *_claim;
                                                                               [formData appendPartWithFileData:newphotodata name:@"NewPhoto" fileName:self.claim.newphotofilepath mimeType:@"image/jpeg"];
                                                                           if (self.claim.photo3filepath)
                                                                               [formData appendPartWithFileData:photo3photodata name:@"Photo3" fileName:self.claim.photo3filepath mimeType:@"image/jpeg"];
-                                                                          
+                                                                          if (self.claim.photo4filepath)
+                                                                              [formData appendPartWithFileData:photo4photodata name:@"Photo4" fileName:self.claim.photo4filepath mimeType:@"image/jpeg"];
+                                                                          if (self.claim.photo5filepath)
+                                                                              [formData appendPartWithFileData:photo5photodata name:@"Photo5" fileName:self.claim.photo5filepath mimeType:@"image/jpeg"];
                                                                           if (self.claim.signaturefilepath)
                                                                               [formData appendPartWithFileData:signaturedata name:@"Sig1" fileName:self.claim.signaturefilepath mimeType:@"image/jpeg"];
                                                                           
@@ -153,11 +171,12 @@ Schedule *_claim;
                                                                           [formData appendPartWithFormData:[self.claim.newreading dataUsingEncoding:NSUTF8StringEncoding] name:@"NewRead"];
                                                                           //[formData appendPartWithFormData:[self.currentclaim.claim dataUsingEncoding:NSUTF8StringEncoding] name:@"AltRead"];
                                                                           [formData appendPartWithFormData:[self.claim.plumbingtime dataUsingEncoding:NSUTF8StringEncoding] name:@"PlumbingTime"];
+                                                                          [formData appendPartWithFormData:[self.claim.wiringtime dataUsingEncoding:NSUTF8StringEncoding] name:@"WiringTime"];
                                                                           [formData appendPartWithFormData:[self.claim.oldSize dataUsingEncoding:NSUTF8StringEncoding] name:@"OldSize"];
                                                                           [formData appendPartWithFormData:[self.claim.newsize dataUsingEncoding:NSUTF8StringEncoding] name:@"NewSize"];
                                                                           //[formData appendPartWithFormData:[@"1234" dataUsingEncoding:NSUTF8StringEncoding] name:@"SkipReason"];
                                                                           [formData appendPartWithFormData:[self.claim.newremoteid dataUsingEncoding:NSUTF8StringEncoding] name:@"NewRemoteID"];
-                                                                          
+                                                                           [formData appendPartWithFormData:[self.claim.note dataUsingEncoding:NSUTF8StringEncoding] name:@"Notes"];
                                                                           NSLog(@"submission type was %@", self.submitType);
                                                                           if ([self.submitType isEqualToString:@"S"])
                                                                           {

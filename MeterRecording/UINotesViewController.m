@@ -32,6 +32,9 @@
     self.txtNotes.delegate = self;
     
 }
+
+
+
 -(void)viewDidAppear:(BOOL)animated
 {
     if (self.currentclaim != nil)
@@ -64,6 +67,11 @@
     self.currentclaim.claim.note = textView.text;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return textView.text.length + (text.length - range.length) <= 1000;
+}
+
 //- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
 //    NSCharacterSet *doneButtonCharacterSet = [NSCharacterSet newlineCharacterSet];
 //    NSRange replacementTextRange = [text rangeOfCharacterFromSet:doneButtonCharacterSet];
@@ -92,4 +100,57 @@
 }
 */
 
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [self _showTextViewCaretPosition:textView];
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    [self _showTextViewCaretPosition:textView];
+}
+
+
+- (void)_showTextViewCaretPosition:(UITextView *)textView {
+    CGRect caretRect = [textView caretRectForPosition:self.txtNotes.selectedTextRange.end];
+    [textView scrollRectToVisible:caretRect animated:NO];
+}
+
+
+#pragma mark - Keyboard notifications
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval animationDuration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+    CGFloat keyboardHeight = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width;
+    
+    UIEdgeInsets contentInset = self.txtNotes.contentInset;
+    contentInset.bottom = keyboardHeight;
+    
+    
+    UIEdgeInsets scrollIndicatorInsets = self.txtNotes.scrollIndicatorInsets;
+    scrollIndicatorInsets.bottom = keyboardHeight;
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        self.txtNotes.contentInset = contentInset;
+        self.txtNotes.scrollIndicatorInsets = scrollIndicatorInsets;
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSTimeInterval animationDuration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    UIEdgeInsets contentInset = self.txtNotes.contentInset;
+    contentInset.bottom = 0;
+    
+    UIEdgeInsets scrollIndicatorInsets = self.txtNotes.scrollIndicatorInsets;
+    scrollIndicatorInsets.bottom = 0;
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        self.txtNotes.contentInset = contentInset;
+        self.txtNotes.scrollIndicatorInsets = scrollIndicatorInsets;
+    }];
+}
 @end

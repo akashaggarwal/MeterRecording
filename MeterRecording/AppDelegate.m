@@ -14,9 +14,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Crashlytics startWithAPIKey:@"0c962dcb4b83942d176450b83cbbc11ae08af07d"];
+
     NSLog(@"inside app delegate");
-    
-    [self setupTestFlight];
+       [self setupTestFlight];
 
        // Override point for customization after application launch.
     return YES;
@@ -27,8 +28,8 @@
    
     //[TestFlight setDeviceIdentifier:adId];
     // app token
-    [TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
-    [Crashlytics startWithAPIKey:@"0c962dcb4b83942d176450b83cbbc11ae08af07d"];
+    //[TestFlight takeOff:@"a6c2167c-9607-4844-b58e-72fbd5768af4"];
+  
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

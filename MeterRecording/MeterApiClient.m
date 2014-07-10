@@ -9,8 +9,8 @@
 #import "MeterApiClient.h"
 #import "AFNetworking.h"
 
-#define MetersAPIBaseURLString @"http://cincywebmobilesolutions.cloudapp.net/api"
-//#define MetersAPIBaseURLString @"https://workorders.neptuneequipment.com/api"
+//#define MetersAPIBaseURLString @"http://cincywebmobilesolutions.cloudapp.net/api"
+#define MetersAPIBaseURLString @"https://workorders.neptuneequipment.com/api"
 
 #define MetersAPIToken @"1234abcd"
 

@@ -40,7 +40,7 @@
     self.currentclaim = [MyClaim sharedContent];
     NSLog(@" claim name->%@", self.currentclaim.claim.name );
        NSLog(@" claim size->%@", self.currentclaim.claim.oldSize );
-    //[[Crashlytics sharedInstance] crash];
+   // [[Crashlytics sharedInstance] crash];
     if (self.currentclaim != nil)
         [self.txtNewSize setText:self.currentclaim.claim.oldSize];
 }

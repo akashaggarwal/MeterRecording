@@ -255,9 +255,28 @@
     }
     else
     {
+        NSString * message = [NSString stringWithFormat:@"PLEASE TAKE A SCREENSHOT BEFORE PRESSING OK AND HELP REPORT, multiple objects found %d for scheduleid %@", [listOfObjects count], self.currentclaim.claim.scheduleID];
+        //NSLog(@"multiple objects found %d", [listOfObjects count]);
+        [self.content  showMessage:@"WARNING!!!" message:message];
+        category1 = [listOfObjects lastObject];
+        NSLog(@" local status of existing claim found is %@", [category1 localschedulestatus]);
+        category1.accountNumber = self.currentclaim.claim.accountNumber;
+        category1.scheduleID= self.currentclaim.claim.scheduleID;
+        category1.scheduleDate= self.currentclaim.claim.scheduleDate;
+        category1.scheduleTime= self.currentclaim.claim.scheduleTime;
+        category1.claiminsertdatetime = [NSDate date];
+        category1.claimupdatedatetime = [NSDate date];
+        category1.localschedulestatus = CLAIM_QUEUED;
+        category1.name = self.currentclaim.claim.name;
+        category1.installerID = [self.content installerID];
+        bool b = [self.content saveChanges];
+        if (b)
+            NSLog(@"Schedule has been saved locally");
+       
         
-        NSLog(@" should not have come here , multiple records found, investigate issue");
-        abort();
+        
+        
+        
     }
     
     
@@ -289,7 +308,11 @@
     if (listOfObjects == nil)
     {
         NSLog(@"no queued work orders this should not have happened because local record should have been created");
-        abort();
+        
+        NSString * message = [NSString stringWithFormat:@"PLEASE TAKE A SCREENSHOT BEFORE PRESSING OK AND HELP REPORT, no queued work orders this should not have happened because local record should have been created for schedule id %@", self.currentclaim.claim.scheduleID];
+        //NSLog(@"multiple objects found %d", [listOfObjects count]);
+        [self.content  showMessage:@"ERROR!!!" message:message];
+        //abort();
     }
     else
     {

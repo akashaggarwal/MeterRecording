@@ -9,7 +9,7 @@
 #import "StartupViewController.h"
 
 #import "AppContent.h"
-#import <Crashlytics/Crashlytics.h>
+
 #import "TestFlight.h"
 #import "UILoginViewController.h"
 

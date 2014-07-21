@@ -13,7 +13,7 @@
 #import "MeterApiClient.h"
 #import "SVProgressHUD.h"
 #import <AFHTTPRequestOperationLogger.h>
-
+#import <Crashlytics/Crashlytics.h>
 
 
 @implementation UILoginViewController
@@ -35,7 +35,7 @@ BOOL successful = NO;
     self.content = [AppContent sharedContent];
     
     self.txtInstallerID.delegate = self;
- 
+    [Crashlytics setUserIdentifier:[self.content getDeviceID]];
    
 
 }
@@ -78,6 +78,7 @@ BOOL successful = NO;
     NSString *deviceSpecs =
     [NSString stringWithFormat:@"%@ - %@ - %@ - %@ - %@ - %@ - %@" ,
      model, systemVersion, language, country, appVersion, vendor, adId];
+    
     NSLog(@"Device Specs --> %@",deviceSpecs);
     
 }
@@ -183,7 +184,7 @@ BOOL successful = NO;
                                                                                                          inManagedObjectContext:context];
                                                  s.scheduleID   = [NULL_TO_NIL([schedule valueForKey:@"ScheduleID"])  stringValue];
                                                  
-                                                 NSLog(@" parsing scheduleid->%@", s.scheduleID);
+                                                 //NSLog(@" parsing scheduleid->%@", s.scheduleID);
 
                                                 s.address =  NULL_TO_NIL([schedule valueForKey:@"Address"]) ;
                                                  s.name =   NULL_TO_NIL([schedule valueForKey:@"Name"]) ;

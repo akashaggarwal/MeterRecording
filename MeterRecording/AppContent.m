@@ -71,6 +71,10 @@ Session *_session;
     CFStringRef string = CFUUIDCreateString(NULL, theUUID);
     CFRelease(theUUID);
     return (__bridge NSString *)string;
+    
+    
+//    NSString *uuid = [[NSUUID UUID] UUIDString];
+//    return uuid;
 }
 
 -(void) showMessage:(NSString *)title message:(NSString *)m

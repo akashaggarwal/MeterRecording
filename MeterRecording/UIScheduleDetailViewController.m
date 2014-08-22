@@ -344,7 +344,7 @@
         if (success) {
             [self updateLocal];
             [self.content showMessage:@"Success" message:@"Your data has been successfully uploaded"];
-            [TestFlight passCheckpoint:@"JOB SUBMITTED"];
+           // [TestFlight passCheckpoint:@"JOB SUBMITTED"];
                        //[self.navigationController popViewControllerAnimated:YES];
         } else {
             NSLog(@"ERROR: %@", error);

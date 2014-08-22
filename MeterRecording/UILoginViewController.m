@@ -150,7 +150,7 @@ BOOL successful = NO;
                             [self.content getDeviceID], @"DeviceID",
                             [self.txtInstallerID text], @"InstallerID",
                             nil];
-     [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"installerid"];
+    // [TestFlight addCustomEnvironmentInformation:self.content.session.installerID forKey:@"installerid"];
     if (self.content.session == nil)
     {
         NSLog(@" null session so fetching data ");
